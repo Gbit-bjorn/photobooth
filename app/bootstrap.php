@@ -4,8 +4,10 @@ declare(strict_types=1);
 define('PB_ROOT', dirname(__DIR__));
 
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/settings.php';
+require_once __DIR__ . '/rate.php';
 // Volgende requires komen er in latere taken bij:
-// settings.php, rate.php, photos.php, auth.php, layout.php
+// photos.php, auth.php, layout.php
 
 function pb_event(): array
 {
