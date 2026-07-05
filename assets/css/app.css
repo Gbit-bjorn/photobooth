@@ -45,9 +45,14 @@ h1.display { font-size: clamp(1.7rem, 6vw, 2.4rem); }
   font-size: clamp(2.1rem, 9vw, 3.1rem);
 }
 .lockup span { display: block; }
-.lockup .leaf-divider { width: 4.2rem; margin: 0.55rem auto; }
+.lockup .lockup-divider {
+  display: block;
+  width: clamp(7rem, 32vw, 10.5rem);
+  margin: 0.1rem auto;
+  mix-blend-mode: multiply;
+}
 .lockup-klein { font-size: clamp(1.5rem, 6vw, 2rem); }
-.lockup-klein .leaf-divider { width: 3.2rem; margin: 0.35rem auto; }
+.lockup-klein .lockup-divider { width: clamp(5rem, 22vw, 7rem); }
 
 /* gespatieerde ondertitel, zoals op de uitnodiging */
 .tagline {
@@ -115,7 +120,7 @@ body { position: relative; overflow-x: hidden; }
   pointer-events: none;
 }
 .leaf-corner-left { left: -1.8rem; }
-.leaf-corner-right { right: -1.8rem; transform: scaleX(-1); }
+.leaf-corner-right { right: -2.2rem; top: -1.6rem; width: clamp(8rem, 34vw, 15rem); }
 
 .leaf-sprig {
   display: block;

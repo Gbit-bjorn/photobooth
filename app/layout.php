@@ -34,8 +34,11 @@ function page_footer(): void
  */
 function leaf_corner(string $side): void
 {
-    $flip = $side === 'right' ? 'leaf-corner-right' : 'leaf-corner-left';
-    echo '<img class="leaf-corner ' . $flip . '" src="/assets/img/euca-hoek.jpg" alt="" aria-hidden="true">';
+    if ($side === 'right') {
+        echo '<img class="leaf-corner leaf-corner-right" src="/assets/img/euca-twijg.jpg" alt="" aria-hidden="true">';
+    } else {
+        echo '<img class="leaf-corner leaf-corner-left" src="/assets/img/euca-hoek.jpg" alt="" aria-hidden="true">';
+    }
 }
 
 /** Losse aquarel-twijg als accent (bv. op het bedanktscherm). */
@@ -89,7 +92,7 @@ function names_lockup(string $extraClass = ''): void
     if (count($parts) === 2) {
         echo '<h1 class="lockup ' . htmlspecialchars($extraClass) . '">';
         echo '<span>' . htmlspecialchars($parts[0]) . '</span>';
-        leaf_divider();
+        echo '<img class="lockup-divider" src="/assets/img/euca-divider.jpg" alt="&amp;" >';
         echo '<span>' . htmlspecialchars($parts[1]) . '</span>';
         echo '</h1>';
     } else {
