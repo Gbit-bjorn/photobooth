@@ -11,12 +11,27 @@ function pb_uploads_dir(): string
     return getenv('PHOTOBOOTH_UPLOADS_DIR') ?: PB_ROOT . '/uploads';
 }
 
+/** Originelen staan buiten de publieke map (privacy: EXIF/GPS blijft erin). */
+function pb_originals_dir(): string
+{
+    $dir = (getenv('PHOTOBOOTH_DATA_DIR') ?: PB_ROOT . '/data') . '/originals';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0775, true);
+    }
+    return $dir;
+}
+
 /**
  * Valideert en herencodeert een geüploade afbeelding (neutraliseert payloads,
  * stript EXIF incl. GPS), schaalt naar max PB_MAX_DIM en maakt een thumb.
  */
-function photo_save(string $tmpPath, string $guestName, string $message): array
-{
+function photo_save(
+    string $tmpPath,
+    string $guestName,
+    string $message,
+    ?string $originalTmp = null,
+    string $originalName = ''
+): array {
     $info = @getimagesize($tmpPath);
     if ($info === false || !in_array($info[2], [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP], true)) {
         throw new InvalidArgumentException('Geen geldige afbeelding (jpeg/png/webp).');
@@ -34,6 +49,21 @@ function photo_save(string $tmpPath, string $guestName, string $message): array
     pb_write_scaled($src, "$dir/$filename", PB_MAX_DIM);
     pb_write_scaled($src, "$dir/$thumbname", PB_THUMB_DIM);
     imagedestroy($src);
+
+    // Origineel ongewijzigd bewaren (volle resolutie, voor de ZIP-download).
+    if ($originalTmp !== null && is_file($originalTmp)) {
+        $mime = (string)(new finfo(FILEINFO_MIME_TYPE))->file($originalTmp);
+        if (str_starts_with($mime, 'image/')) {
+            $ext = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+            if (!in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif'], true)) {
+                $ext = 'jpg';
+            }
+            $bestand = pb_originals_dir() . "/o_{$hex}.{$ext}";
+            if (!@rename($originalTmp, $bestand)) {
+                @copy($originalTmp, $bestand);
+            }
+        }
+    }
 
     $stmt = db()->prepare(
         'INSERT INTO photos (filename, thumb, guest_name, message) VALUES (?,?,?,?)'
@@ -69,11 +99,27 @@ function photos_list(string $status = 'active', int $sinceId = 0, int $limit = 5
         return [];
     }
     $stmt = db()->prepare(
-        'SELECT id, filename, thumb, guest_name, message, status, created_at
+        'SELECT id, filename, thumb, guest_name, message, status, likes, created_at
          FROM photos WHERE status = ? AND id > ? ORDER BY id DESC LIMIT ?'
     );
     $stmt->execute([$status, $sinceId, $limit]);
     return $stmt->fetchAll();
+}
+
+/** Verhoogt of verlaagt de like-teller; geeft de nieuwe stand of null. */
+function photo_like(int $id, bool $unlike = false): ?int
+{
+    $delta = $unlike ? -1 : 1;
+    $stmt = db()->prepare(
+        'UPDATE photos SET likes = MAX(0, likes + ?) WHERE id = ? AND status = ?'
+    );
+    $stmt->execute([$delta, $id, 'active']);
+    if ($stmt->rowCount() !== 1) {
+        return null;
+    }
+    $q = db()->prepare('SELECT likes FROM photos WHERE id = ?');
+    $q->execute([$id]);
+    return (int)$q->fetchColumn();
 }
 
 function photo_set_status(int $id, string $status): bool
@@ -96,6 +142,9 @@ function photo_delete(int $id): bool
     }
     @unlink(pb_uploads_dir() . '/' . $row['filename']);
     @unlink(pb_uploads_dir() . '/' . $row['thumb']);
+    foreach (glob(pb_originals_dir() . '/o_' . substr($row['filename'], 2, 16) . '.*') ?: [] as $orig) {
+        @unlink($orig);
+    }
     $del = db()->prepare('DELETE FROM photos WHERE id = ?');
     $del->execute([$id]);
     return true;

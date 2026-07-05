@@ -223,12 +223,20 @@ label { display: block; margin: var(--space-2) 0 0.35rem; font-size: 0.9rem; col
 
 /* --- gastenpagina --- */
 .preview-holder {
+  position: relative;
   border-radius: var(--radius);
   border: 1px solid var(--c-line);
   background: #fff;
   padding: 10px;  /* wit "afdruk"-kader zoals een print */
 }
 .preview-holder img { display: block; width: 100%; height: auto; }
+/* effect-preview (vignette via box-shadow, korrel via ruistegel) */
+#preview-fx {
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  background-size: 140px;
+}
 
 .filter-rij {
   display: flex;
@@ -404,7 +412,7 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   aspect-ratio: 1;
   object-fit: cover;
 }
-#feed.raster .foto-kaart figcaption { display: none; }
+#feed.raster .foto-kaart .kaart-voet { display: none; }
 
 /* slider-onderschrift in uitnodigingsstijl: crème balk, groene tekst
    (zelfde look op desktop- én mobiele skin van glightbox) */
@@ -458,12 +466,41 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   height: auto;
   cursor: pointer;
 }
-.foto-kaart figcaption {
+.kaart-voet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-1);
   padding: var(--space-1) var(--space-1) 0.3rem;
+}
+.foto-kaart figcaption {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+  min-width: 0;
 }
+.like-knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  color: var(--c-terracotta);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  touch-action: manipulation;
+}
+.like-knop svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  transition: fill 180ms ease-out;
+}
+.like-knop.geliked svg path { fill: currentColor; }
+.like-knop .like-telling { color: var(--c-ink-soft); }
 .foto-kaart strong {
   font-family: var(--font-display);
   font-weight: 400;

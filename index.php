@@ -40,7 +40,7 @@ leaf_corner('right');
   </section>
 
   <section class="card" id="stap-bewerk" hidden>
-    <div class="preview-holder"><img id="preview" alt="Jouw foto"></div>
+    <div class="preview-holder"><img id="preview" alt="Jouw foto"><div id="preview-fx"></div></div>
     <div id="filter-rij" class="filter-rij" role="radiogroup" aria-label="Kies een filter"></div>
     <label for="gast-naam">Je naam (mag leeg)</label>
     <input type="text" id="gast-naam" maxlength="60" autocomplete="name">

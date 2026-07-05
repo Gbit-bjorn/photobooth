@@ -48,6 +48,20 @@ function renderStatus(items) {
   }
 }
 
+// ruis-tegel voor de korrel-preview (svg, geen extern verzoek)
+const GRAIN_URL = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E\")";
+
+function zetPreviewFx(fx) {
+  const laag = $('preview-fx');
+  const vignette = fx?.vignette ?? 0;
+  const grain = fx?.grain ?? 0;
+  laag.style.boxShadow = vignette > 0
+    ? `inset 0 0 ${Math.round(vignette * 140)}px ${Math.round(vignette * 55)}px rgba(20, 18, 14, ${vignette * 0.85})`
+    : 'none';
+  laag.style.backgroundImage = grain > 0 ? GRAIN_URL : 'none';
+  laag.style.opacity = grain > 0 ? String(grain * 0.65) : '1';
+}
+
 function renderFilters(file) {
   const rij = $('filter-rij');
   rij.innerHTML = '';
@@ -69,6 +83,7 @@ function renderFilters(file) {
     knop.addEventListener('click', () => {
       huidigeFilter = f;
       $('preview').style.filter = cssFilter(f.ops);
+      zetPreviewFx(f.fx);
       rij.querySelectorAll('.filter-optie').forEach(k => k.setAttribute('aria-checked', 'false'));
       knop.setAttribute('aria-checked', 'true');
     });
@@ -88,6 +103,7 @@ function bewerkVolgende() {
   previewUrl = URL.createObjectURL(huidig);
   $('preview').src = previewUrl;
   $('preview').style.filter = '';
+  zetPreviewFx(null);
   renderFilters(huidig);
   const hint = $('meerdere-hint');
   hint.hidden = wachtrij.length === 0;
@@ -113,8 +129,10 @@ $('verstuur').addEventListener('click', async () => {
   try {
     const naam = $('gast-naam').value.trim();
     localStorage.setItem('pb-name', naam);
-    const blob = await processPhoto(huidig, huidigeFilter.ops);
-    await enqueue(blob, naam, $('gast-boodschap').value.trim());
+    const blob = await processPhoto(huidig, huidigeFilter);
+    // origineel meesturen (volle resolutie, voor de download van het koppel)
+    const origineel = huidig.size <= 30 * 1024 * 1024 ? huidig : null;
+    await enqueue(blob, naam, $('gast-boodschap').value.trim(), origineel, huidig.name ?? 'foto.jpg');
     $('gast-boodschap').value = '';
     bewerkVolgende();
   } catch {

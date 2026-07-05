@@ -13,6 +13,45 @@ const esc = s => s.replace(/[&<>"']/g, c => (
   { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
 ));
 
+// hartjes: per toestel onthouden welke foto's al geliket zijn
+const geliked = new Set(JSON.parse(localStorage.getItem('pb-likes') ?? '[]'));
+
+const HART_SVG = '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">'
+  + '<path d="M12 20.3C7 16.2 3.5 13 3.5 9.6 3.5 7 5.5 5 8 5c1.5 0 3 .8 4 2.1C13 5.8 14.5 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.4-3.5 6.6-8.5 10.7z"/></svg>';
+
+async function toggleLike(id, knop) {
+  const teller = knop.querySelector('.like-telling');
+  const wasGeliked = geliked.has(id);
+  const actie = wasGeliked ? 'unlike' : 'like';
+  // optimistisch bijwerken
+  knop.classList.toggle('geliked', !wasGeliked);
+  teller.textContent = Math.max(0, parseInt(teller.textContent || '0', 10) + (wasGeliked ? -1 : 1));
+  if (wasGeliked) geliked.delete(id); else geliked.add(id);
+  localStorage.setItem('pb-likes', JSON.stringify([...geliked]));
+  try {
+    const res = await fetch('/api/like.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, action: actie }),
+    });
+    const data = await res.json();
+    if (data.ok) teller.textContent = data.likes;
+  } catch { /* volgende poll corrigeert de teller */ }
+}
+
+async function verversLikes() {
+  try {
+    const res = await fetch('/api/likes.php', { cache: 'no-store' });
+    const data = await res.json();
+    if (!data.ok) return;
+    feed.querySelectorAll('.foto-kaart').forEach(fig => {
+      const stand = data.likes[fig.dataset.id];
+      const teller = fig.querySelector('.like-telling');
+      if (stand !== undefined && teller) teller.textContent = stand;
+    });
+  } catch { /* volgende poll */ }
+}
+
 // sizes stuurt welke bron de browser kiest: groot in feed, thumb in raster
 function huidigeSizes() {
   return feed.classList.contains('raster') ? '26vw' : 'min(92vw, 36rem)';
@@ -37,20 +76,29 @@ function kaart(photo) {
   img.loading = 'lazy';
   link.append(img);
   fig.append(link);
-  if (photo.name || photo.message) {
-    const cap = document.createElement('figcaption');
-    if (photo.name) {
-      const wie = document.createElement('strong');
-      wie.textContent = photo.name;
-      cap.append(wie);
-    }
-    if (photo.message) {
-      const wat = document.createElement('span');
-      wat.textContent = photo.message;
-      cap.append(wat);
-    }
-    fig.append(cap);
+  fig.dataset.id = photo.id;
+
+  const voet = document.createElement('div');
+  voet.className = 'kaart-voet';
+  const cap = document.createElement('figcaption');
+  if (photo.name) {
+    const wie = document.createElement('strong');
+    wie.textContent = photo.name;
+    cap.append(wie);
   }
+  if (photo.message) {
+    const wat = document.createElement('span');
+    wat.textContent = photo.message;
+    cap.append(wat);
+  }
+  const hart = document.createElement('button');
+  hart.type = 'button';
+  hart.className = 'like-knop' + (geliked.has(photo.id) ? ' geliked' : '');
+  hart.setAttribute('aria-label', 'Vind ik leuk');
+  hart.innerHTML = HART_SVG + '<span class="like-telling">' + (photo.likes ?? 0) + '</span>';
+  hart.addEventListener('click', () => toggleLike(photo.id, hart));
+  voet.append(cap, hart);
+  fig.append(voet);
   return fig;
 }
 
@@ -115,3 +163,4 @@ zetWeergave(localStorage.getItem('pb-weergave') === 'raster' ? 'raster' : 'feed'
 
 await haalOp();
 setInterval(haalOp, POLL_MS);
+setInterval(verversLikes, POLL_MS);

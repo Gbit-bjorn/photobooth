@@ -9,6 +9,7 @@ $photos = array_map(fn(array $r) => [
     'thumb'      => '/uploads/' . $r['thumb'],
     'name'       => $r['guest_name'],
     'message'    => $r['message'],
+    'likes'      => (int)$r['likes'],
     'created_at' => $r['created_at'],
 ], $rows);
 $latest = $photos === [] ? $since : max(array_column($photos, 'id'));

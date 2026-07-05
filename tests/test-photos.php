@@ -51,3 +51,28 @@ $file = pb_uploads_dir() . '/' . $saved['filename'];
 ok(photo_delete(1) === true, 'delete returns true');
 ok(!is_file($file), 'file removed');
 ok(photos_list('hidden') === [], 'row removed');
+
+// origineel bewaren naast de verwerkte versie
+$img2 = imagecreatetruecolor(500, 400);
+$src2 = $tmp . '/bron2.jpg';
+imagejpeg($img2, $src2, 90);
+$origKopie = $tmp . '/origineel-upload.jpg';
+copy($src2, $origKopie);
+$saved2 = photo_save($src2, 'Met Origineel', '', $origKopie, 'IMG_1234.JPG');
+$hex = substr($saved2['filename'], 2, 16);
+$origs = glob(pb_originals_dir() . "/o_{$hex}.*");
+ok(count($origs) === 1 && str_ends_with($origs[0], '.jpg'), 'original stored');
+
+// likes: verhogen, verlagen, niet onder nul, alleen actieve foto's
+ok(photo_like($saved2['id']) === 1, 'like increments');
+ok(photo_like($saved2['id']) === 2, 'like increments again');
+ok(photo_like($saved2['id'], true) === 1, 'unlike decrements');
+ok(photo_like($saved2['id'], true) === 0, 'unlike to zero');
+ok(photo_like($saved2['id'], true) === 0, 'never below zero');
+photo_set_status($saved2['id'], 'hidden');
+ok(photo_like($saved2['id']) === null, 'like on hidden photo rejected');
+photo_set_status($saved2['id'], 'active');
+
+// delete ruimt ook het origineel op
+photo_delete($saved2['id']);
+ok(glob(pb_originals_dir() . "/o_{$hex}.*") === [], 'original removed on delete');

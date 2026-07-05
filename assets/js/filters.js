@@ -120,7 +120,48 @@ export async function loadOriented(file) {
   });
 }
 
-export async function processPhoto(file, ops, maxDim = 2400, quality = 0.85) {
+// Special effects, toegepast ná de kleurmatrix.
+export function applyFxToCanvas(canvas, fx) {
+  if (!fx) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+
+  if (fx.grain > 0) {
+    // filmkorrel: ruistegel als patroon over het beeld
+    const tegel = document.createElement('canvas');
+    tegel.width = tegel.height = 160;
+    const tctx = tegel.getContext('2d');
+    const data = tctx.createImageData(160, 160);
+    for (let i = 0; i < data.data.length; i += 4) {
+      const v = 118 + Math.random() * 20;
+      data.data[i] = data.data[i + 1] = data.data[i + 2] = v;
+      data.data[i + 3] = 255;
+    }
+    tctx.putImageData(data, 0, 0);
+    ctx.save();
+    ctx.globalAlpha = fx.grain * 0.5;
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.fillStyle = ctx.createPattern(tegel, 'repeat');
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+
+  if (fx.vignette > 0) {
+    const r = Math.hypot(w, h) / 2;
+    const grad = ctx.createRadialGradient(w / 2, h / 2, r * 0.55, w / 2, h / 2, r);
+    grad.addColorStop(0, 'rgba(20, 18, 14, 0)');
+    grad.addColorStop(1, `rgba(20, 18, 14, ${fx.vignette})`);
+    ctx.save();
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+}
+
+export async function processPhoto(file, filterOrOps, maxDim = 2400, quality = 0.85) {
+  const filter = Array.isArray(filterOrOps)
+    ? { ops: filterOrOps, fx: null }
+    : { ops: filterOrOps?.ops ?? [], fx: filterOrOps?.fx ?? null };
   const src = await loadOriented(file);
   const w = src.width ?? src.naturalWidth;
   const h = src.height ?? src.naturalHeight;
@@ -131,7 +172,8 @@ export async function processPhoto(file, ops, maxDim = 2400, quality = 0.85) {
   const ctx = canvas.getContext('2d');
   ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
   if (src.close) src.close();
-  applyOpsToCanvas(canvas, ops);
+  applyOpsToCanvas(canvas, filter.ops);
+  applyFxToCanvas(canvas, filter.fx);
   return new Promise((resolve, reject) => {
     canvas.toBlob(
       blob => (blob ? resolve(blob) : reject(new Error('Kon foto niet verwerken'))),

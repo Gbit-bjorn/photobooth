@@ -15,6 +15,10 @@ foreach ($rows as $row) {
     if (is_file($file)) {
         $zip->addFile($file, $row['filename']);
     }
+    // origineel (volle resolutie, mét filter niet toegepast) in aparte map
+    foreach (glob(pb_originals_dir() . '/o_' . substr($row['filename'], 2, 16) . '.*') ?: [] as $orig) {
+        $zip->addFile($orig, 'originelen/' . basename($orig));
+    }
 }
 $zip->close();
 

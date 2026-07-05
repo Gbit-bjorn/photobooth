@@ -60,6 +60,9 @@ async function uploadOne(item) {
   form.append('photo', item.blob, 'foto.jpg');
   form.append('guest_name', item.guestName);
   form.append('message', item.message);
+  if (item.original) {
+    form.append('original', item.original, item.originalName || 'origineel.jpg');
+  }
   const res = await fetch('/api/upload.php', { method: 'POST', body: form });
   if (res.ok) return { ok: true };
   if (res.status >= 400 && res.status < 500 && res.status !== 429) {
@@ -132,8 +135,8 @@ export async function initQueue(onChange) {
   processLoop();
 }
 
-export async function enqueue(blob, guestName, message) {
-  await tx('readwrite', s => s.add({ blob, guestName, message, status: 'queued' }));
+export async function enqueue(blob, guestName, message, original = null, originalName = '') {
+  await tx('readwrite', s => s.add({ blob, guestName, message, original, originalName, status: 'queued' }));
   await emit();
   if (wakeup) wakeup();
   processLoop();

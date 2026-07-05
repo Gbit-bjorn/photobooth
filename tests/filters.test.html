@@ -5,7 +5,7 @@
 <h1>filters.js</h1>
 <pre id="out">bezig…</pre>
 <script type="module">
-import { cssFilter, applyOpsToCanvas, processPhoto } from '/assets/js/filters.js';
+import { cssFilter, applyOpsToCanvas, applyFxToCanvas, processPhoto } from '/assets/js/filters.js';
 
 const out = [];
 const ok = (cond, name) => {
@@ -56,6 +56,33 @@ try {
   ok(bmp.width === 2400 && bmp.height === 1200, `processPhoto resized (${bmp.width}x${bmp.height})`);
 } catch (e) {
   ok(false, 'processPhoto: ' + e.message);
+}
+
+// vignette: hoekpixel donkerder dan centrum op een wit vlak
+{
+  const c = document.createElement('canvas');
+  c.width = c.height = 200;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, 200, 200);
+  applyFxToCanvas(c, { vignette: 0.5 });
+  const hoek = ctx.getImageData(2, 2, 1, 1).data[0];
+  const centrum = ctx.getImageData(100, 100, 1, 1).data[0];
+  ok(hoek < centrum - 20, `vignette verdonkert hoeken (${hoek} < ${centrum})`);
+}
+
+// grain: egaal grijs vlak krijgt variatie
+{
+  const c = document.createElement('canvas');
+  c.width = c.height = 100;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = 'rgb(128,128,128)';
+  ctx.fillRect(0, 0, 100, 100);
+  applyFxToCanvas(c, { grain: 0.5 });
+  const d = ctx.getImageData(0, 0, 100, 100).data;
+  let min = 255, max = 0;
+  for (let i = 0; i < d.length; i += 4) { min = Math.min(min, d[i]); max = Math.max(max, d[i]); }
+  ok(max - min >= 4, `grain voegt variatie toe (spreiding ${max - min})`);
 }
 
 document.getElementById('out').textContent = out.join('\n');

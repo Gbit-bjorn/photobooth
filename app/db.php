@@ -38,5 +38,10 @@ CREATE TABLE IF NOT EXISTS rate_log (
 );
 CREATE INDEX IF NOT EXISTS idx_rate ON rate_log(ip, ts);
 SQL);
+    // migratie: likes-kolom (toegevoegd na eerste release)
+    $kolommen = $pdo->query('PRAGMA table_info(photos)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('likes', $kolommen, true)) {
+        $pdo->exec('ALTER TABLE photos ADD COLUMN likes INTEGER NOT NULL DEFAULT 0');
+    }
     return $pdo;
 }
