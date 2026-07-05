@@ -28,45 +28,20 @@ function page_footer(): void
 }
 
 /**
- * Eucalyptus-hoekdecoratie als inline SVG (uitnodigingsstijl): twee takken
- * met organische bladeren in drie tinten die vanuit de hoek waaieren.
- * $side: 'left' of 'right' (gespiegeld). Kleurtinten via CSS-classes.
+ * Aquarel-eucalyptus in de bovenhoek (uitnodigingsstijl). De afbeelding heeft
+ * een witte achtergrond; mix-blend-mode: multiply (css) laat het wit wegvallen
+ * tegen de papiertextuur. $side: 'left' of 'right' (gespiegeld).
  */
 function leaf_corner(string $side): void
 {
     $flip = $side === 'right' ? 'leaf-corner-right' : 'leaf-corner-left';
-    $leaf = 'M0,0Q8,-6.5 18,0Q8,6.5 0,0Z';
-    echo <<<SVG
-<svg class="leaf-corner {$flip}" viewBox="0 0 170 170" fill="none" aria-hidden="true">
-  <g class="tak" stroke-width="1.1" fill="none">
-    <path d="M6 2 C 44 26, 88 52, 132 68"/>
-    <path d="M2 8 C 20 54, 40 100, 64 138"/>
-    <path d="M14 18 C 36 34, 58 48, 76 56" stroke-width="0.8"/>
-  </g>
-  <g class="blad-donker">
-    <path d="{$leaf}" transform="translate(34 20) rotate(28)"/>
-    <path d="{$leaf}" transform="translate(76 46) rotate(20)"/>
-    <path d="{$leaf}" transform="translate(116 62) rotate(14)"/>
-    <path d="{$leaf}" transform="translate(16 42) rotate(70)"/>
-    <path d="{$leaf}" transform="translate(42 92) rotate(64)"/>
-  </g>
-  <g class="blad-midden">
-    <path d="{$leaf}" transform="translate(54 32) rotate(-6) scale(0.9)"/>
-    <path d="{$leaf}" transform="translate(96 56) rotate(44) scale(0.85)"/>
-    <path d="{$leaf}" transform="translate(28 66) rotate(84) scale(0.9)"/>
-    <path d="{$leaf}" transform="translate(56 116) rotate(56) scale(0.95)"/>
-    <path d="{$leaf}" transform="translate(46 12) rotate(-24) scale(0.75)"/>
-  </g>
-  <g class="blad-licht">
-    <path d="{$leaf}" transform="translate(66 40) rotate(30) scale(0.7)"/>
-    <path d="{$leaf}" transform="translate(108 68) rotate(2) scale(0.65)"/>
-    <path d="{$leaf}" transform="translate(20 84) rotate(58) scale(0.7)"/>
-    <path d="{$leaf}" transform="translate(64 130) rotate(88) scale(0.6)"/>
-    <path d="{$leaf}" transform="translate(88 40) rotate(60) scale(0.55)"/>
-    <path d="{$leaf}" transform="translate(36 48) rotate(48) scale(0.6)"/>
-  </g>
-</svg>
-SVG;
+    echo '<img class="leaf-corner ' . $flip . '" src="/assets/img/euca-hoek.jpg" alt="" aria-hidden="true">';
+}
+
+/** Losse aquarel-twijg als accent (bv. op het bedanktscherm). */
+function leaf_sprig(): void
+{
+    echo '<img class="leaf-sprig" src="/assets/img/euca-twijg.jpg" alt="" aria-hidden="true">';
 }
 
 /** Klein eucalyptus-takje als scheidingsteken (zoals tussen de namen op de uitnodiging). */

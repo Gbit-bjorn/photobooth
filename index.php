@@ -52,7 +52,8 @@ leaf_corner('right');
   </section>
 
   <section id="stap-klaar" class="card" hidden>
-    <p id="bedankt"></p>
+    <?php leaf_sprig(); ?>
+    <p id="bedankt" style="text-align: center"></p>
     <button type="button" class="btn secondary" id="nog-een">Nog een foto delen</button>
   </section>
 
