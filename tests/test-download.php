@@ -18,7 +18,7 @@ require $root . '/app/bootstrap.php';
 $img = imagecreatetruecolor(100, 100);
 $srcFile = $tmp . '/seed.jpg';
 imagejpeg($img, $srcFile);
-$a = photo_save($srcFile, 'A', '');
+$a = photo_save($srcFile, 'Tante Rita', 'Veel geluk!');
 $b = photo_save($srcFile, 'B', '');
 $c = photo_save($srcFile, 'C', '');
 photo_set_status($b['id'], 'archived');
@@ -60,10 +60,14 @@ try {
     file_put_contents($zipFile, $zipBody);
     $zip = new ZipArchive();
     ok($zip->open($zipFile) === true, 'zip opens');
-    ok($zip->numFiles === 2, 'zip contains active+archived, not hidden (2 files)');
     $names = [];
     for ($i = 0; $i < $zip->numFiles; $i++) $names[] = $zip->getNameIndex($i);
     ok(in_array($a['filename'], $names, true) && in_array($b['filename'], $names, true), 'correct files in zip');
+    ok(!in_array($c['filename'], $names, true), 'hidden photo not in zip');
+    ok(in_array('wensen.html', $names, true), 'wensen.html in zip');
+    $wensen = $zip->getFromName('wensen.html');
+    ok(str_contains($wensen, 'Tante Rita') && str_contains($wensen, 'Veel geluk!')
+        && str_contains($wensen, $a['filename']), 'wensen.html bevat naam, wens en fotoverwijzing');
     $zip->close();
 } finally {
     proc_terminate($server);
