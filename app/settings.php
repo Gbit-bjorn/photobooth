@@ -10,7 +10,7 @@ function pb_setting_defaults(): array
         'tagline'             => pb_event()['tagline'],
         'welcome_text'        => pb_event()['welcome_text'],
         'thanks_text'         => pb_event()['thanks_text'],
-        'gallery_subtitle'    => 'Alle gedeelde momenten — nieuwste eerst',
+        'gallery_subtitle'    => 'Herinneringen van onze dag',
         'admin_password_hash' => '',
     ];
 }

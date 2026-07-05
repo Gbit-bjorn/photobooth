@@ -4,3 +4,4 @@ uploads/*
 !uploads/.htaccess
 !uploads/.gitkeep
 config/secrets.php
+styling research/

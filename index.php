@@ -10,6 +10,8 @@ $config = [
 ];
 
 page_header($ev['welcome_title'], 'page-booth');
+leaf_corner('left');
+leaf_corner('right');
 ?>
 <nav class="topnav">
   <a href="/" class="active">Deel een foto</a>
@@ -25,6 +27,10 @@ page_header($ev['welcome_title'], 'page-booth');
   <section class="card" id="stap-kies">
     <p id="welkom"><?= htmlspecialchars($settings['welcome_text']) ?></p>
     <button type="button" class="btn" id="camera-knop">Neem een foto</button>
+    <label class="btn secondary" for="camera-app-input" style="margin-top: var(--space-1)">
+      Gebruik je camera-app
+      <input type="file" id="camera-app-input" class="visually-hidden" accept="image/*" capture="environment">
+    </label>
     <?php if ($settings['upload_enabled'] === '1'): ?>
     <label class="btn secondary" for="foto-input" style="margin-top: var(--space-1)">
       Kies foto's uit je galerij

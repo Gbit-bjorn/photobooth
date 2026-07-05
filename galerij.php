@@ -13,6 +13,8 @@ if ($settings['gallery_public'] !== '1') {
 }
 
 page_header('Galerij', 'page-gallery');
+leaf_corner('left');
+leaf_corner('right');
 ?>
 <nav class="topnav">
   <a href="/">Deel een foto</a>

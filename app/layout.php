@@ -27,6 +27,36 @@ function page_footer(): void
     echo "\n</body>\n</html>\n";
 }
 
+/**
+ * Eucalyptus-hoekdecoratie als inline SVG (uitnodigingsstijl): twee takjes
+ * die vanuit de hoek waaieren. $side: 'left' of 'right' (gespiegeld).
+ */
+function leaf_corner(string $side): void
+{
+    $flip = $side === 'right' ? 'leaf-corner-right' : 'leaf-corner-left';
+    echo <<<SVG
+<svg class="leaf-corner {$flip}" viewBox="0 0 150 150" fill="none" aria-hidden="true">
+  <g stroke="currentColor" stroke-width="1" opacity="0.5">
+    <path d="M8 4 C 40 30, 78 58, 118 74"/>
+    <path d="M4 12 C 22 52, 42 92, 68 124"/>
+  </g>
+  <g fill="currentColor">
+    <ellipse cx="38" cy="26" rx="12" ry="4.6" transform="rotate(34 38 26)" opacity="0.55"/>
+    <ellipse cx="58" cy="41" rx="11" ry="4.4" transform="rotate(28 58 41)" opacity="0.4"/>
+    <ellipse cx="80" cy="55" rx="12" ry="4.6" transform="rotate(22 80 55)" opacity="0.6"/>
+    <ellipse cx="101" cy="66" rx="10" ry="4" transform="rotate(18 101 66)" opacity="0.45"/>
+    <ellipse cx="46" cy="16" rx="10" ry="4" transform="rotate(-8 46 16)" opacity="0.42"/>
+    <ellipse cx="70" cy="34" rx="9" ry="3.6" transform="rotate(60 70 34)" opacity="0.38"/>
+    <ellipse cx="18" cy="44" rx="12" ry="4.6" transform="rotate(66 18 44)" opacity="0.55"/>
+    <ellipse cx="31" cy="70" rx="11" ry="4.4" transform="rotate(72 31 70)" opacity="0.42"/>
+    <ellipse cx="45" cy="96" rx="12" ry="4.6" transform="rotate(64 45 96)" opacity="0.58"/>
+    <ellipse cx="58" cy="117" rx="10" ry="4" transform="rotate(58 58 117)" opacity="0.4"/>
+    <ellipse cx="10" cy="58" rx="9" ry="3.6" transform="rotate(110 10 58)" opacity="0.4"/>
+  </g>
+</svg>
+SVG;
+}
+
 /** Eucalyptus-takje als inline SVG (decoratief, uit de uitnodigingsstijl). */
 function leaf_divider(): void
 {

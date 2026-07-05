@@ -95,13 +95,15 @@ function bewerkVolgende() {
   toonStap('stap-bewerk');
 }
 
-const fotoInput = $('foto-input');
-if (fotoInput) {
-  fotoInput.addEventListener('change', e => {
-    wachtrij = [...e.target.files];
-    e.target.value = '';
-    if (wachtrij.length > 0) bewerkVolgende();
-  });
+for (const inputId of ['foto-input', 'camera-app-input']) {
+  const input = $(inputId);
+  if (input) {
+    input.addEventListener('change', e => {
+      wachtrij = [...e.target.files];
+      e.target.value = '';
+      if (wachtrij.length > 0) bewerkVolgende();
+    });
+  }
 }
 
 $('verstuur').addEventListener('click', async () => {
