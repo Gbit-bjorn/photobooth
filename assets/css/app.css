@@ -342,6 +342,52 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
 }
 
 /* --- galerij --- */
+.weergave-keuze {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 var(--space-3);
+}
+.weergave-keuze button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  min-height: 2.4rem;
+  padding: 0.3em 1em;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--c-ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.weergave-keuze button[aria-pressed="true"] {
+  border-color: var(--c-sage-deep);
+  color: var(--c-ink);
+}
+
+/* compact raster: vierkante tegels, bijschrift verborgen (zichtbaar in de slider) */
+#feed.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: 0.55rem;
+}
+#feed.raster .foto-kaart {
+  margin: 0;
+  padding: 4px;
+  box-shadow: none;
+}
+#feed.raster .foto-kaart img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+#feed.raster .foto-kaart figcaption { display: none; }
+
 .foto-kaart {
   margin: 0 0 var(--space-3);
   background: #fff;  /* wit "afdruk"-kader rond de foto */
