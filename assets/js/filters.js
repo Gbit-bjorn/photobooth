@@ -75,7 +75,7 @@ export function cssFilter(ops) {
     .join(' ');
 }
 
-export function buildMatrix(ops) {
+function buildMatrix(ops) {
   let acc = identity();
   for (const [name, v] of ops || []) {
     const prim = PRIMITIVES[name];

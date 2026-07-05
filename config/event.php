@@ -1,8 +1,6 @@
 <?php
 return [
     'couple'          => 'Lotte & Stef',
-    'couple_initials' => 'L·S',
-    'date_iso'        => '2026-07-11',
     'date_display'    => '11 juli 2026',
     'tagline'         => "Let's celebrate together",
     'welcome_title'   => 'Deel jouw moment',

@@ -4,11 +4,10 @@ require __DIR__ . '/app/bootstrap.php';
 $ev = pb_event();
 $settings = settings_all();
 $config = [
-    'filters'        => $settings['filters_enabled'] === '1' ? pb_filters() : [pb_filters()[0]],
-    'cameraEnabled'  => $settings['camera_enabled'] === '1',
-    'filtersEnabled' => $settings['filters_enabled'] === '1',
-    'welcomeText'    => $settings['welcome_text'],
-    'thanksText'     => $ev['thanks_text'],
+    'filters'       => $settings['filters_enabled'] === '1' ? pb_filters() : [pb_filters()[0]],
+    'cameraEnabled' => $settings['camera_enabled'] === '1',
+    'welcomeText'   => $settings['welcome_text'],
+    'thanksText'    => $ev['thanks_text'],
 ];
 
 page_header($ev['welcome_title'], 'page-booth');

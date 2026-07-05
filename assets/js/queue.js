@@ -55,15 +55,6 @@ function sleep(ms) {
   });
 }
 
-async function serverReachable() {
-  try {
-    const res = await fetch('/api/ping.php', { cache: 'no-store' });
-    return res.ok;
-  } catch {
-    return false;
-  }
-}
-
 async function uploadOne(item) {
   const form = new FormData();
   form.append('photo', item.blob, 'foto.jpg');
@@ -118,7 +109,6 @@ async function processLoop() {
         await emit();
         await sleep(backoff);
         backoff = Math.min(backoff * 2, MAX_BACKOFF);
-        if (!(await serverReachable())) continue;
       }
     }
   } finally {

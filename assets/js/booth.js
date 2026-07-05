@@ -51,7 +51,7 @@ function renderStatus(items) {
 function renderFilters(file) {
   const rij = $('filter-rij');
   rij.innerHTML = '';
-  rij.hidden = !cfg.filtersEnabled;
+  rij.hidden = cfg.filters.length <= 1;
   const url = URL.createObjectURL(file);
   for (const f of cfg.filters) {
     const knop = document.createElement('button');
