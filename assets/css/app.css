@@ -120,7 +120,7 @@ body { position: relative; overflow-x: hidden; }
   pointer-events: none;
 }
 .leaf-corner-left { left: -1.8rem; }
-.leaf-corner-right { right: -2.2rem; top: -1.6rem; width: clamp(8rem, 34vw, 15rem); }
+.leaf-corner-right { right: -2.2rem; top: -1.6rem; width: clamp(8rem, 34vw, 15rem); transform: rotate(180deg); }
 
 .leaf-sprig {
   display: block;
