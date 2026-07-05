@@ -32,6 +32,10 @@ page_header('Beheer', 'page-admin');
   <?php if ($fotos === []): ?>
     <p class="subtitle">Geen foto's in "<?= htmlspecialchars($tabs[$status]) ?>".</p>
   <?php endif; ?>
+  <div class="weergave-keuze" role="group" aria-label="Weergave">
+    <button type="button" id="weergave-normaal" aria-pressed="true">Normaal</button>
+    <button type="button" id="weergave-raster" aria-pressed="false">Compact raster</button>
+  </div>
   <div class="admin-grid">
     <?php foreach ($fotos as $foto): ?>
       <div class="admin-kaart" data-id="<?= (int)$foto['id'] ?>">

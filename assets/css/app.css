@@ -336,6 +336,21 @@ label { display: block; margin: var(--space-2) 0 0.35rem; font-size: 0.9rem; col
 .admin-acties { display: flex; gap: 0.4rem; padding: var(--space-1); }
 .admin-acties .btn { min-height: 2.4rem; font-size: 0.85rem; padding: 0.3em 0.6em; }
 
+/* compacte raster-weergave in admin: sneller scannen, meta verborgen */
+.admin-grid.raster {
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.6rem;
+}
+.admin-grid.raster .admin-meta { display: none; }
+.admin-grid.raster .admin-kaart img { aspect-ratio: 1; }
+.admin-grid.raster .admin-acties { padding: 0.3rem; gap: 0.3rem; }
+.admin-grid.raster .admin-acties .btn {
+  min-height: 2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  padding: 0.2em 0.3em;
+}
+
 label:has(input[type="checkbox"]) {
   display: flex; align-items: center; gap: 0.6rem;
   color: var(--c-ink); font-size: 1rem;
@@ -412,7 +427,23 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   aspect-ratio: 1;
   object-fit: cover;
 }
-#feed.raster .foto-kaart .kaart-voet { display: none; }
+/* raster: bijschrift weg, hartje als compacte overlay op de tegel */
+#feed.raster .foto-kaart { position: relative; }
+#feed.raster .foto-kaart figcaption { display: none; }
+#feed.raster .kaart-voet {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  padding: 0;
+}
+#feed.raster .like-knop {
+  padding: 0.25rem 0.45rem;
+  min-height: 0;
+  font-size: 0.75rem;
+  background: rgba(251, 248, 242, 0.88);
+  border-radius: 999px;
+}
+#feed.raster .like-knop svg { width: 14px; height: 14px; }
 
 /* slider-onderschrift in uitnodigingsstijl: crème balk, groene tekst
    (zelfde look op desktop- én mobiele skin van glightbox) */
