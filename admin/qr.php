@@ -15,8 +15,9 @@ page_header('QR & kaartje', 'page-admin');
 <main class="wrap">
   <p class="subtitle no-print">Druk af via de printknop van je browser (Ctrl+P). Eén kaartje per pagina — kies "meerdere pagina's per vel" voor tafelkaartjes.</p>
   <div class="qr-kaartje" style="margin-top: var(--space-3)">
-    <h1 class="display"><?= htmlspecialchars($ev['couple']) ?></h1>
-    <p class="subtitle"><?= htmlspecialchars(setting_get('tagline')) ?></p>
+    <?php ls_monogram(); ?>
+    <h1 class="display" style="font-size: 1.5rem; margin-top: var(--space-1)"><?= htmlspecialchars($ev['couple']) ?></h1>
+    <p class="tagline"><?= htmlspecialchars(setting_get('tagline')) ?></p>
     <div id="qr"></div>
     <p class="qr-uitleg">Scan &amp; deel jouw foto's van vandaag</p>
     <p class="qr-url"><?= htmlspecialchars($ev['short_url']) ?></p>

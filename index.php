@@ -19,9 +19,9 @@ leaf_corner('right');
 </nav>
 <main class="wrap">
   <header>
-    <h1 class="display"><?= htmlspecialchars($ev['couple']) ?></h1>
-    <?php leaf_divider(); ?>
-    <p class="subtitle"><?= htmlspecialchars($ev['date_display']) ?> · <?= htmlspecialchars($settings['tagline']) ?></p>
+    <?php names_lockup(); ?>
+    <p class="tagline"><?= htmlspecialchars($settings['tagline']) ?></p>
+    <p class="date-line"><?= htmlspecialchars($ev['date_display']) ?></p>
   </header>
 
   <section class="card" id="stap-kies">

@@ -22,9 +22,8 @@ leaf_corner('right');
 </nav>
 <main class="wrap">
   <header>
-    <h1 class="display"><?= htmlspecialchars($ev['couple']) ?></h1>
-    <?php leaf_divider(); ?>
-    <p class="subtitle"><?= htmlspecialchars($settings['gallery_subtitle']) ?></p>
+    <?php names_lockup('lockup-klein'); ?>
+    <p class="tagline"><?= htmlspecialchars($settings['gallery_subtitle']) ?></p>
   </header>
   <div id="feed" aria-live="polite"></div>
   <p id="leeg" class="subtitle" hidden>Nog geen foto's — deel de eerste!</p>

@@ -11,7 +11,8 @@ page_header('Slideshow', 'page-slideshow');
     <span id="cap-boodschap"></span>
   </div>
   <div id="slide-brand">
-    <span class="display"><?= htmlspecialchars($ev['couple']) ?></span>
+    <?php ls_monogram(); ?>
+    <span class="display slide-namen"><?= htmlspecialchars($ev['couple']) ?></span>
     <span><?= htmlspecialchars($ev['date_display']) ?> · <?= htmlspecialchars($ev['short_url']) ?></span>
   </div>
   <p id="slide-leeg">Nog even geduld — de eerste foto's komen eraan…</p>

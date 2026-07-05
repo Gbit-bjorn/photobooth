@@ -22,10 +22,10 @@ body {
   padding: var(--space-3) var(--space-2) var(--space-4);
 }
 
-/* Koppen in de stijl van de uitnodiging: serif, spatiëring, kapitalen */
+/* Koppen in de stijl van de uitnodiging: dunne serif, spatiëring, kapitalen */
 .display {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: var(--tracking-display);
   text-transform: uppercase;
   text-align: center;
@@ -33,27 +33,83 @@ body {
 }
 h1.display { font-size: clamp(1.7rem, 6vw, 2.4rem); }
 
+/* namen gestapeld: LOTTE / takje / STEF, zoals op de uitnodiging */
+.lockup {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+  margin: var(--space-2) 0 0;
+  font-size: clamp(2.1rem, 9vw, 3.1rem);
+}
+.lockup span { display: block; }
+.lockup .leaf-divider { width: 4.2rem; margin: 0.55rem auto; }
+.lockup-klein { font-size: clamp(1.5rem, 6vw, 2rem); }
+.lockup-klein .leaf-divider { width: 3.2rem; margin: 0.35rem auto; }
+
+/* gespatieerde ondertitel, zoals op de uitnodiging */
+.tagline {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--c-ink-soft);
+  margin: var(--space-2) 0 0;
+}
+
+.date-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-align: center;
+  color: var(--c-ink-soft);
+  margin: 0.5rem 0 0;
+}
+
 .subtitle {
   text-align: center;
   color: var(--c-ink-soft);
+  font-weight: 300;
   font-size: 0.95rem;
   margin: var(--space-1) 0 0;
 }
 
-/* botanisch scheidingsteken onder titels */
+/* LS-monogram (tweede uitnodigingskaart) */
+.monogram {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-align: center;
+  line-height: 0.9;
+}
+.monogram span { font-size: 3.2rem; }
+.monogram .monogram-tweede {
+  font-size: 2.3rem;
+  margin-left: -0.08em;
+  position: relative;
+  top: 0.35em;
+}
+
+/* botanische elementen: drie bladtinten + fijne tak */
 .leaf-divider {
   display: block;
   width: 5.5rem;
   margin: var(--space-2) auto;
-  color: var(--c-sage);
 }
+.leaf-divider .tak, .leaf-corner .tak { stroke: var(--c-sage-deep); opacity: 0.55; }
+.leaf-divider .blad-donker, .leaf-corner .blad-donker { fill: var(--c-sage-deep); opacity: 0.6; }
+.leaf-divider .blad-midden, .leaf-corner .blad-midden { fill: var(--c-sage); opacity: 0.75; }
+.leaf-divider .blad-licht, .leaf-corner .blad-licht { fill: var(--c-sage-soft); opacity: 0.8; }
+
 /* eucalyptus-hoekdecoraties bovenaan de pagina (uitnodigingsstijl) */
 body { position: relative; }
 .leaf-corner {
   position: absolute;
   top: 0;
-  width: clamp(5.5rem, 18vw, 9rem);
-  color: var(--c-sage);
+  width: clamp(6rem, 22vw, 11rem);
   pointer-events: none;
 }
 .leaf-corner-left { left: 0; }
@@ -64,23 +120,26 @@ body { position: relative; }
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
-  padding: var(--space-3) var(--space-2);
+  padding: clamp(var(--space-3), 6vw, 2.6rem) clamp(var(--space-2), 5vw, 2.2rem);
 }
 
-/* Knoppen: rustig, grote touch-targets */
+/* Knoppen: rustig en verfijnd, grote touch-targets */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  min-height: 3rem;
+  min-height: 3.1rem;
   padding: 0.6em 1.4em;
   border: 1px solid var(--c-sage-deep);
   border-radius: var(--radius);
   background: var(--c-sage-deep);
   color: #fff;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
   width: 100%;
@@ -90,7 +149,8 @@ body { position: relative; }
 .btn.secondary {
   background: transparent;
   color: var(--c-ink);
-  border-color: var(--c-line);
+  border-color: var(--c-sage);
+  font-weight: 400;
 }
 .btn.danger { background: var(--c-terracotta); border-color: var(--c-terracotta); }
 .btn:hover { opacity: 0.92; }
@@ -123,8 +183,16 @@ label { display: block; margin: var(--space-2) 0 0.35rem; font-size: 0.9rem; col
   padding: var(--space-2);
   font-size: 0.9rem;
 }
-.topnav a { color: var(--c-ink-soft); text-decoration: none; letter-spacing: 0.06em; padding: 0.3em 0; }
-.topnav a.active, .topnav a:hover { color: var(--c-ink); }
+.topnav a {
+  color: var(--c-ink-soft);
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3em 0;
+}
+.topnav a.active, .topnav a:hover { color: var(--c-ink); border-bottom: 1px solid var(--c-sage); }
 
 .visually-hidden {
   position: absolute; width: 1px; height: 1px;
@@ -287,10 +355,11 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
 }
 .foto-kaart strong {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
 }
-.foto-kaart span { color: var(--c-ink-soft); font-size: 0.92rem; }
+.foto-kaart span { color: var(--c-ink-soft); font-weight: 300; font-size: 0.92rem; }
 
 /* --- slideshow --- */
 .page-slideshow { background: #1e211c; cursor: none; overflow: hidden; }
@@ -329,8 +398,10 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   color: rgba(244, 239, 230, 0.85);
   display: flex; flex-direction: column; gap: 0.1rem;
 }
-#slide-brand .display { font-size: 1.6rem; }
-#slide-brand span:last-child { font-size: 0.85rem; letter-spacing: 0.12em; }
+#slide-brand .monogram span { font-size: 2.4rem; }
+#slide-brand .monogram .monogram-tweede { font-size: 1.7rem; }
+#slide-brand .slide-namen { font-size: 1.1rem; margin-top: 0.35rem; }
+#slide-brand span:last-child { font-size: 0.78rem; font-weight: 300; letter-spacing: 0.22em; }
 #slide-leeg {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
