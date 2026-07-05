@@ -1,0 +1,125 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--c-bg);
+  background-image: var(--texture-paper);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-2) var(--space-4);
+}
+
+/* Koppen in de stijl van de uitnodiging: serif, spatiëring, kapitalen */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+h1.display { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+
+.subtitle {
+  text-align: center;
+  color: var(--c-ink-soft);
+  font-size: 0.95rem;
+  margin: var(--space-1) 0 0;
+}
+
+/* botanisch scheidingsteken onder titels */
+.leaf-divider {
+  display: block;
+  width: 5.5rem;
+  margin: var(--space-2) auto;
+  color: var(--c-sage);
+}
+
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-3) var(--space-2);
+}
+
+/* Knoppen: rustig, grote touch-targets */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 3rem;
+  padding: 0.6em 1.4em;
+  border: 1px solid var(--c-sage-deep);
+  border-radius: var(--radius);
+  background: var(--c-sage-deep);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  touch-action: manipulation;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, opacity 180ms ease-out;
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-line);
+}
+.btn.danger { background: var(--c-terracotta); border-color: var(--c-terracotta); }
+.btn:hover { opacity: 0.92; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+:focus-visible {
+  outline: 2px solid var(--c-sage-deep);
+  outline-offset: 2px;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 100%;
+  padding: 0.7em 0.9em;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  background: #fff;
+  font: inherit;
+  color: var(--c-ink);
+}
+label { display: block; margin: var(--space-2) 0 0.35rem; font-size: 0.9rem; color: var(--c-ink-soft); }
+
+.field-hint { font-size: 0.8rem; color: var(--c-ink-soft); margin-top: 0.25rem; }
+
+/* Eenvoudige top-nav (alleen waar nodig) */
+.topnav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2);
+  font-size: 0.9rem;
+}
+.topnav a { color: var(--c-ink-soft); text-decoration: none; letter-spacing: 0.06em; padding: 0.3em 0; }
+.topnav a.active, .topnav a:hover { color: var(--c-ink); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
