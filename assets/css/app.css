@@ -3,7 +3,11 @@
 /* hidden-attribuut wint altijd van display-regels op componenten */
 [hidden] { display: none !important; }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* fallback */
+  overflow-x: clip;
+}
 
 body {
   margin: 0;
@@ -111,7 +115,11 @@ h1.display { font-size: clamp(1.7rem, 6vw, 2.4rem); }
 
 /* aquarel-eucalyptus in de bovenhoeken (uitnodigingsstijl)
    multiply laat de witte achtergrond wegvallen tegen het papier */
-body { position: relative; overflow-x: hidden; }
+body {
+  position: relative;
+  overflow-x: hidden; /* fallback */
+  overflow-x: clip;
+}
 .leaf-corner {
   position: absolute;
   top: -1.2rem;
