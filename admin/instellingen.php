@@ -9,6 +9,7 @@ page_header('Instellingen', 'page-admin');
   <a href="/admin/">Foto's</a>
   <a href="/admin/instellingen.php" class="active">Instellingen</a>
   <a href="/admin/qr.php">QR &amp; kaartje</a>
+  <a href="/slideshow.php" target="_blank">Slideshow ↗</a>
   <a href="/admin/logout.php">Uitloggen</a>
 </nav>
 <main class="wrap">
@@ -38,6 +39,19 @@ page_header('Instellingen', 'page-admin');
       Filters aanbieden bij upload</label>
     <label><input type="checkbox" name="gallery_public" <?= $s['gallery_public'] === '1' ? 'checked' : '' ?>>
       Galerij publiek zichtbaar</label>
+    <label><input type="checkbox" name="slideshow_enabled" <?= $s['slideshow_enabled'] === '1' ? 'checked' : '' ?>>
+      Slideshow beschikbaar (groot scherm)</label>
+
+    <label for="slide_seconds">Seconden per foto in de slideshow (3–30)</label>
+    <input type="number" id="slide_seconds" name="slide_seconds" min="3" max="30" step="1"
+           value="<?= (int)$s['slide_seconds'] ?>" style="max-width: 7rem">
+
+    <label for="slide_transition">Overgang tussen foto's</label>
+    <select id="slide_transition" name="slide_transition">
+      <option value="fade" <?= $s['slide_transition'] === 'fade' ? 'selected' : '' ?>>Vervagen (crossfade)</option>
+      <option value="drift" <?= $s['slide_transition'] === 'drift' ? 'selected' : '' ?>>Zacht schuiven</option>
+      <option value="zoom" <?= $s['slide_transition'] === 'zoom' ? 'selected' : '' ?>>Langzaam inzoomen (Ken Burns)</option>
+    </select>
 
     <button class="btn" type="submit" style="margin-top: var(--space-2)">Opslaan</button>
   </form>

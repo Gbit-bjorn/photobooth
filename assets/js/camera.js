@@ -8,7 +8,7 @@ let facing = 'user';
 
 async function openCamera() {
   stream = await navigator.mediaDevices.getUserMedia({
-    video: { facingMode: facing, width: { ideal: 2000 } },
+    video: { facingMode: facing, width: { ideal: 2400 } },
     audio: false,
   });
   const video = $('camera-video');

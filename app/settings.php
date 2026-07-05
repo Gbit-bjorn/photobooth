@@ -11,6 +11,9 @@ function pb_setting_defaults(): array
         'welcome_text'        => pb_event()['welcome_text'],
         'thanks_text'         => pb_event()['thanks_text'],
         'gallery_subtitle'    => 'Herinneringen van onze dag',
+        'slideshow_enabled'   => '1',
+        'slide_seconds'       => '7',
+        'slide_transition'    => 'fade',  /* fade | drift | zoom */
         'admin_password_hash' => '',
     ];
 }

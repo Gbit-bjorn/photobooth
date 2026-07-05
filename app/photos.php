@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 const PB_PHOTO_STATUSES = ['active', 'hidden', 'archived'];
-const PB_MAX_DIM = 2000;
+const PB_MAX_DIM = 2400;
 const PB_THUMB_DIM = 480;
-const PB_JPEG_QUALITY = 82;
+const PB_JPEG_QUALITY = 90;
 
 function pb_uploads_dir(): string
 {

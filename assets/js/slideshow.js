@@ -1,4 +1,4 @@
-const SLIDE_MS = 7_000;
+const SLIDE_MS = window.PB_SLIDES?.ms ?? 7_000;
 const POLL_MS = 5_000;
 
 let fotos = [];          // rotatielijst
@@ -41,8 +41,12 @@ function toon(foto) {
   const binnenkomend = actieveLaag === 'a' ? $('laag-b') : $('laag-a');
   const uitgaand = actieveLaag === 'a' ? $('laag-a') : $('laag-b');
   binnenkomend.onload = () => {
+    binnenkomend.classList.remove('weg');
+    // reflow zodat de starttoestand (weg/rechts) vaststaat vóór de overgang
+    void binnenkomend.offsetWidth;
     binnenkomend.classList.add('zichtbaar');
     uitgaand.classList.remove('zichtbaar');
+    uitgaand.classList.add('weg');
     actieveLaag = actieveLaag === 'a' ? 'b' : 'a';
     const cap = $('slide-caption');
     if (foto.name || foto.message) {

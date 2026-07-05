@@ -120,7 +120,7 @@ export async function loadOriented(file) {
   });
 }
 
-export async function processPhoto(file, ops, maxDim = 2000, quality = 0.82) {
+export async function processPhoto(file, ops, maxDim = 2400, quality = 0.85) {
   const src = await loadOriented(file);
   const w = src.width ?? src.naturalWidth;
   const h = src.height ?? src.naturalHeight;

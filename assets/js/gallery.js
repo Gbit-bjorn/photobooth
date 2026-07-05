@@ -31,7 +31,7 @@ function kaart(photo) {
   if (delen.length > 0) link.dataset.description = delen.join('');
   const img = document.createElement('img');
   img.src = photo.thumb;
-  img.srcset = `${photo.thumb} 480w, ${photo.src} 2000w`;
+  img.srcset = `${photo.thumb} 480w, ${photo.src} 2400w`;
   img.sizes = huidigeSizes();
   img.alt = photo.message || 'Gedeelde foto';
   img.loading = 'lazy';

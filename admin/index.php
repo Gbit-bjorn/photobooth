@@ -16,6 +16,7 @@ page_header('Beheer', 'page-admin');
   <a href="/admin/" class="active">Foto's</a>
   <a href="/admin/instellingen.php">Instellingen</a>
   <a href="/admin/qr.php">QR &amp; kaartje</a>
+  <a href="/slideshow.php" target="_blank">Slideshow ↗</a>
   <a href="/admin/diagnose.php">Diagnose</a>
   <a href="/api/download.php">Download alles (ZIP)</a>
   <a href="/admin/logout.php">Uitloggen</a>

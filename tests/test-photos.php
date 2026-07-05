@@ -25,7 +25,7 @@ ok(is_file(pb_uploads_dir() . '/' . $saved['filename']), 'file written');
 ok(is_file(pb_uploads_dir() . '/' . $saved['thumb']), 'thumb written');
 
 [$w, $h] = getimagesize(pb_uploads_dir() . '/' . $saved['filename']);
-ok($w === 2000 && $h === 1000, 'resized to max 2000 long side');
+ok($w === 2400 && $h === 1200, 'resized to max 2400 long side');
 [$tw, $th] = getimagesize(pb_uploads_dir() . '/' . $saved['thumb']);
 ok($tw === 480, 'thumb max 480');
 

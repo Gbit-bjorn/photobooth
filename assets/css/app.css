@@ -183,7 +183,7 @@ body {
   outline-offset: 2px;
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], input[type="number"], select, textarea {
   width: 100%;
   padding: 0.7em 0.9em;
   border: 1px solid var(--c-line);
@@ -483,6 +483,23 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   transition: opacity 1.2s ease-in-out;
 }
 .slide-laag.zichtbaar { opacity: 1; }
+
+/* overgang: zacht schuiven (drift) */
+.trans-drift .slide-laag {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(5%);
+}
+.trans-drift .slide-laag.zichtbaar { transform: translateX(0); }
+.trans-drift .slide-laag.weg { transform: translateX(-5%); }
+
+/* overgang: langzaam inzoomen (ken burns) */
+.trans-zoom .slide-laag.zichtbaar {
+  animation: kenburns calc(var(--slide-ms, 7000ms) + 1500ms) ease-out forwards;
+}
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.07); }
+}
 #slide-caption {
   position: absolute;
   left: 50%; bottom: 7vh;
@@ -508,6 +525,14 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   text-align: center;
   color: rgba(244, 239, 230, 0.85);
   display: flex; flex-direction: column; gap: 0.1rem;
+  text-shadow: 0 1px 16px rgba(30, 33, 28, 0.65);
+  z-index: 2;
+}
+#slide-caption { z-index: 2; }
+/* op groot scherm/projectie: caption leesbaar van op afstand */
+@media (min-width: 1100px) {
+  #slide-caption strong { font-size: 2rem; }
+  #slide-caption span { font-size: 1.15rem; }
 }
 #slide-brand .monogram span { font-size: 2.4rem; }
 #slide-brand .monogram .monogram-tweede { font-size: 1.7rem; }
