@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head><meta charset="UTF-8"><title>queue.js test</title></head>
+<body>
+<h1>queue.js</h1>
+<pre id="out">bezig…</pre>
+<script type="module">
+import { initQueue, enqueue } from '/assets/js/queue.js';
+
+const out = [];
+const ok = (cond, name) => out.push((cond ? 'OK   ' : 'FAIL ') + name);
+const render = () => { document.getElementById('out').textContent = out.join('\n'); };
+
+// verse testomgeving
+await new Promise(r => { const d = indexedDB.deleteDatabase('pb-booth'); d.onsuccess = d.onerror = r; });
+
+const states = [];
+await initQueue(items => states.push(items.map(i => i.status).join(',')));
+
+// geldige mini-jpeg maken
+const c = document.createElement('canvas');
+c.width = c.height = 50;
+c.getContext('2d').fillRect(0, 0, 50, 50);
+const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', 0.8));
+
+await enqueue(blob, 'Testgast', 'Hallo uit de test');
+await new Promise(r => setTimeout(r, 2500));
+
+ok(states.some(s => s.includes('queued') || s.includes('uploading')), 'passeert queued/uploading');
+ok(states.some(s => s.includes('done')), 'upload bereikt done');
+
+// ongeldig bestand → permanent failed (server weigert met 400)
+const badBlob = new Blob(['geen afbeelding'], { type: 'text/plain' });
+await enqueue(badBlob, '', '');
+await new Promise(r => setTimeout(r, 2500));
+ok(states.some(s => s.includes('failed')), 'ongeldige upload wordt failed');
+
+render();
+if (out.some(l => l.startsWith('FAIL'))) document.body.style.background = '#fbb';
+</script>
+</body>
+</html>

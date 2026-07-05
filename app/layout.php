@@ -14,6 +14,7 @@ function page_header(string $title, string $bodyClass = ''): void
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>{$titleEsc} — {$couple}</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cellipse cx='8' cy='8' rx='6' ry='3.2' transform='rotate(-30 8 8)' fill='%235f6d55'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/css/theme.css">
 <link rel="stylesheet" href="/assets/css/app.css">
 </head>

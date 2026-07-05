@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head><meta charset="UTF-8"><title>filters.js test</title></head>
+<body>
+<h1>filters.js</h1>
+<pre id="out">bezig…</pre>
+<script type="module">
+import { cssFilter, buildMatrix, applyOpsToCanvas, processPhoto } from '/assets/js/filters.js';
+
+const out = [];
+const ok = (cond, name) => {
+  out.push((cond ? 'OK   ' : 'FAIL ') + name);
+  document.getElementById('out').textContent = out.join('\n');
+};
+const near = (a, b, eps = 2) => Math.abs(a - b) <= eps;
+
+// cssFilter
+ok(cssFilter([]) === '', 'cssFilter empty');
+ok(cssFilter([['sepia', 0.75], ['contrast', 1.02]]) === 'sepia(0.75) contrast(1.02)', 'cssFilter string');
+ok(cssFilter([['hue-rotate', 12]]) === 'hue-rotate(12deg)', 'cssFilter deg unit');
+
+// grayscale(1): kleur → luminantie, alle kanalen gelijk
+{
+  const c = document.createElement('canvas');
+  c.width = c.height = 1;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = 'rgb(200, 100, 50)';
+  ctx.fillRect(0, 0, 1, 1);
+  applyOpsToCanvas(c, [['grayscale', 1]]);
+  const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+  const expected = 0.2126 * 200 + 0.7152 * 100 + 0.0722 * 50; // ≈ 117
+  ok(near(r, expected) && r === g && g === b, `grayscale luminance (${r} ≈ ${Math.round(expected)})`);
+}
+
+// brightness(2) clampt op 255
+{
+  const c = document.createElement('canvas');
+  c.width = c.height = 1;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = 'rgb(200, 200, 200)';
+  ctx.fillRect(0, 0, 1, 1);
+  applyOpsToCanvas(c, [['brightness', 2]]);
+  ok(ctx.getImageData(0, 0, 1, 1).data[0] === 255, 'brightness clamps');
+}
+
+// processPhoto: schaal 3000→2000 en levert JPEG-blob
+try {
+  const big = document.createElement('canvas');
+  big.width = 3000; big.height = 1500;
+  big.getContext('2d').fillRect(0, 0, 3000, 1500);
+  const blob = await new Promise(r => big.toBlob(r, 'image/jpeg', 0.9));
+  ok(blob instanceof Blob, 'source blob created');
+  const result = await processPhoto(blob, [['sepia', 0.5]]);
+  ok(result.type === 'image/jpeg', 'processPhoto jpeg');
+  const bmp = await createImageBitmap(result);
+  ok(bmp.width === 2000 && bmp.height === 1000, `processPhoto resized (${bmp.width}x${bmp.height})`);
+} catch (e) {
+  ok(false, 'processPhoto: ' + e.message);
+}
+
+document.getElementById('out').textContent = out.join('\n');
+if (out.some(l => l.startsWith('FAIL'))) document.body.style.background = '#fbb';
+</script>
+</body>
+</html>
