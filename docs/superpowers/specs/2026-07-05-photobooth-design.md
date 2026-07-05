@@ -24,40 +24,41 @@ Een herbruikbare, self-hosted wedding-photobooth-webapp waarmee gasten via QR-co
 
 ## 3. Repo-structuur
 
+De repo-root **is** de webroot van photobooth.g-bit.be (geen aparte `public/`, geen document-root-wijziging in Plesk). Niet-publieke mappen worden afgeschermd met `.htaccess` (`Require all denied`).
+
 ```
-photobooth/
-├── public/                  ← webroot van photobooth.g-bit.be (in Plesk instellen)
-│   ├── index.php            ← gastenpagina: upload + (optioneel) camera + filters
-│   ├── galerij.php          ← publieke scrollbare feed
-│   ├── slideshow.php        ← fullscreen slideshow voor TV/beamer
-│   ├── admin/
-│   │   ├── index.php        ← dashboard (fotogrid + moderatie)
-│   │   ├── login.php
-│   │   ├── instellingen.php ← feature-toggles, teksten
-│   │   └── qr.php           ← QR-code + printbaar tafelkaartje
-│   ├── api/
-│   │   ├── upload.php       ← POST multipart (foto + naam + boodschap)
-│   │   ├── photos.php       ← GET JSON (galerij/slideshow, ?since= voor polling)
-│   │   ├── moderate.php     ← POST (verberg/herstel/archiveer/wis) — admin-sessie + CSRF
-│   │   ├── settings.php     ← POST instellingen — admin-sessie + CSRF
-│   │   └── download.php     ← GET ZIP van alle actieve+gearchiveerde foto's — admin
-│   ├── uploads/             ← publiek leesbare foto's + thumbs (niet in git)
-│   └── assets/
-│       ├── css/theme.css    ← ALLE kleuren/fonts/spacing als CSS custom properties
-│       ├── css/app.css      ← structurele styling (verwijst enkel naar variabelen)
-│       ├── js/              ← filters.js, upload-queue.js, camera.js, gallery.js, slideshow.js
-│       └── fonts/           ← lokaal gehoste fonts (geen Google-CDN-afhankelijkheid op de trouwdag)
-├── app/                     ← PHP-klassen/functies buiten webroot
+photobooth/                  ← webroot van photobooth.g-bit.be
+├── index.php                ← gastenpagina: upload + (optioneel) camera + filters
+├── galerij.php              ← publieke scrollbare feed
+├── slideshow.php            ← fullscreen slideshow voor TV/beamer
+├── admin/
+│   ├── index.php            ← dashboard (fotogrid + moderatie)
+│   ├── login.php
+│   ├── instellingen.php     ← feature-toggles, teksten
+│   └── qr.php               ← QR-code + printbaar tafelkaartje
+├── api/
+│   ├── upload.php           ← POST multipart (foto + naam + boodschap)
+│   ├── photos.php           ← GET JSON (galerij/slideshow, ?since= voor polling)
+│   ├── moderate.php         ← POST (verberg/herstel/archiveer/wis) — admin-sessie + CSRF
+│   ├── settings.php         ← POST instellingen — admin-sessie + CSRF
+│   └── download.php         ← GET ZIP van alle actieve+gearchiveerde foto's — admin
+├── uploads/                 ← publiek leesbare foto's + thumbs (niet in git)
+├── assets/
+│   ├── css/theme.css        ← ALLE kleuren/fonts/spacing als CSS custom properties
+│   ├── css/app.css          ← structurele styling (verwijst enkel naar variabelen)
+│   ├── js/                  ← filters.js, upload-queue.js, camera.js, gallery.js, slideshow.js
+│   └── fonts/               ← lokaal gehoste fonts (geen Google-CDN-afhankelijkheid op de trouwdag)
+├── app/                     ← PHP-logica; .htaccess deny (niet via HTTP bereikbaar)
 │   ├── db.php               ← PDO-connectie + schema-migratie bij eerste run
 │   ├── auth.php             ← admin-sessie, password_hash/verify, CSRF
 │   ├── photos.php           ← opslaan, herencoderen (GD), thumbs, statusbeheer
 │   └── settings.php         ← key/value settings met defaults uit event-config
-├── config/
+├── config/                  ← .htaccess deny
 │   ├── event.php            ← per-event: namen, datum, welkomsttekst, korte URL, taal-strings
 │   ├── filters.php          ← filterdefinities: [id, label, CSS/canvas-filterformule]
 │   └── secrets.php.example  ← template; echte secrets.php niet in git
-├── data/                    ← SQLite-db (niet in git; .htaccess deny als fallback)
-└── docs/
+├── data/                    ← SQLite-db; .htaccess deny (niet in git)
+└── docs/                    ← .htaccess deny
 ```
 
 **Herbruikbaarheid:** nieuwe trouw = `config/event.php` invullen, kleuren/fonts in `theme.css` aanpassen, `data/` en `uploads/` leegmaken. Nul code-wijzigingen. Geen event-specifieke strings, kleuren of datums in code of templates — alles uit config/CSS-variabelen.
@@ -115,7 +116,7 @@ Schema wordt bij eerste run automatisch aangemaakt (`app/db.php`).
 
 - Prepared statements overal (PDO), geen string-interpolatie in SQL.
 - Upload-validatie server-side: MIME + `getimagesize`, herencodering via GD (neutraliseert payloads, stript EXIF incl. GPS — privacyvoordeel), servergegenereerde bestandsnamen, max bestandsgrootte (~15 MB pre-resize-fallback), rate-limiting per IP (eenvoudige teller).
-- Secrets (admin-init-wachtwoord) buiten git; `data/` buiten webroot of `.htaccess deny`.
+- Secrets (admin-init-wachtwoord) buiten git; `app/`, `config/`, `data/` en `docs/` afgeschermd met `.htaccess` (`Require all denied`) — de repo-root is immers de webroot. Alle PHP-includes gebeuren via bestandspad, niet via HTTP.
 - CSRF-token op alle admin-POSTs; sessie met `httponly`/`samesite`.
 - HTTPS via bestaande Let's Encrypt op Plesk.
 
