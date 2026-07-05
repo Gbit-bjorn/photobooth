@@ -195,6 +195,63 @@ label { display: block; margin: var(--space-2) 0 0.35rem; font-size: 0.9rem; col
 }
 .camera-knoppen { display: flex; gap: var(--space-2); width: 100%; max-width: 24rem; }
 
+/* --- admin --- */
+.wrap-breed { max-width: 72rem; }
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.admin-kaart {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.admin-kaart img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.admin-meta {
+  padding: var(--space-1);
+  display: flex; flex-direction: column; gap: 0.1rem;
+  font-size: 0.85rem;
+  min-height: 3.6rem;
+}
+.admin-acties { display: flex; gap: 0.4rem; padding: var(--space-1); }
+.admin-acties .btn { min-height: 2.4rem; font-size: 0.85rem; padding: 0.3em 0.6em; }
+
+label:has(input[type="checkbox"]) {
+  display: flex; align-items: center; gap: 0.6rem;
+  color: var(--c-ink); font-size: 1rem;
+  margin-top: var(--space-2);
+}
+input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sage-deep); }
+
+/* --- qr-kaartje --- */
+.qr-kaartje {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  max-width: 22rem;
+  margin: 0 auto;
+}
+.qr-kaartje #qr { display: flex; justify-content: center; margin: var(--space-3) 0; }
+.qr-uitleg { font-size: 0.95rem; color: var(--c-ink-soft); margin: 0; }
+.qr-url {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  margin: 0.3rem 0 0;
+}
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .qr-kaartje { border: none; box-shadow: none; }
+}
+
 /* --- galerij --- */
 .foto-kaart {
   margin: 0 0 var(--space-3);

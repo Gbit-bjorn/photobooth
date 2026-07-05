@@ -9,8 +9,7 @@ require_once __DIR__ . '/rate.php';
 require_once __DIR__ . '/photos.php';
 require_once __DIR__ . '/http.php';
 require_once __DIR__ . '/layout.php';
-// Volgende requires komen er in latere taken bij:
-// auth.php
+require_once __DIR__ . '/auth.php';
 
 function pb_event(): array
 {
