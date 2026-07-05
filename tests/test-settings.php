@@ -10,14 +10,14 @@ function ok(bool $cond, string $name): void {
     echo "FAIL $name\n"; exit(1);
 }
 
-ok(setting_get('camera_enabled') === '0', 'default camera_enabled 0');
+ok(setting_get('upload_enabled') === '1', 'default upload_enabled 1');
 ok(setting_get('filters_enabled') === '1', 'default filters_enabled 1');
 ok(setting_get('welcome_text') === pb_event()['welcome_text'], 'welcome_text default from event');
 
-setting_set('camera_enabled', '1');
-ok(setting_get('camera_enabled') === '1', 'setting_set persists');
-setting_set('camera_enabled', '0');
-ok(setting_get('camera_enabled') === '0', 'setting_set overwrites');
+setting_set('upload_enabled', '0');
+ok(setting_get('upload_enabled') === '0', 'setting_set persists');
+setting_set('upload_enabled', '1');
+ok(setting_get('upload_enabled') === '1', 'setting_set overwrites');
 
 $all = settings_all();
 ok($all['filters_enabled'] === '1' && array_key_exists('gallery_public', $all), 'settings_all merged');

@@ -86,7 +86,7 @@ photobooth/                  ← webroot van photobooth.g-bit.be
 - **Statuslogica:** `actief` (publiek) / `verborgen` / `gearchiveerd`. Wissen verwijdert bestand + record.
 - **Download:** ZIP van alle actieve en gearchiveerde foto's (resolutie zoals opgeslagen; verborgen foto's blijven eruit) via `ZipArchive`-streaming.
 - **QR & tafelkaartje:** QR-code (in PHP gegenereerd, bibliotheek zonder Flash/legacy) + printvriendelijke pagina met QR én korte URL, in de event-stijl.
-- **Instellingen:** camera-capture aan/uit, filters aan/uit, welkomsttekst, galerij publiek aan/uit. Opgeslagen in `settings`-tabel; defaults uit `event.php`.
+- **Instellingen:** bestandsupload aan/uit (camera-capture is altijd beschikbaar — de kern van de booth; de upload-optie voor bv. oude babyfoto's is de beheerderskeuze), filters aan/uit, welkomsttekst, galerij publiek aan/uit. Opgeslagen in `settings`-tabel; defaults uit `event.php`.
 
 ## 7. Datamodel (SQLite)
 

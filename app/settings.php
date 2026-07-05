@@ -4,7 +4,7 @@ declare(strict_types=1);
 function pb_setting_defaults(): array
 {
     return [
-        'camera_enabled'      => '0',
+        'upload_enabled'      => '1',
         'filters_enabled'     => '1',
         'gallery_public'      => '1',
         'welcome_text'        => pb_event()['welcome_text'],

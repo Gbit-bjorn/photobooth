@@ -95,11 +95,14 @@ function bewerkVolgende() {
   toonStap('stap-bewerk');
 }
 
-$('foto-input').addEventListener('change', e => {
-  wachtrij = [...e.target.files];
-  e.target.value = '';
-  if (wachtrij.length > 0) bewerkVolgende();
-});
+const fotoInput = $('foto-input');
+if (fotoInput) {
+  fotoInput.addEventListener('change', e => {
+    wachtrij = [...e.target.files];
+    e.target.value = '';
+    if (wachtrij.length > 0) bewerkVolgende();
+  });
+}
 
 $('verstuur').addEventListener('click', async () => {
   const knop = $('verstuur');
@@ -131,10 +134,7 @@ $('gast-naam').value = localStorage.getItem('pb-name') ?? '';
 
 initQueue(renderStatus);
 
-if (cfg.cameraEnabled) {
-  $('camera-knop').hidden = false;
-  initCamera(blob => {
-    wachtrij = [blob];
-    bewerkVolgende();
-  });
-}
+initCamera(blob => {
+  wachtrij = [blob];
+  bewerkVolgende();
+});

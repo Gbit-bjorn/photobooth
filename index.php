@@ -4,10 +4,9 @@ require __DIR__ . '/app/bootstrap.php';
 $ev = pb_event();
 $settings = settings_all();
 $config = [
-    'filters'       => $settings['filters_enabled'] === '1' ? pb_filters() : [pb_filters()[0]],
-    'cameraEnabled' => $settings['camera_enabled'] === '1',
-    'welcomeText'   => $settings['welcome_text'],
-    'thanksText'    => $ev['thanks_text'],
+    'filters'     => $settings['filters_enabled'] === '1' ? pb_filters() : [pb_filters()[0]],
+    'welcomeText' => $settings['welcome_text'],
+    'thanksText'  => $ev['thanks_text'],
 ];
 
 page_header($ev['welcome_title'], 'page-booth');
@@ -25,11 +24,13 @@ page_header($ev['welcome_title'], 'page-booth');
 
   <section class="card" id="stap-kies">
     <p id="welkom"><?= htmlspecialchars($settings['welcome_text']) ?></p>
-    <label class="btn" for="foto-input">
-      Kies foto's
+    <button type="button" class="btn" id="camera-knop">Neem een foto</button>
+    <?php if ($settings['upload_enabled'] === '1'): ?>
+    <label class="btn secondary" for="foto-input" style="margin-top: var(--space-1)">
+      Kies foto's uit je galerij
       <input type="file" id="foto-input" class="visually-hidden" accept="image/*" multiple>
     </label>
-    <button type="button" class="btn secondary" id="camera-knop" hidden>Neem een foto</button>
+    <?php endif; ?>
   </section>
 
   <section class="card" id="stap-bewerk" hidden>

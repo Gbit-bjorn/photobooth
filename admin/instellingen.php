@@ -23,8 +23,8 @@ page_header('Instellingen', 'page-admin');
     <label for="welcome_text">Welkomsttekst op de gastenpagina</label>
     <textarea id="welcome_text" name="welcome_text" rows="3"><?= htmlspecialchars($s['welcome_text']) ?></textarea>
 
-    <label><input type="checkbox" name="camera_enabled" <?= $s['camera_enabled'] === '1' ? 'checked' : '' ?>>
-      Camera-knop tonen (foto nemen in de browser)</label>
+    <label><input type="checkbox" name="upload_enabled" <?= $s['upload_enabled'] === '1' ? 'checked' : '' ?>>
+      Bestaande foto's uploaden toestaan (bv. oude foto's uit de galerij)</label>
     <label><input type="checkbox" name="filters_enabled" <?= $s['filters_enabled'] === '1' ? 'checked' : '' ?>>
       Filters aanbieden bij upload</label>
     <label><input type="checkbox" name="gallery_public" <?= $s['gallery_public'] === '1' ? 'checked' : '' ?>>
