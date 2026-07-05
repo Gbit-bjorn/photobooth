@@ -56,7 +56,9 @@ function kaart(photo) {
 
 function verversSlider() {
   if (!lightbox) {
-    lightbox = GLightbox({ selector: '.glightbox', loop: false, touchNavigation: true });
+    // moreLength: 0 = nooit inkorten op mobiel (inkorten stript de opmaak
+    // waardoor naam en boodschap aan elkaar plakken)
+    lightbox = GLightbox({ selector: '.glightbox', loop: false, touchNavigation: true, moreLength: 0 });
     lightbox.on('open', () => { sliderOpen = true; });
     lightbox.on('close', () => {
       sliderOpen = false;
