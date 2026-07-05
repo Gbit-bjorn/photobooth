@@ -434,6 +434,15 @@ input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--c-sa
   margin-top: 0.2rem;
   letter-spacing: 0.04em;
 }
+/* mobiele glightbox-skin gebruikt eigen donkere gradient + witte tekst;
+   forceer dezelfde crème balk als op desktop */
+.glightbox-mobile .glightbox-container .gslide-description {
+  background: rgba(244, 239, 230, 0.94) !important;
+  padding: 0.85rem 1.5rem 1.1rem !important;
+}
+.glightbox-mobile .glightbox-container .gslide-desc {
+  color: var(--c-ink-soft) !important;
+}
 
 .foto-kaart {
   margin: 0 0 var(--space-3);
