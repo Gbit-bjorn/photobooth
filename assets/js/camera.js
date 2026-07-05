@@ -1,23 +1,31 @@
-// Camera-capture met aftelklok. Alleen actief als de beheerder de
-// camera-instelling aanzet (cfg.cameraEnabled → booth.js roept initCamera aan).
+// Camera-capture met aftelklok. Start op de selfie-camera (photobooth!)
+// en kan wisselen naar de achtercamera. Preview van de front-camera wordt
+// gespiegeld getoond én zo vastgelegd — de foto is wat de gast zag.
 
 const $ = id => document.getElementById(id);
 let stream = null;
+let facing = 'user';
 
 async function openCamera() {
   stream = await navigator.mediaDevices.getUserMedia({
-    video: { facingMode: 'environment', width: { ideal: 2000 } },
+    video: { facingMode: facing, width: { ideal: 2000 } },
     audio: false,
   });
-  $('camera-video').srcObject = stream;
+  const video = $('camera-video');
+  video.srcObject = stream;
+  video.classList.toggle('gespiegeld', facing === 'user');
   $('camera-overlay').hidden = false;
 }
 
-function sluitCamera() {
+function stopStream() {
   if (stream) {
     stream.getTracks().forEach(t => t.stop());
     stream = null;
   }
+}
+
+function sluitCamera() {
+  stopStream();
   $('camera-overlay').hidden = true;
 }
 
@@ -49,13 +57,29 @@ export function initCamera(onCapture) {
     }
   });
   $('camera-sluit').addEventListener('click', sluitCamera);
+  $('camera-wissel').addEventListener('click', async () => {
+    stopStream();
+    facing = facing === 'user' ? 'environment' : 'user';
+    try {
+      await openCamera();
+    } catch {
+      // toestel heeft maar één camera: terugdraaien
+      facing = facing === 'user' ? 'environment' : 'user';
+      try { await openCamera(); } catch { sluitCamera(); }
+    }
+  });
   $('camera-neem').addEventListener('click', async () => {
     await aftellen();
     const video = $('camera-video');
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
+    const ctx = canvas.getContext('2d');
+    if (facing === 'user') {
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+    }
+    ctx.drawImage(video, 0, 0);
     sluitCamera();
     canvas.toBlob(blob => { if (blob) onCapture(blob); }, 'image/jpeg', 0.92);
   });

@@ -6,7 +6,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 }
 auth_require_api();
 
-setting_set('welcome_text', mb_substr(trim((string)($_POST['welcome_text'] ?? '')), 0, 500));
+foreach (['welcome_text', 'thanks_text', 'tagline', 'gallery_subtitle'] as $tekst) {
+    setting_set($tekst, mb_substr(trim((string)($_POST[$tekst] ?? '')), 0, 500));
+}
 foreach (['upload_enabled', 'filters_enabled', 'gallery_public'] as $toggle) {
     setting_set($toggle, isset($_POST[$toggle]) ? '1' : '0');
 }

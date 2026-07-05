@@ -6,7 +6,7 @@ $settings = settings_all();
 $config = [
     'filters'     => $settings['filters_enabled'] === '1' ? pb_filters() : [pb_filters()[0]],
     'welcomeText' => $settings['welcome_text'],
-    'thanksText'  => $ev['thanks_text'],
+    'thanksText'  => $settings['thanks_text'],
 ];
 
 page_header($ev['welcome_title'], 'page-booth');
@@ -19,7 +19,7 @@ page_header($ev['welcome_title'], 'page-booth');
   <header>
     <h1 class="display"><?= htmlspecialchars($ev['couple']) ?></h1>
     <?php leaf_divider(); ?>
-    <p class="subtitle"><?= htmlspecialchars($ev['date_display']) ?> · <?= htmlspecialchars($ev['tagline']) ?></p>
+    <p class="subtitle"><?= htmlspecialchars($ev['date_display']) ?> · <?= htmlspecialchars($settings['tagline']) ?></p>
   </header>
 
   <section class="card" id="stap-kies">
@@ -58,6 +58,10 @@ page_header($ev['welcome_title'], 'page-booth');
   <div id="camera-aftel" hidden></div>
   <div class="camera-knoppen">
     <button type="button" class="btn" id="camera-neem">Neem foto</button>
+    <button type="button" class="btn secondary" id="camera-wissel" aria-label="Wissel tussen selfie- en achtercamera">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>
+      Draai
+    </button>
     <button type="button" class="btn secondary" id="camera-sluit">Sluit</button>
   </div>
 </div>

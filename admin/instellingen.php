@@ -20,8 +20,17 @@ page_header('Instellingen', 'page-admin');
   <form class="card" method="post" action="/api/settings.php" style="margin-top: var(--space-3)">
     <input type="hidden" name="csrf" value="<?= htmlspecialchars(csrf_token()) ?>">
 
+    <label for="tagline">Ondertitel (onder de namen, ook op het tafelkaartje)</label>
+    <input type="text" id="tagline" name="tagline" maxlength="120" value="<?= htmlspecialchars($s['tagline']) ?>">
+
     <label for="welcome_text">Welkomsttekst op de gastenpagina</label>
     <textarea id="welcome_text" name="welcome_text" rows="3"><?= htmlspecialchars($s['welcome_text']) ?></textarea>
+
+    <label for="thanks_text">Bedanktekst na het versturen van een foto</label>
+    <textarea id="thanks_text" name="thanks_text" rows="2"><?= htmlspecialchars($s['thanks_text']) ?></textarea>
+
+    <label for="gallery_subtitle">Ondertitel van de galerij</label>
+    <input type="text" id="gallery_subtitle" name="gallery_subtitle" maxlength="120" value="<?= htmlspecialchars($s['gallery_subtitle']) ?>">
 
     <label><input type="checkbox" name="upload_enabled" <?= $s['upload_enabled'] === '1' ? 'checked' : '' ?>>
       Bestaande foto's uploaden toestaan (bv. oude foto's uit de galerij)</label>

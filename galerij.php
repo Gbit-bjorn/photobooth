@@ -2,7 +2,8 @@
 require __DIR__ . '/app/bootstrap.php';
 
 $ev = pb_event();
-if (settings_all()['gallery_public'] !== '1') {
+$settings = settings_all();
+if ($settings['gallery_public'] !== '1') {
     page_header('Galerij');
     echo '<main class="wrap"><h1 class="display">' . htmlspecialchars($ev['couple']) . '</h1>';
     leaf_divider();
@@ -21,7 +22,7 @@ page_header('Galerij', 'page-gallery');
   <header>
     <h1 class="display"><?= htmlspecialchars($ev['couple']) ?></h1>
     <?php leaf_divider(); ?>
-    <p class="subtitle">Alle gedeelde momenten — nieuwste eerst</p>
+    <p class="subtitle"><?= htmlspecialchars($settings['gallery_subtitle']) ?></p>
   </header>
   <div id="feed" aria-live="polite"></div>
   <p id="leeg" class="subtitle" hidden>Nog geen foto's — deel de eerste!</p>
