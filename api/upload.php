@@ -4,7 +4,7 @@ require __DIR__ . '/../app/bootstrap.php';
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     json_out(['ok' => false, 'error' => 'Alleen POST.'], 405);
 }
-if (!rate_ok(client_ip())) {
+if (!rate_ok('up:' . client_ip())) {
     json_out(['ok' => false, 'error' => 'Even rustig aan — probeer zo weer.'], 429);
 }
 $file = $_FILES['photo'] ?? null;

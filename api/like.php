@@ -4,7 +4,7 @@ require __DIR__ . '/../app/bootstrap.php';
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     json_out(['ok' => false, 'error' => 'Alleen POST.'], 405);
 }
-if (!rate_ok(client_ip(), 120, 600)) {
+if (!rate_ok('like:' . client_ip(), 120, 600)) {
     json_out(['ok' => false, 'error' => 'Even rustig aan.'], 429);
 }
 $input = json_decode((string)file_get_contents('php://input'), true) ?? [];

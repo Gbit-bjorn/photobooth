@@ -73,6 +73,6 @@ leaf_corner('right');
   </div>
 </div>
 
-<script>window.PB_CONFIG = <?= json_encode($config, JSON_UNESCAPED_UNICODE) ?>;</script>
+<script>window.PB_CONFIG = <?= json_encode($config, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?>;</script>
 <script type="module" src="/assets/js/booth.js"></script>
 <?php page_footer(); ?>
