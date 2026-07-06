@@ -1,0 +1,645 @@
+{
+  "nodes": [
+    {
+      "id": "file:app/settings.php",
+      "type": "file",
+      "name": "settings.php",
+      "filePath": "app/settings.php",
+      "summary": "Runtime-instellingenlaag: leest en schrijft key/value-instellingen in de SQLite settings-tabel met defaults uit config/event.php, zodat toggles en teksten per event aanpasbaar zijn zonder code te wijzigen.",
+      "tags": ["settings", "data-model", "configuration", "sqlite"],
+      "complexity": "simple",
+      "languageNotes": "Gebruikt SQLite UPSERT (INSERT ... ON CONFLICT DO UPDATE) om instellingen idempotent te bewaren."
+    },
+    {
+      "id": "function:app/settings.php:pb_setting_defaults",
+      "type": "function",
+      "name": "pb_setting_defaults",
+      "filePath": "app/settings.php",
+      "lineRange": [4, 19],
+      "summary": "Levert de standaardwaarden voor alle runtime-instellingen (toggles, teksten, slideshow), met event-specifieke teksten uit pb_event().",
+      "tags": ["defaults", "configuration", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/settings.php:setting_get",
+      "type": "function",
+      "name": "setting_get",
+      "filePath": "app/settings.php",
+      "lineRange": [21, 30],
+      "summary": "Haalt één instelling op uit de settings-tabel en valt terug op de default wanneer de rij ontbreekt.",
+      "tags": ["settings", "database", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/settings.php:setting_set",
+      "type": "function",
+      "name": "setting_set",
+      "filePath": "app/settings.php",
+      "lineRange": [32, 39],
+      "summary": "Slaat een instelling op via een UPSERT zodat bestaande sleutels worden overschreven en nieuwe worden aangemaakt.",
+      "tags": ["settings", "database", "setter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/settings.php:settings_all",
+      "type": "function",
+      "name": "settings_all",
+      "filePath": "app/settings.php",
+      "lineRange": [41, 48],
+      "summary": "Bouwt de volledige instellingenset op door de defaults te overschrijven met de rijen uit de settings-tabel.",
+      "tags": ["settings", "database", "aggregation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/css/app.css",
+      "type": "file",
+      "name": "app.css",
+      "filePath": "assets/css/app.css",
+      "summary": "Hoofdstylesheet voor de hele photobooth: layout, kaarten, knoppen, filter-rij, galerij, slideshow en aquarel-decoratie, gebouwd op de CSS-variabelen uit theme.css.",
+      "tags": ["stylesheet", "layout", "component", "ui"],
+      "complexity": "complex",
+      "languageNotes": "Bevat de globale regel [hidden] { display: none !important; } die het [hidden]-attribuut laat winnen van display-regels."
+    },
+    {
+      "id": "file:assets/css/theme.css",
+      "type": "file",
+      "name": "theme.css",
+      "filePath": "assets/css/theme.css",
+      "summary": "Themalaag met CSS-variabelen (kleuren, fonts, spacing) die per event aangepast worden zodat de huisstijl los staat van de layout in app.css.",
+      "tags": ["stylesheet", "theme", "configuration", "design-tokens"],
+      "complexity": "simple",
+      "languageNotes": "Centraliseert kleuren en fonts als custom properties zodat hergebruik per feest enkel deze file raakt."
+    },
+    {
+      "id": "file:assets/js/admin.js",
+      "type": "file",
+      "name": "admin.js",
+      "filePath": "assets/js/admin.js",
+      "summary": "Clientscript voor het admin-dashboard: schakelt tussen normale en rasterweergave en voert moderatie-acties (verwijderen/verbergen) uit via de moderate-endpoint met CSRF-token.",
+      "tags": ["admin", "event-handler", "moderation", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/js/booth.js",
+      "type": "file",
+      "name": "booth.js",
+      "filePath": "assets/js/booth.js",
+      "summary": "Orkestreert de gastenflow op index.php: neemt foto's aan, toont filterkeuzes met live preview en zet ze via de upload-wachtrij klaar voor verzending.",
+      "tags": ["entry-point", "orchestrator", "ui", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/booth.js:renderStatus",
+      "type": "function",
+      "name": "renderStatus",
+      "filePath": "assets/js/booth.js",
+      "lineRange": [26, 49],
+      "summary": "Rendert de upload-statuslijst met per item een label en een retry-knop voor mislukte uploads.",
+      "tags": ["ui", "rendering", "status"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/booth.js:zetPreviewFx",
+      "type": "function",
+      "name": "zetPreviewFx",
+      "filePath": "assets/js/booth.js",
+      "lineRange": [54, 63],
+      "summary": "Zet de CSS-preview-effecten (vignette/korrel) op de fotopreview op basis van de gekozen filter-fx.",
+      "tags": ["ui", "preview", "filters"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/booth.js:renderFilters",
+      "type": "function",
+      "name": "renderFilters",
+      "filePath": "assets/js/booth.js",
+      "lineRange": [65, 92],
+      "summary": "Bouwt de filterkeuze-rij op met CSS-preview per filter en koppelt de selectie aan de live preview van de foto.",
+      "tags": ["ui", "rendering", "filters"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/booth.js:bewerkVolgende",
+      "type": "function",
+      "name": "bewerkVolgende",
+      "filePath": "assets/js/booth.js",
+      "lineRange": [94, 112],
+      "summary": "Haalt de volgende foto uit de bewerk-wachtrij, toont de bewerkstap en initialiseert preview en filters.",
+      "tags": ["workflow", "queue", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:assets/js/camera.js",
+      "type": "file",
+      "name": "camera.js",
+      "filePath": "assets/js/camera.js",
+      "summary": "In-browser camera-module: opent de mediastream, laat wisselen tussen front/back, telt af en legt een foto vast als blob via canvas.",
+      "tags": ["camera", "media", "canvas", "service"],
+      "complexity": "moderate",
+      "languageNotes": "Gebruikt navigator.mediaDevices.getUserMedia en tekent het videoframe gespiegeld naar een canvas."
+    },
+    {
+      "id": "function:assets/js/camera.js:openCamera",
+      "type": "function",
+      "name": "openCamera",
+      "filePath": "assets/js/camera.js",
+      "lineRange": [9, 18],
+      "summary": "Opent de camerastream met getUserMedia voor de gevraagde facingMode en toont de video-overlay.",
+      "tags": ["camera", "media", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/camera.js:aftellen",
+      "type": "function",
+      "name": "aftellen",
+      "filePath": "assets/js/camera.js",
+      "lineRange": [32, 49],
+      "summary": "Toont een aftelteller van enkele seconden voordat de foto wordt genomen en resolvet wanneer die op nul staat.",
+      "tags": ["camera", "timer", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/camera.js:initCamera",
+      "type": "function",
+      "name": "initCamera",
+      "filePath": "assets/js/camera.js",
+      "lineRange": [51, 86],
+      "summary": "Koppelt alle cameraknoppen (openen, wisselen, sluiten, nemen), telt af en levert het gemaakte canvas-blob aan de onCapture-callback.",
+      "tags": ["camera", "event-handler", "canvas", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:assets/js/filters.js",
+      "type": "file",
+      "name": "filters.js",
+      "filePath": "assets/js/filters.js",
+      "summary": "Filterengine: bouwt CSS-filterstrings voor de preview en bakt kleurmatrix plus fx (vignette/korrel) client-side in de foto via canvas-pixelbewerking.",
+      "tags": ["filters", "canvas", "image-processing", "utility"],
+      "complexity": "complex",
+      "languageNotes": "Combineert kleurmatrices via functiecompositie en past ze per pixel toe op de canvas-ImageData; CSS-filter dient enkel als preview."
+    },
+    {
+      "id": "function:assets/js/filters.js:compose",
+      "type": "function",
+      "name": "compose",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [13, 25],
+      "summary": "Componeert twee kleurmatrices (4x5) tot één samengestelde matrix zodat filters in volgorde gestapeld kunnen worden.",
+      "tags": ["matrix", "math", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/filters.js:cssFilter",
+      "type": "function",
+      "name": "cssFilter",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [72, 76],
+      "summary": "Zet een lijst van filter-ops om in een CSS filter-string (bv. sepia(0.75) contrast(1.02)) voor de live preview.",
+      "tags": ["filters", "css", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/filters.js:applyOpsToCanvas",
+      "type": "function",
+      "name": "applyOpsToCanvas",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [87, 101],
+      "summary": "Past de opgebouwde kleurmatrix per pixel toe op de canvas via getImageData/putImageData om het filter definitief in te bakken.",
+      "tags": ["filters", "canvas", "image-processing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/filters.js:loadOriented",
+      "type": "function",
+      "name": "loadOriented",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [106, 121],
+      "summary": "Laadt een afbeeldingsbestand als correct georiënteerde ImageBitmap met EXIF-rotatie voor verdere verwerking.",
+      "tags": ["image-processing", "exif", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/filters.js:applyFxToCanvas",
+      "type": "function",
+      "name": "applyFxToCanvas",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [124, 159],
+      "summary": "Bakt special effects (korrel via ruispatroon en vignette via radiaal verloop) in de canvas na de kleurmatrix.",
+      "tags": ["filters", "canvas", "effects", "image-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/filters.js:processPhoto",
+      "type": "function",
+      "name": "processPhoto",
+      "filePath": "assets/js/filters.js",
+      "lineRange": [161, 184],
+      "summary": "Volledige verwerkingspijplijn: laadt de foto, schaalt naar maximum, past ops en fx toe en levert een gebakken JPEG-blob op.",
+      "tags": ["filters", "pipeline", "canvas", "image-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:assets/js/gallery.js",
+      "type": "file",
+      "name": "gallery.js",
+      "filePath": "assets/js/gallery.js",
+      "summary": "Clientlogica voor de publieke galerij: haalt foto's op, pollt op nieuwe items, wisselt tussen feed- en rasterweergave, verwerkt likes en opent de GLightbox-slider.",
+      "tags": ["gallery", "polling", "ui", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/gallery.js:toggleLike",
+      "type": "function",
+      "name": "toggleLike",
+      "filePath": "assets/js/gallery.js",
+      "lineRange": [22, 40],
+      "summary": "Schakelt een like om, werkt de UI en localStorage optimistisch bij en synchroniseert met de like-endpoint.",
+      "tags": ["likes", "event-handler", "api-call"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/gallery.js:verversLikes",
+      "type": "function",
+      "name": "verversLikes",
+      "filePath": "assets/js/gallery.js",
+      "lineRange": [42, 53],
+      "summary": "Haalt actuele like-tellingen op via de likes-endpoint en werkt de zichtbare kaarten bij.",
+      "tags": ["likes", "polling", "api-call"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/gallery.js:kaart",
+      "type": "function",
+      "name": "kaart",
+      "filePath": "assets/js/gallery.js",
+      "lineRange": [60, 103],
+      "summary": "Bouwt een volledige fotokaart met srcset-afbeelding, bijschrift, naam/boodschap en like-knop voor de galerijfeed.",
+      "tags": ["gallery", "rendering", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/gallery.js:verversSlider",
+      "type": "function",
+      "name": "verversSlider",
+      "filePath": "assets/js/gallery.js",
+      "lineRange": [105, 126],
+      "summary": "Initialiseert of herlaadt de GLightbox-slider en beheert of herladen wordt uitgesteld terwijl de slider open is.",
+      "tags": ["gallery", "lightbox", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/gallery.js:haalOp",
+      "type": "function",
+      "name": "haalOp",
+      "filePath": "assets/js/gallery.js",
+      "lineRange": [128, 143],
+      "summary": "Pollt de photos-endpoint op nieuwe foto's sinds de laatste id en voegt de nieuwe kaarten vooraan de feed toe.",
+      "tags": ["gallery", "polling", "api-call"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/js/queue.js",
+      "type": "file",
+      "name": "queue.js",
+      "filePath": "assets/js/queue.js",
+      "summary": "Offline upload-wachtrij op basis van IndexedDB met een verwerkingslus die uploads met retry en exponentiële backoff naar de upload-endpoint stuurt.",
+      "tags": ["queue", "indexeddb", "offline", "service"],
+      "complexity": "complex",
+      "languageNotes": "Gebruikt IndexedDB voor persistente offline opslag en een backoff-lus met sleep() zodat mislukte uploads later opnieuw geprobeerd worden."
+    },
+    {
+      "id": "function:assets/js/queue.js:openDb",
+      "type": "function",
+      "name": "openDb",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [13, 22],
+      "summary": "Opent (of upgradet) de IndexedDB-database en maakt de object store voor wachtrij-items aan.",
+      "tags": ["indexeddb", "database", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/queue.js:uploadOne",
+      "type": "function",
+      "name": "uploadOne",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [58, 74],
+      "summary": "Verstuurt één wachtrij-item als multipart-formulier naar de upload-endpoint en verwerkt het JSON-antwoord.",
+      "tags": ["upload", "api-call", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/queue.js:processLoop",
+      "type": "function",
+      "name": "processLoop",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [76, 120],
+      "summary": "Kernlus die pending items sequentieel uploadt, statussen bijwerkt en bij falen met exponentiële backoff opnieuw plant.",
+      "tags": ["queue", "retry", "backoff", "async"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:assets/js/queue.js:initQueue",
+      "type": "function",
+      "name": "initQueue",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [122, 136],
+      "summary": "Initialiseert de wachtrij: opent de database, ruimt oude done-items op en start de verwerkingslus met een change-callback.",
+      "tags": ["queue", "initialization", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/queue.js:enqueue",
+      "type": "function",
+      "name": "enqueue",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [138, 143],
+      "summary": "Voegt een nieuwe foto-blob met naam en boodschap toe aan de wachtrij en trapt de verwerkingslus af.",
+      "tags": ["queue", "producer", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/queue.js:retryFailed",
+      "type": "function",
+      "name": "retryFailed",
+      "filePath": "assets/js/queue.js",
+      "lineRange": [145, 157],
+      "summary": "Zet mislukte items terug naar queued, wekt de verwerkingslus en probeert ze opnieuw te uploaden.",
+      "tags": ["queue", "retry", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/js/slideshow.js",
+      "type": "file",
+      "name": "slideshow.js",
+      "filePath": "assets/js/slideshow.js",
+      "summary": "Slideshow voor groot scherm: pollt nieuwe foto's, roteert door de reeks met crossfade-overgangen en houdt het scherm wakker via de Wake Lock API.",
+      "tags": ["slideshow", "polling", "ui", "wake-lock"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/slideshow.js:poll",
+      "type": "function",
+      "name": "poll",
+      "filePath": "assets/js/slideshow.js",
+      "lineRange": [12, 25],
+      "summary": "Pollt de photos-endpoint op nieuwe foto's sinds de laatste id en geeft die voorrang in de rotatie.",
+      "tags": ["slideshow", "polling", "api-call"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:assets/js/slideshow.js:toon",
+      "type": "function",
+      "name": "toon",
+      "filePath": "assets/js/slideshow.js",
+      "lineRange": [38, 63],
+      "summary": "Toont de volgende foto door tussen twee lagen te crossfaden en werkt bijschrift met naam en boodschap bij.",
+      "tags": ["slideshow", "rendering", "transition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:assets/js/slideshow.js:wakeLock",
+      "type": "function",
+      "name": "wakeLock",
+      "filePath": "assets/js/slideshow.js",
+      "lineRange": [65, 75],
+      "summary": "Vraagt een Wake Lock aan zodat het scherm tijdens de slideshow niet uitvalt en herstelt die bij zichtbaarheidswissel.",
+      "tags": ["slideshow", "wake-lock", "browser-api"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Projectinstructies voor AI-assistenten met deploy-waarschuwing (push = live), Windows-commando's, architectuur in één minuut en conventies/valkuilen van de photobooth.",
+      "tags": ["documentation", "conventions", "architecture", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:config/.htaccess",
+      "type": "config",
+      "name": ".htaccess",
+      "filePath": "config/.htaccess",
+      "summary": "Apache-toegangsregel die de config-map afschermt (Require all denied) zodat configuratie- en geheimenbestanden niet via het web bereikbaar zijn.",
+      "tags": ["configuration", "security", "apache", "access-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/event.php",
+      "type": "config",
+      "name": "event.php",
+      "filePath": "config/event.php",
+      "summary": "Event-specifieke configuratie (koppelnamen, datum, tagline, welkomst- en bedankteksten, korte URL) die de photobooth herbruikbaar maakt per trouw.",
+      "tags": ["configuration", "event", "reusable"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/filters.php",
+      "type": "config",
+      "name": "filters.php",
+      "filePath": "config/filters.php",
+      "summary": "Definieert de beschikbare fotofilters met hun kleur-ops (grayscale, sepia, saturate, ...) en optionele fx (vignette, korrel) die door de JS-filterengine worden toegepast.",
+      "tags": ["configuration", "filters", "reusable"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/secrets.php.example",
+      "type": "config",
+      "name": "secrets.php.example",
+      "filePath": "config/secrets.php.example",
+      "summary": "Voorbeeldsjabloon voor config/secrets.php met het admin-wachtwoord dat eenmalig naar de settings-tabel gehasht wordt; niet in versiebeheer als echte geheimen.",
+      "tags": ["configuration", "security", "secrets", "template"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:data/.htaccess",
+      "type": "config",
+      "name": ".htaccess",
+      "filePath": "data/.htaccess",
+      "summary": "Apache-toegangsregel die de data-map (SQLite-database en originele foto's) volledig afschermt van het web.",
+      "tags": ["configuration", "security", "apache", "access-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:docs/.htaccess",
+      "type": "config",
+      "name": ".htaccess",
+      "filePath": "docs/.htaccess",
+      "summary": "Apache-toegangsregel die de docs-map afschermt zodat interne specs en plannen niet publiek toegankelijk zijn.",
+      "tags": ["configuration", "security", "apache", "access-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "type": "document",
+      "name": "2026-07-05-photobooth.md",
+      "filePath": "docs/superpowers/plans/2026-07-05-photobooth.md",
+      "summary": "Uitgebreid implementatieplan (17 taken) dat de volledige photobooth stap voor stap opbouwt: van dev-omgeving en database-laag over foto-domein, API's, filterengine en offline wachtrij tot galerij, slideshow, admin en diagnose.",
+      "tags": ["documentation", "implementation-plan", "roadmap"],
+      "complexity": "complex",
+      "languageNotes": "Zeer omvangrijk plandocument (3291 regels) opgedeeld in genummerde taken met per taak concrete bestanden en verificatiestappen."
+    },
+    {
+      "id": "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "type": "document",
+      "name": "2026-07-05-photobooth-design.md",
+      "filePath": "docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "summary": "Design- en specificatiedocument met doel, tech stack, repo-structuur, gastenflow, galerij/slideshow, admin, datamodel (SQLite), stijl, beveiliging en risico's van de photobooth.",
+      "tags": ["documentation", "design-spec", "architecture"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:galerij.php",
+      "type": "file",
+      "name": "galerij.php",
+      "filePath": "galerij.php",
+      "summary": "Publieke galerijpagina die de layout rendert wanneer de galerij zichtbaar is en gallery.js plus de GLightbox-slider inlaadt; toont anders een onbeschikbaar-bericht.",
+      "tags": ["entry-point", "page", "gallery"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:index.php",
+      "type": "file",
+      "name": "index.php",
+      "filePath": "index.php",
+      "summary": "Gastenpagina met de deel-een-foto-flow: bouwt de PB_CONFIG uit instellingen en filters, rendert de foto-, bewerk- en klaar-stappen en laadt booth.js.",
+      "tags": ["entry-point", "page", "booth"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Projectoverzicht met deploy-instructies (Plesk), stappen om de photobooth voor een nieuw feest te hergebruiken, lokale ontwikkelinstructies en de repo-structuur.",
+      "tags": ["documentation", "entry-point", "deployment", "overview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:slideshow.php",
+      "type": "file",
+      "name": "slideshow.php",
+      "filePath": "slideshow.php",
+      "summary": "Slideshowpagina voor groot scherm die de duur en overgang uit de instellingen leest, de twee crossfade-lagen rendert en slideshow.js inlaadt.",
+      "tags": ["entry-point", "page", "slideshow"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tests/.htaccess",
+      "type": "config",
+      "name": ".htaccess",
+      "filePath": "tests/.htaccess",
+      "summary": "Apache-toegangsregel die de tests-map afschermt zodat testbestanden niet in productie via het web bereikbaar zijn.",
+      "tags": ["configuration", "security", "apache", "access-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/filters.test.html",
+      "type": "file",
+      "name": "filters.test.html",
+      "filePath": "tests/filters.test.html",
+      "summary": "Browsergebaseerde testpagina die filters.js in de echte browser uitvoert en cssFilter, applyOpsToCanvas, applyFxToCanvas en processPhoto tegen verwachte canvas-uitkomsten controleert.",
+      "tags": ["test", "browser-test", "filters"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:pb_setting_defaults", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:setting_get", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:setting_set", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:settings_all", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:pb_setting_defaults", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:setting_get", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:setting_set", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:app/settings.php", "target": "function:app/settings.php:settings_all", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:app/settings.php", "target": "config:config/event.php", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:assets/js/booth.js", "target": "function:assets/js/booth.js:renderStatus", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/booth.js", "target": "function:assets/js/booth.js:zetPreviewFx", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/booth.js", "target": "function:assets/js/booth.js:renderFilters", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/booth.js", "target": "function:assets/js/booth.js:bewerkVolgende", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/booth.js", "target": "file:assets/js/filters.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:assets/js/booth.js", "target": "file:assets/js/queue.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:assets/js/booth.js", "target": "file:assets/js/camera.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:assets/js/camera.js", "target": "function:assets/js/camera.js:openCamera", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/camera.js", "target": "function:assets/js/camera.js:aftellen", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/camera.js", "target": "function:assets/js/camera.js:initCamera", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/camera.js", "target": "function:assets/js/camera.js:initCamera", "type": "exports", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:compose", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:cssFilter", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:applyOpsToCanvas", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:loadOriented", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:applyFxToCanvas", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:processPhoto", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:cssFilter", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:applyOpsToCanvas", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:loadOriented", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:applyFxToCanvas", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/filters.js", "target": "function:assets/js/filters.js:processPhoto", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/filters.js", "target": "file:tests/filters.test.html", "type": "tested_by", "direction": "forward", "weight": 0.5 },
+
+    { "source": "file:assets/js/gallery.js", "target": "function:assets/js/gallery.js:toggleLike", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/gallery.js", "target": "function:assets/js/gallery.js:verversLikes", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/gallery.js", "target": "function:assets/js/gallery.js:kaart", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/gallery.js", "target": "function:assets/js/gallery.js:verversSlider", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/gallery.js", "target": "function:assets/js/gallery.js:haalOp", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/gallery.js", "target": "file:api/like.php", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "file:assets/js/gallery.js", "target": "file:api/likes.php", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "file:assets/js/gallery.js", "target": "file:api/photos.php", "type": "related", "direction": "forward", "weight": 0.5 },
+
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:openDb", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:uploadOne", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:processLoop", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:initQueue", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:enqueue", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:retryFailed", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:initQueue", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:enqueue", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/queue.js", "target": "function:assets/js/queue.js:retryFailed", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:assets/js/queue.js", "target": "file:api/upload.php", "type": "related", "direction": "forward", "weight": 0.5 },
+
+    { "source": "file:assets/js/slideshow.js", "target": "function:assets/js/slideshow.js:poll", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/slideshow.js", "target": "function:assets/js/slideshow.js:toon", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/slideshow.js", "target": "function:assets/js/slideshow.js:wakeLock", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:assets/js/slideshow.js", "target": "file:api/photos.php", "type": "related", "direction": "forward", "weight": 0.5 },
+
+    { "source": "file:assets/js/admin.js", "target": "file:api/moderate.php", "type": "related", "direction": "forward", "weight": 0.5 },
+
+    { "source": "file:assets/css/app.css", "target": "file:assets/css/theme.css", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:index.php", "target": "file:app/bootstrap.php", "type": "imports", "direction": "forward", "weight": 0.7 },
+    { "source": "file:index.php", "target": "file:app/settings.php", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:index.php", "target": "config:config/filters.php", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:index.php", "target": "file:assets/js/booth.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:galerij.php", "target": "file:app/bootstrap.php", "type": "imports", "direction": "forward", "weight": 0.7 },
+    { "source": "file:galerij.php", "target": "file:app/settings.php", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:galerij.php", "target": "file:assets/js/gallery.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:slideshow.php", "target": "file:app/bootstrap.php", "type": "imports", "direction": "forward", "weight": 0.7 },
+    { "source": "file:slideshow.php", "target": "file:app/settings.php", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:slideshow.php", "target": "file:assets/js/slideshow.js", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "config:config/event.php", "target": "file:app/settings.php", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:config/event.php", "target": "file:index.php", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:config/filters.php", "target": "file:assets/js/filters.js", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:config/filters.php", "target": "file:index.php", "type": "configures", "direction": "forward", "weight": 0.6 },
+
+    { "source": "document:CLAUDE.md", "target": "file:app/settings.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:CLAUDE.md", "target": "file:assets/js/filters.js", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:CLAUDE.md", "target": "file:assets/js/queue.js", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:CLAUDE.md", "target": "config:config/event.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:CLAUDE.md", "target": "config:config/filters.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+
+    { "source": "document:README.md", "target": "file:index.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:README.md", "target": "file:galerij.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:README.md", "target": "file:slideshow.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+
+    { "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md", "target": "file:index.php", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md", "target": "file:assets/js/filters.js", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md", "target": "file:assets/js/queue.js", "type": "documents", "direction": "forward", "weight": 0.5 },
+    { "source": "document:docs/superpowers/specs/2026-07-05-photobooth-design.md", "target": "file:index.php", "type": "documents", "direction": "forward", "weight": 0.5 }
+  ]
+}

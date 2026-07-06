@@ -1,0 +1,149 @@
+[
+  {
+    "order": 1,
+    "title": "Projectoverzicht",
+    "description": "Start bij de README en de CLAUDE-instructies om te begrijpen wat dit project is: een herbruikbare wedding-photobooth waarmee gasten via een QR-code foto's delen, met een publieke galerij, een live slideshow en een admin-dashboard voor het bruidspaar. De README beschrijft de deploy (Plesk-Git, push = live), hoe je de booth per feest hergebruikt en de mappenstructuur; CLAUDE.md vat de architectuur in een minuut samen. Deze twee documenten vormen de kaart voor de rest van de tour.",
+    "nodeIds": [
+      "document:README.md",
+      "document:CLAUDE.md"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "De require-backbone",
+    "description": "Elke pagina en elk endpoint in het project require't precies één bestand: app/bootstrap.php. Dit centrale bootstrap-bestand laadt alle app-modules (db, auth, photos, rate, settings, http, layout) en biedt gecachte accessors voor de event-, filter- en secrets-config. Met een fan-in van 19 is dit veruit het meest afhankelijke bestand van de codebase en de sleutel tot hoe een request opstart — begrijp dit en je begrijpt hoe alle andere pagina's aan hun functies komen.",
+    "nodeIds": [
+      "file:app/bootstrap.php"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "Database & runtime-instellingen",
+    "description": "Voortbouwend op de bootstrap uit stap 2 zijn dit de twee fundamenten van de core-laag. db.php levert een gecachte SQLite-PDO-verbinding, maakt de tabellen (photos, settings, rate_log) aan via CREATE TABLE IF NOT EXISTS en draait een likes-kolommigratie. settings.php leest en schrijft key/value-instellingen in de settings-tabel, met defaults uit config/event.php — zo zijn toggles en teksten per event aanpasbaar zonder code te wijzigen.",
+    "nodeIds": [
+      "file:app/db.php",
+      "file:app/settings.php"
+    ],
+    "languageLesson": "CREATE TABLE IF NOT EXISTS volstaat voor een verse database, maar niet voor een bestaande live db: nieuwe kolommen vereisen een expliciete migratie (zie de likes-kolom in db.php). SQLite draait hier in WAL journal-mode voor betere gelijktijdige lees/schrijf-toegang."
+  },
+  {
+    "order": 4,
+    "title": "Auth, HTTP & rate limiting",
+    "description": "Deze drie kleine core-modules bewaken de toegang tot het systeem. auth.php regelt sessies, admin-login/logout, wachtwoord-hashing (uit secrets), page/API-bewaking en CSRF-tokens. http.php biedt json_out() voor JSON-responses en client_ip() voor het bepalen van het IP. rate.php telt acties per key binnen een tijdvenster via de gedeelde rate_log-tabel. Samen vormen ze de beveiligingsruggengraat die de publieke endpoints en admin-mutaties later in de tour gebruiken.",
+    "nodeIds": [
+      "file:app/auth.php",
+      "file:app/http.php",
+      "file:app/rate.php"
+    ],
+    "languageLesson": "Rate-limiting deelt één tabel voor alle doelen, dus wordt de key geprefixt per doel ('up:' voor uploads, 'like:' voor likes). CSRF-bescherming werkt met een per-sessie token dat elke admin-mutatie moet meesturen."
+  },
+  {
+    "order": 5,
+    "title": "Het foto-domein",
+    "description": "photos.php is de kernmodule van het hele project: het slaat geüploade foto's op met GD-herencodering (max 2400px, q90), bewaart de originelen ongewijzigd in de afgeschermde data/originals-map, en biedt functies om te lijsten, liken, van status te wisselen en definitief te verwijderen inclusief bestanden. Bijna elke API-endpoint uit de volgende stappen delegeert naar de functies hier. Dit is waar een foto server-side echt tot leven komt.",
+    "nodeIds": [
+      "file:app/photos.php"
+    ],
+    "languageLesson": "De GD-bibliotheek herencodeert elke upload naar een genormaliseerd formaat (kleiner, gestript), terwijl het originele bestand met intacte EXIF apart bewaard blijft — dat origineel is privé en zit alleen in de admin-ZIP."
+  },
+  {
+    "order": 6,
+    "title": "De gastenpagina",
+    "description": "index.php is het startpunt voor gasten: het bouwt een PB_CONFIG-object uit de settings (stap 3) en config/filters.php, en rendert de foto-, bewerk- en klaar-stappen van de deel-een-foto-flow. layout.php levert de HTML-kop/-voet plus de decoratieve SVG's (bladhoeken, monogram, namen-lockup) die de bruiloftsstijl vormgeven. config/filters.php definieert welke filters beschikbaar zijn. Deze pagina laadt vervolgens booth.js, het onderwerp van de volgende stap.",
+    "nodeIds": [
+      "file:index.php",
+      "file:app/layout.php",
+      "config:config/filters.php"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "Client-side booth & filterengine",
+    "description": "Nu de browserlaag: booth.js orkestreert de gastenflow — het neemt foto's aan, toont filterkeuzes met live preview en zet ze klaar voor verzending. camera.js opent de mediastream, laat wisselen tussen front/back-camera, telt af en legt een foto vast als blob via canvas. filters.js is de filterengine: het bouwt CSS-filterstrings voor de preview én bakt de kleurmatrix plus fx (vignette/korrel) client-side in de foto via canvas-pixelbewerking.",
+    "nodeIds": [
+      "file:assets/js/booth.js",
+      "file:assets/js/camera.js",
+      "file:assets/js/filters.js"
+    ],
+    "languageLesson": "Belangrijk onderscheid: de CSS-filter is alleen preview (snel, niet-destructief), terwijl de échte filter met een canvas in de pixels van de foto wordt gebakken vóór upload. Zo ziet de gast wat hij krijgt, maar reist het gefilterde resultaat mee als afbeelding."
+  },
+  {
+    "order": 8,
+    "title": "Offline upload-wachtrij & upload-endpoint",
+    "description": "Op een druk feest met wisselend wifi mag geen enkele foto verloren gaan. queue.js is een offline upload-wachtrij op basis van IndexedDB, met een verwerkingslus die uploads met retry en exponentiële backoff verstuurt; ping.php dient als lichtgewicht health-check om connectiviteit te testen. api/upload.php ontvangt de foto server-side: rate-limited, valideert de bestandsgrootte en delegeert het opslaan/herencoderen aan photo_save() uit stap 5. Dit is de brug tussen browser en database.",
+    "nodeIds": [
+      "file:assets/js/queue.js",
+      "file:api/upload.php",
+      "file:api/ping.php"
+    ],
+    "languageLesson": "IndexedDB is een browser-database die uploads lokaal bewaart tot ze verzonden zijn. De offline queue markeert elk item met een status (queued/uploading/done/failed) en probeert mislukte uploads opnieuw met groeiende wachttijden (exponentiële backoff), zodat een korte netwerkstoring niets kost."
+  },
+  {
+    "order": 9,
+    "title": "De publieke galerij",
+    "description": "Zodra foto's binnen zijn, toont galerij.php ze publiek — mits de galerij-toggle aanstaat, anders een onbeschikbaar-bericht. gallery.js haalt foto's op, pollt op nieuwe items, wisselt tussen feed- en rasterweergave, verwerkt likes en opent de GLightbox-slider. De drie publieke JSON-endpoints voeden dit: photos.php levert incrementeel actieve foto's (via een 'since'-id), like.php verwerkt een like/unlike (rate-limited), en likes.php geeft een live map van foto-id naar likes terug.",
+    "nodeIds": [
+      "file:galerij.php",
+      "file:assets/js/gallery.js",
+      "file:api/photos.php",
+      "file:api/like.php",
+      "file:api/likes.php"
+    ]
+  },
+  {
+    "order": 10,
+    "title": "Slideshow voor het grote scherm",
+    "description": "slideshow.php is de weergave voor het projectiescherm op het feest: het leest duur en overgang uit de instellingen en rendert twee crossfade-lagen. slideshow.js pollt hetzelfde photos-endpoint als de galerij, roteert met crossfade-overgangen door de reeks en houdt het scherm wakker via de Wake Lock API. Zo blijft er de hele avond een levende diavoorstelling draaien zonder handmatig ingrijpen.",
+    "nodeIds": [
+      "file:slideshow.php",
+      "file:assets/js/slideshow.js"
+    ],
+    "languageLesson": "De Wake Lock API belet dat het scherm in slaapstand gaat tijdens de slideshow — essentieel voor een display dat urenlang moet blijven branden zonder gebruikersinteractie."
+  },
+  {
+    "order": 11,
+    "title": "Admin-dashboard & moderatie",
+    "description": "Het bruidspaar beheert de foto's via het admin-dashboard. admin/index.php toont foto's per status (actief/verborgen/archief) met moderatieknoppen; login.php verifieert het wachtwoord via auth_login() uit stap 4. admin.js schakelt tussen weergaven en stuurt moderatie-acties naar api/moderate.php, dat via auth_require_api() (auth + CSRF) verbergen, herstellen, archiveren of definitief verwijderen uitvoert. Dit is de eerste keer dat we de beveiligde admin-kant van de API in actie zien.",
+    "nodeIds": [
+      "file:admin/index.php",
+      "file:admin/login.php",
+      "file:assets/js/admin.js",
+      "file:api/moderate.php"
+    ]
+  },
+  {
+    "order": 12,
+    "title": "Instellingen, QR, ZIP & diagnose",
+    "description": "De rest van het dashboard rondt het beheer af. instellingen.php post event-teksten en toggles met CSRF-token naar api/settings.php, dat alles valideert en in de settings-tabel opslaat (de bron uit stap 3). qr.php genereert een afdrukbaar tafelkaartje met QR-code naar de korte event-URL. api/download.php verpakt alle actieve en gearchiveerde foto's plus een offline mini-album (wensen.html) en de originelen in een ZIP. diagnose.php controleert tot slot alle serververeisten en uploadlimieten.",
+    "nodeIds": [
+      "file:admin/instellingen.php",
+      "file:api/settings.php",
+      "file:admin/qr.php",
+      "file:api/download.php",
+      "file:admin/diagnose.php"
+    ]
+  },
+  {
+    "order": 13,
+    "title": "Beveiliging & hergebruik per event",
+    "description": "Dit is de laag die de photobooth zowel veilig als herbruikbaar maakt. De .htaccess in de webroot schakelt directory-listing uit en zet security-headers; app/.htaccess schermt de interne PHP-modules volledig af ('Require all denied') zodat ze niet los aanroepbaar zijn. config/event.php bevat álle event-specifieke strings (namen, datum, teksten, korte URL) waardoor je de booth per trouw hergebruikt door slechts één bestand aan te passen. secrets.php.example toont hoe het admin-wachtwoord buiten versiebeheer wordt gehouden.",
+    "nodeIds": [
+      "config:.htaccess",
+      "config:app/.htaccess",
+      "config:config/event.php",
+      "config:config/secrets.php.example"
+    ],
+    "languageLesson": "De .htaccess-regel 'Require all denied' blokkeert alle directe HTTP-toegang tot een map op Apache-niveau, nog voor PHP draait. Zo blijven app/, config/, data/ en docs/ onbereikbaar via het web terwijl de code ze intern gewoon kan require'en."
+  },
+  {
+    "order": 14,
+    "title": "De testsuite",
+    "description": "Als capstone: hoe de kwaliteit bewaakt wordt vóór een push (die immers meteen live deployt). run-all.php voert alle test-*.php via een subproces uit en geeft exit 1 bij de eerste fout. test-photos.php dekt het foto-domein uit stap 5 (herencoderen, thumbnails, status, likes, originelen). Omdat de filterengine en de offline queue in de browser draaien, worden die met echte browsertests geverifieerd: filters.test.html en queue.test.html controleren canvas-uitkomsten en de status-overgangen van de wachtrij.",
+    "nodeIds": [
+      "file:tests/run-all.php",
+      "file:tests/test-photos.php",
+      "file:tests/filters.test.html",
+      "file:tests/queue.test.html"
+    ]
+  }
+]

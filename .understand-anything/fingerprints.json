@@ -1,0 +1,1431 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "8147caf3ef301cb668b75ba755dfcde3a6721a5e",
+  "generatedAt": "2026-07-05T23:49:20.304Z",
+  "files": {
+    ".htaccess": {
+      "filePath": ".htaccess",
+      "contentHash": "de1d4f7dbe419244cd27e0098fb7efaec045c42eee33660fa0ad9e9d3a8609f7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "c77e128c58cade47af35b0debf78e0e2315dd084328d0e7322fea66c22d2ab50",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "7fa4e073951453c4a28d89181cd55d97cbd9d14fc84314087ebff71f1ce74a91",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "admin/diagnose.php": {
+      "filePath": "admin/diagnose.php",
+      "contentHash": "f80cc78c9bb0f73433590a587ce250d9ffe099fbcbb9de1777dc3c338d6f96d2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "admin/index.php": {
+      "filePath": "admin/index.php",
+      "contentHash": "42641ab6f19427c04860f877defb2e64fd64b83b42263b6b885e331e17e013d7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 65,
+      "hasStructuralAnalysis": true
+    },
+    "admin/instellingen.php": {
+      "filePath": "admin/instellingen.php",
+      "contentHash": "f20506c46a235b5149f66501b84533324cc732247889fbf9d25e37f02b81689c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "admin/login.php": {
+      "filePath": "admin/login.php",
+      "contentHash": "41b3bc11b3783567d5672e10656d3820f5df1d5149be5fb94c6142f2bd08451b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "admin/logout.php": {
+      "filePath": "admin/logout.php",
+      "contentHash": "711a8e6e3b6ced2612a0965e9864bb6f5d7c0a312ca801cfe918dd4915b35343",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "admin/qr.php": {
+      "filePath": "admin/qr.php",
+      "contentHash": "b8042fe5bccfd42f2c059490ef23f1d8abc51529f527040c8f7c36ba96a2122f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "api/download.php": {
+      "filePath": "api/download.php",
+      "contentHash": "619da3dd6b3f0f26bd9e93d8524487853dd0491bffc13bdddb9210bdf8fa0059",
+      "functions": [
+        {
+          "name": "pb_wensen_html",
+          "params": [
+            "$rows"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "pb_wensen_html"
+      ],
+      "totalLines": 90,
+      "hasStructuralAnalysis": true
+    },
+    "api/like.php": {
+      "filePath": "api/like.php",
+      "contentHash": "5cd3556ea93ad55bfb0db21a061e532cb266e74fb56a5859d397cb37b9bcf22b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "api/likes.php": {
+      "filePath": "api/likes.php",
+      "contentHash": "38353854ac662a2cbfdf47dde2e9a8e4d4239df82491f8a610c416799ffd4815",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "api/moderate.php": {
+      "filePath": "api/moderate.php",
+      "contentHash": "07e8f64aa16ea9b9f4ac95dbde952bf5c91a4ee09373c15583acef2ccac546c8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "api/photos.php": {
+      "filePath": "api/photos.php",
+      "contentHash": "10aa6803354c66e5f8655fb1891eb09754ea3fb0d6976ae448ad2ec0fffd0109",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "api/ping.php": {
+      "filePath": "api/ping.php",
+      "contentHash": "e109623494cb5162e622cfd987574398570e18afaddd7bcc9b22d084145c34dc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "api/settings.php": {
+      "filePath": "api/settings.php",
+      "contentHash": "d35c79a8125b60558d28a9ae0c83de1b16097fa2a37226f7f6fb1a5edaf7e83e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "api/upload.php": {
+      "filePath": "api/upload.php",
+      "contentHash": "a68630e094680d49e73087aadc48bd17a1f357b8fc2ef18943b035d9a8fc86f7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "app/.htaccess": {
+      "filePath": "app/.htaccess",
+      "contentHash": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "app/auth.php": {
+      "filePath": "app/auth.php",
+      "contentHash": "00016b7682f968319abb73442a05deab8cc034462d289c8898cf72b3a385b801",
+      "functions": [
+        {
+          "name": "auth_init",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "auth_login",
+          "params": [
+            "$password"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "auth_check",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "auth_logout",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "auth_require_page",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "auth_require_api",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "csrf_token",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "auth_init",
+        "auth_login",
+        "auth_check",
+        "auth_logout",
+        "auth_require_page",
+        "auth_require_api",
+        "csrf_token"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "app/bootstrap.php": {
+      "filePath": "app/bootstrap.php",
+      "contentHash": "d42dffe1fe62f0f4ddc8ff6d90836edc2881f6edd06856c77f56125d4a074d80",
+      "functions": [
+        {
+          "name": "pb_event",
+          "params": [],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "pb_filters",
+          "params": [],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "pb_secrets",
+          "params": [],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "pb_event",
+        "pb_filters",
+        "pb_secrets"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "app/db.php": {
+      "filePath": "app/db.php",
+      "contentHash": "644e9de1700cd6b7a540078d117422b8d74c1e1740671f6e8ea81a6b771012b0",
+      "functions": [
+        {
+          "name": "db",
+          "params": [],
+          "returnType": "PDO",
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "db"
+      ],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    "app/http.php": {
+      "filePath": "app/http.php",
+      "contentHash": "9bc95fa7570da066e18ac060a29a6b9a7b71faa0f505379fec5f8f0e8daf780b",
+      "functions": [
+        {
+          "name": "json_out",
+          "params": [
+            "$data",
+            "$status"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "client_ip",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "json_out",
+        "client_ip"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "app/layout.php": {
+      "filePath": "app/layout.php",
+      "contentHash": "d5df15f2c921cd3233e3ab8fb0f5dbdfc3ce314c4e1575c3b24b14717f2c57e9",
+      "functions": [
+        {
+          "name": "page_header",
+          "params": [
+            "$title",
+            "$bodyClass"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "page_footer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "leaf_corner",
+          "params": [
+            "$side"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "leaf_sprig",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "leaf_divider",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "ls_monogram",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "names_lockup",
+          "params": [
+            "$extraClass"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "page_header",
+        "page_footer",
+        "leaf_corner",
+        "leaf_sprig",
+        "leaf_divider",
+        "ls_monogram",
+        "names_lockup"
+      ],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "app/photos.php": {
+      "filePath": "app/photos.php",
+      "contentHash": "e81ad3d2fa703ce53a7a8a4f2ad6a1c5e81d52f21f75bf8c5c1c574b061c604c",
+      "functions": [
+        {
+          "name": "pb_uploads_dir",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "pb_originals_dir",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "photo_save",
+          "params": [
+            "$tmpPath",
+            "$guestName",
+            "$message",
+            "$originalTmp",
+            "$originalName"
+          ],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 51
+        },
+        {
+          "name": "pb_write_scaled",
+          "params": [
+            "$src",
+            "$dest",
+            "$maxDim"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "photos_list",
+          "params": [
+            "$status",
+            "$sinceId",
+            "$limit"
+          ],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "photo_like",
+          "params": [
+            "$id",
+            "$unlike"
+          ],
+          "returnType": "?int",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "photo_set_status",
+          "params": [
+            "$id",
+            "$status"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "photo_delete",
+          "params": [
+            "$id"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "pb_uploads_dir",
+        "pb_originals_dir",
+        "photo_save",
+        "pb_write_scaled",
+        "photos_list",
+        "photo_like",
+        "photo_set_status",
+        "photo_delete"
+      ],
+      "totalLines": 152,
+      "hasStructuralAnalysis": true
+    },
+    "app/rate.php": {
+      "filePath": "app/rate.php",
+      "contentHash": "5cad14ee93b8cd9b529a3dfa74e0b7268ea111432e76f18a184981466e2e7efd",
+      "functions": [
+        {
+          "name": "rate_ok",
+          "params": [
+            "$ip",
+            "$max",
+            "$windowSec"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "rate_ok"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "app/settings.php": {
+      "filePath": "app/settings.php",
+      "contentHash": "83afa48220268d80516bd104b457be7aa70b5c94598552a08508fbaacac692db",
+      "functions": [
+        {
+          "name": "pb_setting_defaults",
+          "params": [],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "setting_get",
+          "params": [
+            "$key"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "setting_set",
+          "params": [
+            "$key",
+            "$value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "settings_all",
+          "params": [],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "pb_setting_defaults",
+        "setting_get",
+        "setting_set",
+        "settings_all"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "assets/css/app.css": {
+      "filePath": "assets/css/app.css",
+      "contentHash": "f8f3fef99a444d646c8c64d27ac4ec82013b5ea004bd96ef50954edd4a7eaca0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 623,
+      "hasStructuralAnalysis": false
+    },
+    "assets/css/theme.css": {
+      "filePath": "assets/css/theme.css",
+      "contentHash": "7153a17dddc32baf382d41ee1a93d502e81be489da80e79c6669c2a17c468275",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": false
+    },
+    "assets/js/admin.js": {
+      "filePath": "assets/js/admin.js",
+      "contentHash": "f8ee9c881ec19bac7a4f4b2f49d435d7eceecde768b88d987bf6ea78e4d7093f",
+      "functions": [
+        {
+          "name": "zetWeergave",
+          "params": [
+            "modus"
+          ],
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/booth.js": {
+      "filePath": "assets/js/booth.js",
+      "contentHash": "5c50177b0e4463f3144691a7923f90b7ad0d6f22cfbb35055625278e5e535695",
+      "functions": [
+        {
+          "name": "$",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "toonStap",
+          "params": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "renderStatus",
+          "params": [
+            "items"
+          ],
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "zetPreviewFx",
+          "params": [
+            "fx"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "renderFilters",
+          "params": [
+            "file"
+          ],
+          "exported": false,
+          "lineCount": 28
+        },
+        {
+          "name": "bewerkVolgende",
+          "params": [],
+          "exported": false,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "/assets/js/filters.js",
+          "specifiers": [
+            "cssFilter",
+            "processPhoto"
+          ]
+        },
+        {
+          "source": "/assets/js/queue.js",
+          "specifiers": [
+            "initQueue",
+            "enqueue",
+            "retryFailed"
+          ]
+        },
+        {
+          "source": "/assets/js/camera.js",
+          "specifiers": [
+            "initCamera"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 161,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/camera.js": {
+      "filePath": "assets/js/camera.js",
+      "contentHash": "6d2a244f965f0fbb16d71ee6f4b3118cf40df41a1955ee3df4b6b65144ababd7",
+      "functions": [
+        {
+          "name": "$",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "openCamera",
+          "params": [],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "stopStream",
+          "params": [],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "sluitCamera",
+          "params": [],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "aftellen",
+          "params": [],
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "initCamera",
+          "params": [
+            "onCapture"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "initCamera"
+      ],
+      "totalLines": 87,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/filters.js": {
+      "filePath": "assets/js/filters.js",
+      "contentHash": "ab5cba7b797c8cd9f05c1addc202240594eeb60fa0f756538d7b33ecd88cb862",
+      "functions": [
+        {
+          "name": "identity",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "compose",
+          "params": [
+            "b",
+            "a"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "lerpMatrix",
+          "params": [
+            "target",
+            "v"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "cssFilter",
+          "params": [
+            "ops"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "buildMatrix",
+          "params": [
+            "ops"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "applyOpsToCanvas",
+          "params": [
+            "canvas",
+            "ops"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "loadOriented",
+          "params": [
+            "file"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "applyFxToCanvas",
+          "params": [
+            "canvas",
+            "fx"
+          ],
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "processPhoto",
+          "params": [
+            "file",
+            "filterOrOps"
+          ],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "cssFilter",
+        "applyOpsToCanvas",
+        "loadOriented",
+        "applyFxToCanvas",
+        "processPhoto"
+      ],
+      "totalLines": 185,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/gallery.js": {
+      "filePath": "assets/js/gallery.js",
+      "contentHash": "fccba39bef3a5795c627d9678e6148fd3a0af3604f58c3b8796175d869f1a608",
+      "functions": [
+        {
+          "name": "esc",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "toggleLike",
+          "params": [
+            "id",
+            "knop"
+          ],
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "verversLikes",
+          "params": [],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "huidigeSizes",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "kaart",
+          "params": [
+            "photo"
+          ],
+          "exported": false,
+          "lineCount": 44
+        },
+        {
+          "name": "verversSlider",
+          "params": [],
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "haalOp",
+          "params": [],
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "zetWeergave",
+          "params": [
+            "modus"
+          ],
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 167,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/queue.js": {
+      "filePath": "assets/js/queue.js",
+      "contentHash": "0aacde89213547bf8913dc0940306ccb8c700e7be3740b0a10f42d2142c6dc73",
+      "functions": [
+        {
+          "name": "notify",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "openDb",
+          "params": [],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "tx",
+          "params": [
+            "mode",
+            "fn"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "allItems",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "emit",
+          "params": [],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "setItem",
+          "params": [
+            "item"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "removeItem",
+          "params": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "sleep",
+          "params": [
+            "ms"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "uploadOne",
+          "params": [
+            "item"
+          ],
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "processLoop",
+          "params": [],
+          "exported": false,
+          "lineCount": 45
+        },
+        {
+          "name": "initQueue",
+          "params": [
+            "onChange"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "enqueue",
+          "params": [
+            "blob",
+            "guestName",
+            "message"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "retryFailed",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "initQueue",
+        "enqueue",
+        "retryFailed"
+      ],
+      "totalLines": 158,
+      "hasStructuralAnalysis": true
+    },
+    "assets/js/slideshow.js": {
+      "filePath": "assets/js/slideshow.js",
+      "contentHash": "7082efbe4ecdffd0f8c1911335acec07e499f7f3b92254ffb1d30e2cf32f42d5",
+      "functions": [
+        {
+          "name": "$",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "poll",
+          "params": [],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "volgende",
+          "params": [],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "toon",
+          "params": [
+            "foto"
+          ],
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "wakeLock",
+          "params": [],
+          "exported": false,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "CLAUDE.md": {
+      "filePath": "CLAUDE.md",
+      "contentHash": "ab6ebeb9686231ac3e77ff4807f9ad5bc1a48ad109bb073c9ce0ce22245f47e1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 65,
+      "hasStructuralAnalysis": true
+    },
+    "config/.htaccess": {
+      "filePath": "config/.htaccess",
+      "contentHash": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "config/event.php": {
+      "filePath": "config/event.php",
+      "contentHash": "e9b1e3197f312f83fbb2b13c12de9cbb08674de3650c0cdaafecf1dbd2e4d5e6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "config/filters.php": {
+      "filePath": "config/filters.php",
+      "contentHash": "1341539fee83b0bb275888fd04ddda313528d32ac5c2c1d272899619459ad03d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "config/secrets.php.example": {
+      "filePath": "config/secrets.php.example",
+      "contentHash": "9d7276611b03d4a6f2c25c47f5853ea4a7f1680dec76dbe9f55d0f25cd1db2c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "data/.htaccess": {
+      "filePath": "data/.htaccess",
+      "contentHash": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "docs/.htaccess": {
+      "filePath": "docs/.htaccess",
+      "contentHash": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "docs/superpowers/plans/2026-07-05-photobooth.md": {
+      "filePath": "docs/superpowers/plans/2026-07-05-photobooth.md",
+      "contentHash": "39f451e8202f092a5ba6a9103897fb2f8673724579ce3be0f8aeefea31f80740",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3292,
+      "hasStructuralAnalysis": true
+    },
+    "docs/superpowers/specs/2026-07-05-photobooth-design.md": {
+      "filePath": "docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "contentHash": "a0d2c3d1b6fe0c07981476ae6f06fa184b4e833eeb4843ba3498bc8bd135be06",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    "galerij.php": {
+      "filePath": "galerij.php",
+      "contentHash": "7a26aed4a6f86fa85a1fd1b31d45ec19c51f6a3263d93541c6ee3c2ab0ca9f87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "index.php": {
+      "filePath": "index.php",
+      "contentHash": "3793433bd440f18dc587e43c951816e09a41eb7b5838d05cc1cafc9cf695b1f1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "243bb3d09e21732cef01fb1b326878c76e5e133418b356e7f00867b2b3bcfe15",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "slideshow.php": {
+      "filePath": "slideshow.php",
+      "contentHash": "4305cfdf4db09dab9545c54e8febb7ab89bd267ba545b7ce198f19ba8fb4f7ec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "tests/.htaccess": {
+      "filePath": "tests/.htaccess",
+      "contentHash": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "tests/filters.test.html": {
+      "filePath": "tests/filters.test.html",
+      "contentHash": "00bb783b7847dd90d642ae0383b6e2287f376029a894bc3ddc763f61122399a1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 93,
+      "hasStructuralAnalysis": false
+    },
+    "tests/queue.test.html": {
+      "filePath": "tests/queue.test.html",
+      "contentHash": "52b5a699b8f6fba8217e7c30d120377030c1e0ec4dfb6c308a1ee71abc92484e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 43,
+      "hasStructuralAnalysis": false
+    },
+    "tests/run-all.php": {
+      "filePath": "tests/run-all.php",
+      "contentHash": "03fda0444a7a5f61f3afd2245af37551280825a4a2542901ad6534aff3199b50",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-api.php": {
+      "filePath": "tests/test-api.php",
+      "contentHash": "226037edb6880f40df330a7b5e1471a2975dd89e54c78e7a23bd498d7dd7db89",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-auth.php": {
+      "filePath": "tests/test-auth.php",
+      "contentHash": "900e738c0ea956afca5fa016f7dd824f33c803286448b2bb58c516b47721caae",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-db.php": {
+      "filePath": "tests/test-db.php",
+      "contentHash": "ede8e07046a2da258a2e7e3e660a02d7774341c2771a80d52fe23e029852adf1",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-download.php": {
+      "filePath": "tests/test-download.php",
+      "contentHash": "6caaca3544797b61c7e85d834e737b3f8395a68a7b83dc516516684b6ea12a9c",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-moderate.php": {
+      "filePath": "tests/test-moderate.php",
+      "contentHash": "6c0498d7caa35dd03b1b71a6c267ff1d5ac271b84654e78090d095e0bd83e32a",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "req",
+          "params": [
+            "$url",
+            "$opts"
+          ],
+          "returnType": "array",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok",
+        "req"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-photos.php": {
+      "filePath": "tests/test-photos.php",
+      "contentHash": "67913eb1214abc21eee9fa636dc8cd16e040281a23fa122b96aa508df4253a83",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "tests/test-settings.php": {
+      "filePath": "tests/test-settings.php",
+      "contentHash": "952e6cda327d39397beb5bc5cd8fe626e67c79e2b03d36975d61ebfa937f1725",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [
+            "$cond",
+            "$name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ok"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "uploads/.htaccess": {
+      "filePath": "uploads/.htaccess",
+      "contentHash": "a43d027f82dd817931e25b3c186aa377735422bf3cb6ff6869af6934469331ec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

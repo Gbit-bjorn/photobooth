@@ -1,0 +1,16 @@
+{
+  "projectRoot": "C:/fotobooth/photobooth",
+  "batchFiles": [
+    {"path": "tests/queue.test.html", "language": "html", "sizeLines": 42, "fileCategory": "markup"},
+    {"path": "tests/run-all.php", "language": "php", "sizeLines": 9, "fileCategory": "code"},
+    {"path": "tests/test-api.php", "language": "php", "sizeLines": 72, "fileCategory": "code"},
+    {"path": "tests/test-auth.php", "language": "php", "sizeLines": 32, "fileCategory": "code"},
+    {"path": "tests/test-db.php", "language": "php", "sizeLines": 34, "fileCategory": "code"},
+    {"path": "tests/test-download.php", "language": "php", "sizeLines": 75, "fileCategory": "code"},
+    {"path": "tests/test-moderate.php", "language": "php", "sizeLines": 106, "fileCategory": "code"},
+    {"path": "tests/test-photos.php", "language": "php", "sizeLines": 78, "fileCategory": "code"},
+    {"path": "tests/test-settings.php", "language": "php", "sizeLines": 33, "fileCategory": "code"},
+    {"path": "uploads/.htaccess", "language": "unknown", "sizeLines": 4, "fileCategory": "code"}
+  ],
+  "batchImportData": {}
+}

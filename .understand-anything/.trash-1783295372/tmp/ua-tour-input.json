@@ -1,0 +1,1388 @@
+{
+  "nodes": [
+    {
+      "id": "config:.htaccess",
+      "name": ".htaccess",
+      "filePath": ".htaccess",
+      "summary": "Apache-configuratie voor de webroot: schakelt directory-listing uit, blokkeert toegang tot dotfiles en zet security-headers (nosniff, SAMEORIGIN, Referrer-Policy).",
+      "type": "config"
+    },
+    {
+      "id": "config:app/.htaccess",
+      "name": ".htaccess",
+      "filePath": "app/.htaccess",
+      "summary": "Apache-toegangsregel die de volledige app/-map afschermt van directe HTTP-toegang ('Require all denied'), zodat interne PHP-modules niet los aanroepbaar zijn.",
+      "type": "config"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "Configuratie voor de Understand-Anything-tooling; stelt de uitvoertaal in op Nederlands (outputLanguage: nl).",
+      "type": "config"
+    },
+    {
+      "id": "config:.understand-anything/.understandignore",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore-lijst voor de Understand-Anything-analyse; sluit bestanden en mappen uit van de knowledge-graph-scan.",
+      "type": "config"
+    },
+    {
+      "id": "file:admin/diagnose.php",
+      "name": "diagnose.php",
+      "filePath": "admin/diagnose.php",
+      "summary": "Admin-diagnosepagina die serververeisten controleert (PHP-versie, pdo_sqlite, gd, zip, fileinfo, mbstring, schrijfrechten, secrets, admin-wachtwoord, HTTPS) en de PHP-uploadlimieten toont.",
+      "type": "file"
+    },
+    {
+      "id": "file:admin/index.php",
+      "name": "index.php",
+      "filePath": "admin/index.php",
+      "summary": "Admin-dashboard dat foto's per status (actief/verborgen/archief) toont met moderatieknoppen; achterliggende mutaties lopen via de admin.js-client en de moderate-endpoint.",
+      "type": "file"
+    },
+    {
+      "id": "file:admin/instellingen.php",
+      "name": "instellingen.php",
+      "filePath": "admin/instellingen.php",
+      "summary": "Admin-instellingenformulier voor event-teksten, upload/filter/galerij-toggles en slideshow-opties; postnaar de settings-endpoint met CSRF-token.",
+      "type": "file"
+    },
+    {
+      "id": "file:admin/login.php",
+      "name": "login.php",
+      "filePath": "admin/login.php",
+      "summary": "Admin-loginpagina die het wachtwoord via auth_login() verifieert en na succes doorverwijst naar het dashboard.",
+      "type": "file"
+    },
+    {
+      "id": "file:admin/logout.php",
+      "name": "logout.php",
+      "filePath": "admin/logout.php",
+      "summary": "Admin-uitlogscript dat de sessie beëindigt via auth_logout() en terug naar de loginpagina redirect.",
+      "type": "file"
+    },
+    {
+      "id": "file:admin/qr.php",
+      "name": "qr.php",
+      "filePath": "admin/qr.php",
+      "summary": "Admin-pagina die een afdrukbaar tafelkaartje met QR-code naar de short-URL van het event genereert (client-side via gevendorde qrcode-library).",
+      "type": "file"
+    },
+    {
+      "id": "file:api/download.php",
+      "name": "download.php",
+      "filePath": "api/download.php",
+      "summary": "Beveiligde admin-endpoint die alle actieve en gearchiveerde foto's plus een offline mini-album (wensen.html) en de originele bestanden in een ZIP verpakt en downloadt.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/like.php",
+      "name": "like.php",
+      "filePath": "api/like.php",
+      "summary": "Publieke JSON-endpoint om een foto te liken/unliken; rate-limited per IP en retourneert het bijgewerkte aantal likes.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/likes.php",
+      "name": "likes.php",
+      "filePath": "api/likes.php",
+      "summary": "Lichtgewicht JSON-endpoint die een map van foto-id naar likes voor alle actieve foto's teruggeeft, gebruikt voor live-tellers in de galerij.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/moderate.php",
+      "name": "moderate.php",
+      "filePath": "api/moderate.php",
+      "summary": "Beveiligde admin-endpoint (auth + CSRF) die moderatie-acties uitvoert: verbergen, herstellen, archiveren of definitief verwijderen van een foto.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/photos.php",
+      "name": "photos.php",
+      "filePath": "api/photos.php",
+      "summary": "Publieke JSON-endpoint die actieve foto's ophaalt (incrementeel via een 'since'-id) voor de galerij en live-slideshow, met genormaliseerde metadata.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/ping.php",
+      "name": "ping.php",
+      "filePath": "api/ping.php",
+      "summary": "Minimale health-check-endpoint die {ok:true} teruggeeft; gebruikt door de offline upload-wachtrij om connectiviteit te testen.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/settings.php",
+      "name": "settings.php",
+      "filePath": "api/settings.php",
+      "summary": "Beveiligde admin-endpoint (auth + CSRF) die event-teksten, feature-toggles en slideshow-instellingen valideert en in de settings-tabel opslaat.",
+      "type": "file"
+    },
+    {
+      "id": "file:api/upload.php",
+      "name": "upload.php",
+      "filePath": "api/upload.php",
+      "summary": "Publieke JSON-endpoint voor foto-upload: rate-limited, valideert bestandsgrootte en delegeert opslaan/herencoderen aan photo_save(), met apart optioneel origineel bestand.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/auth.php",
+      "name": "auth.php",
+      "filePath": "app/auth.php",
+      "summary": "Authenticatiemodule: sessiebeheer, admin-login/logout, wachtwoord-hashing (uit secrets), page/API-toegangsbewaking en CSRF-tokengeneratie.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/bootstrap.php",
+      "name": "bootstrap.php",
+      "filePath": "app/bootstrap.php",
+      "summary": "Centraal bootstrap-bestand dat elke pagina/endpoint als enige require't; laadt alle app-modules en biedt gecachte accessors voor event-, filter- en secrets-config.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/db.php",
+      "name": "db.php",
+      "filePath": "app/db.php",
+      "summary": "Databaselaag die een gecachte SQLite-PDO-verbinding levert, de schema's (photos, settings, rate_log) via CREATE TABLE IF NOT EXISTS aanmaakt en een likes-kolommigratie uitvoert.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/http.php",
+      "name": "http.php",
+      "filePath": "app/http.php",
+      "summary": "HTTP-hulpmodule met json_out() voor JSON-responses met statuscode (en exit) en client_ip() voor het bepalen van het IP-adres bij rate-limiting.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/layout.php",
+      "name": "layout.php",
+      "filePath": "app/layout.php",
+      "summary": "Layout- en presentatiemodule die de HTML-paginakop/-voet rendert plus decoratieve SVG-elementen (bladhoeken, divider, monogram, namen-lockup) voor de bruiloftsstijl.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/photos.php",
+      "name": "photos.php",
+      "filePath": "app/photos.php",
+      "summary": "Kernmodule voor foto's: opslaan met GD-herencodering (max 2400px, q90), bewaren van originelen, lijsten, liken, statuswijziging en definitief verwijderen inclusief bestanden.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/rate.php",
+      "name": "rate.php",
+      "filePath": "app/rate.php",
+      "summary": "Rate-limiting-module die per key (bv. 'up:'/'like:' + IP) telt binnen een tijdvenster via de gedeelde rate_log-tabel en oude records opruimt.",
+      "type": "file"
+    },
+    {
+      "id": "file:app/settings.php",
+      "name": "settings.php",
+      "filePath": "app/settings.php",
+      "summary": "Runtime-instellingenlaag: leest en schrijft key/value-instellingen in de SQLite settings-tabel met defaults uit config/event.php, zodat toggles en teksten per event aanpasbaar zijn zonder code te wijzigen.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/css/app.css",
+      "name": "app.css",
+      "filePath": "assets/css/app.css",
+      "summary": "Hoofdstylesheet voor de hele photobooth: layout, kaarten, knoppen, filter-rij, galerij, slideshow en aquarel-decoratie, gebouwd op de CSS-variabelen uit theme.css.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/css/theme.css",
+      "name": "theme.css",
+      "filePath": "assets/css/theme.css",
+      "summary": "Themalaag met CSS-variabelen (kleuren, fonts, spacing) die per event aangepast worden zodat de huisstijl los staat van de layout in app.css.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/admin.js",
+      "name": "admin.js",
+      "filePath": "assets/js/admin.js",
+      "summary": "Clientscript voor het admin-dashboard: schakelt tussen normale en rasterweergave en voert moderatie-acties (verwijderen/verbergen) uit via de moderate-endpoint met CSRF-token.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/booth.js",
+      "name": "booth.js",
+      "filePath": "assets/js/booth.js",
+      "summary": "Orkestreert de gastenflow op index.php: neemt foto's aan, toont filterkeuzes met live preview en zet ze via de upload-wachtrij klaar voor verzending.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/camera.js",
+      "name": "camera.js",
+      "filePath": "assets/js/camera.js",
+      "summary": "In-browser camera-module: opent de mediastream, laat wisselen tussen front/back, telt af en legt een foto vast als blob via canvas.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/filters.js",
+      "name": "filters.js",
+      "filePath": "assets/js/filters.js",
+      "summary": "Filterengine: bouwt CSS-filterstrings voor de preview en bakt kleurmatrix plus fx (vignette/korrel) client-side in de foto via canvas-pixelbewerking.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/gallery.js",
+      "name": "gallery.js",
+      "filePath": "assets/js/gallery.js",
+      "summary": "Clientlogica voor de publieke galerij: haalt foto's op, pollt op nieuwe items, wisselt tussen feed- en rasterweergave, verwerkt likes en opent de GLightbox-slider.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/queue.js",
+      "name": "queue.js",
+      "filePath": "assets/js/queue.js",
+      "summary": "Offline upload-wachtrij op basis van IndexedDB met een verwerkingslus die uploads met retry en exponentiële backoff naar de upload-endpoint stuurt.",
+      "type": "file"
+    },
+    {
+      "id": "file:assets/js/slideshow.js",
+      "name": "slideshow.js",
+      "filePath": "assets/js/slideshow.js",
+      "summary": "Slideshow voor groot scherm: pollt nieuwe foto's, roteert door de reeks met crossfade-overgangen en houdt het scherm wakker via de Wake Lock API.",
+      "type": "file"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Projectinstructies voor AI-assistenten met deploy-waarschuwing (push = live), Windows-commando's, architectuur in één minuut en conventies/valkuilen van de photobooth.",
+      "type": "document"
+    },
+    {
+      "id": "config:config/.htaccess",
+      "name": ".htaccess",
+      "filePath": "config/.htaccess",
+      "summary": "Apache-toegangsregel die de config-map afschermt (Require all denied) zodat configuratie- en geheimenbestanden niet via het web bereikbaar zijn.",
+      "type": "config"
+    },
+    {
+      "id": "config:config/event.php",
+      "name": "event.php",
+      "filePath": "config/event.php",
+      "summary": "Event-specifieke configuratie (koppelnamen, datum, tagline, welkomst- en bedankteksten, korte URL) die de photobooth herbruikbaar maakt per trouw.",
+      "type": "config"
+    },
+    {
+      "id": "config:config/filters.php",
+      "name": "filters.php",
+      "filePath": "config/filters.php",
+      "summary": "Definieert de beschikbare fotofilters met hun kleur-ops (grayscale, sepia, saturate, ...) en optionele fx (vignette, korrel) die door de JS-filterengine worden toegepast.",
+      "type": "config"
+    },
+    {
+      "id": "config:config/secrets.php.example",
+      "name": "secrets.php.example",
+      "filePath": "config/secrets.php.example",
+      "summary": "Voorbeeldsjabloon voor config/secrets.php met het admin-wachtwoord dat eenmalig naar de settings-tabel gehasht wordt; niet in versiebeheer als echte geheimen.",
+      "type": "config"
+    },
+    {
+      "id": "config:data/.htaccess",
+      "name": ".htaccess",
+      "filePath": "data/.htaccess",
+      "summary": "Apache-toegangsregel die de data-map (SQLite-database en originele foto's) volledig afschermt van het web.",
+      "type": "config"
+    },
+    {
+      "id": "config:docs/.htaccess",
+      "name": ".htaccess",
+      "filePath": "docs/.htaccess",
+      "summary": "Apache-toegangsregel die de docs-map afschermt zodat interne specs en plannen niet publiek toegankelijk zijn.",
+      "type": "config"
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "name": "2026-07-05-photobooth.md",
+      "filePath": "docs/superpowers/plans/2026-07-05-photobooth.md",
+      "summary": "Uitgebreid implementatieplan (17 taken) dat de volledige photobooth stap voor stap opbouwt: van dev-omgeving en database-laag over foto-domein, API's, filterengine en offline wachtrij tot galerij, slideshow, admin en diagnose.",
+      "type": "document"
+    },
+    {
+      "id": "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "name": "2026-07-05-photobooth-design.md",
+      "filePath": "docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "summary": "Design- en specificatiedocument met doel, tech stack, repo-structuur, gastenflow, galerij/slideshow, admin, datamodel (SQLite), stijl, beveiliging en risico's van de photobooth.",
+      "type": "document"
+    },
+    {
+      "id": "file:galerij.php",
+      "name": "galerij.php",
+      "filePath": "galerij.php",
+      "summary": "Publieke galerijpagina die de layout rendert wanneer de galerij zichtbaar is en gallery.js plus de GLightbox-slider inlaadt; toont anders een onbeschikbaar-bericht.",
+      "type": "file"
+    },
+    {
+      "id": "file:index.php",
+      "name": "index.php",
+      "filePath": "index.php",
+      "summary": "Gastenpagina met de deel-een-foto-flow: bouwt de PB_CONFIG uit instellingen en filters, rendert de foto-, bewerk- en klaar-stappen en laadt booth.js.",
+      "type": "file"
+    },
+    {
+      "id": "document:README.md",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Projectoverzicht met deploy-instructies (Plesk), stappen om de photobooth voor een nieuw feest te hergebruiken, lokale ontwikkelinstructies en de repo-structuur.",
+      "type": "document"
+    },
+    {
+      "id": "file:slideshow.php",
+      "name": "slideshow.php",
+      "filePath": "slideshow.php",
+      "summary": "Slideshowpagina voor groot scherm die de duur en overgang uit de instellingen leest, de twee crossfade-lagen rendert en slideshow.js inlaadt.",
+      "type": "file"
+    },
+    {
+      "id": "config:tests/.htaccess",
+      "name": ".htaccess",
+      "filePath": "tests/.htaccess",
+      "summary": "Apache-toegangsregel die de tests-map afschermt zodat testbestanden niet in productie via het web bereikbaar zijn.",
+      "type": "config"
+    },
+    {
+      "id": "file:tests/filters.test.html",
+      "name": "filters.test.html",
+      "filePath": "tests/filters.test.html",
+      "summary": "Browsergebaseerde testpagina die filters.js in de echte browser uitvoert en cssFilter, applyOpsToCanvas, applyFxToCanvas en processPhoto tegen verwachte canvas-uitkomsten controleert.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/queue.test.html",
+      "name": "queue.test.html",
+      "filePath": "tests/queue.test.html",
+      "summary": "Browsertest die de offline upload-wachtrij queue.js aandrijft: leegt IndexedDB, plaatst een geldige en een ongeldige upload in de queue en controleert de statusovergangen (queued/uploading/done/failed).",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/run-all.php",
+      "name": "run-all.php",
+      "filePath": "tests/run-all.php",
+      "summary": "Testrunner die alle test-*.php-bestanden in de map via een subproces (passthru) uitvoert en exit 1 teruggeeft zodra één test faalt.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-api.php",
+      "name": "test-api.php",
+      "filePath": "tests/test-api.php",
+      "summary": "End-to-end test die een PHP-devserver opstart en de publieke JSON-endpoints ping, upload en photos aanroept: verifieert multipart-upload, afwijzing zonder bestand en de fotolijst met since-filter.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-auth.php",
+      "name": "test-auth.php",
+      "filePath": "tests/test-auth.php",
+      "summary": "Unittest voor de authenticatielaag: controleert hash-initialisatie uit secrets, wachtwoordverificatie, vertraging bij mislukte login, sessiestatus en stabiliteit van het CSRF-token.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-db.php",
+      "name": "test-db.php",
+      "filePath": "tests/test-db.php",
+      "summary": "Unittest voor de databankcontext: verifieert de PDO-singleton, het bestaan van de tabellen photos/settings/rate_log, de WAL journal-mode en de default-waarden bij insert.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-download.php",
+      "name": "test-download.php",
+      "filePath": "tests/test-download.php",
+      "summary": "Integratietest voor de ZIP-download: seedt actieve/gearchiveerde/verborgen foto's, controleert dat anonieme gebruikers geen ZIP krijgen en dat de admin-ZIP de juiste bestanden plus wensen.html met namen en wensen bevat.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-moderate.php",
+      "name": "test-moderate.php",
+      "filePath": "tests/test-moderate.php",
+      "summary": "Integratietest voor het moderatie-endpoint: verifieert afwijzing van anonieme requests, login met CSRF-token uit het dashboard, en de acties hide/restore/delete plus afwijzing van een onbekende actie.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-photos.php",
+      "name": "test-photos.php",
+      "filePath": "tests/test-photos.php",
+      "summary": "Unittest voor het foto-domein (app/photos.php): dekt herencoderen/resizen, thumbnailgrootte, filenameconventie, statusbeheer, since-filter, likes-grenzen en het bewaren en opruimen van originelen.",
+      "type": "file"
+    },
+    {
+      "id": "file:tests/test-settings.php",
+      "name": "test-settings.php",
+      "filePath": "tests/test-settings.php",
+      "summary": "Unittest voor de settings-laag: verifieert defaults (afgeleid uit event-config), persistentie via setting_set, de samengevoegde settings_all en de rate-limiting binnen een tijdvenster per key.",
+      "type": "file"
+    },
+    {
+      "id": "config:uploads/.htaccess",
+      "name": ".htaccess",
+      "filePath": "uploads/.htaccess",
+      "summary": "Apache-toegangsregels voor de uploads-map: weigert directe uitvoering van PHP-achtige bestanden (php/phtml/phar) en schakelt directory-indexen uit, zodat geüploade afbeeldingen niet als script kunnen draaien.",
+      "type": "config"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:admin/diagnose.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:admin/index.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:admin/instellingen.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:admin/login.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:admin/logout.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:admin/qr.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/download.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/like.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/likes.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/moderate.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/photos.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/ping.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/settings.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:api/upload.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/db.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/settings.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/rate.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/photos.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/http.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/layout.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "file:app/auth.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_init",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_login",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_require_api",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:csrf_token",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_init",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_login",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:auth_require_api",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "function:app/auth.php:csrf_token",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/db.php",
+      "target": "function:app/db.php:db",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/db.php",
+      "target": "function:app/db.php:db",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/http.php",
+      "target": "function:app/http.php:json_out",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/http.php",
+      "target": "function:app/http.php:json_out",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:page_header",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:leaf_divider",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:names_lockup",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:page_header",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:leaf_divider",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/layout.php",
+      "target": "function:app/layout.php:names_lockup",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_save",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:pb_write_scaled",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photos_list",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_like",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_set_status",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_delete",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_save",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:pb_write_scaled",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photos_list",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_like",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_set_status",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "function:app/photos.php:photo_delete",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/rate.php",
+      "target": "function:app/rate.php:rate_ok",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/rate.php",
+      "target": "function:app/rate.php:rate_ok",
+      "type": "exports"
+    },
+    {
+      "source": "file:api/download.php",
+      "target": "function:api/download.php:pb_wensen_html",
+      "type": "contains"
+    },
+    {
+      "source": "function:app/photos.php:photo_save",
+      "target": "function:app/photos.php:pb_write_scaled",
+      "type": "calls"
+    },
+    {
+      "source": "function:app/auth.php:auth_require_api",
+      "target": "function:app/auth.php:csrf_token",
+      "type": "calls"
+    },
+    {
+      "source": "function:app/auth.php:auth_require_api",
+      "target": "function:app/http.php:json_out",
+      "type": "calls"
+    },
+    {
+      "source": "function:app/auth.php:auth_login",
+      "target": "function:app/auth.php:auth_init",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/index.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/index.php",
+      "target": "function:app/photos.php:photos_list",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/diagnose.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/instellingen.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/qr.php",
+      "target": "function:app/auth.php:auth_require_page",
+      "type": "calls"
+    },
+    {
+      "source": "file:admin/login.php",
+      "target": "function:app/auth.php:auth_login",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/upload.php",
+      "target": "function:app/photos.php:photo_save",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/upload.php",
+      "target": "function:app/rate.php:rate_ok",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/upload.php",
+      "target": "function:app/http.php:json_out",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/like.php",
+      "target": "function:app/photos.php:photo_like",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/like.php",
+      "target": "function:app/rate.php:rate_ok",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/likes.php",
+      "target": "function:app/db.php:db",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/likes.php",
+      "target": "function:app/http.php:json_out",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/moderate.php",
+      "target": "function:app/auth.php:auth_require_api",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/moderate.php",
+      "target": "function:app/photos.php:photo_delete",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/moderate.php",
+      "target": "function:app/photos.php:photo_set_status",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/photos.php",
+      "target": "function:app/photos.php:photos_list",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/settings.php",
+      "target": "function:app/auth.php:auth_require_api",
+      "type": "calls"
+    },
+    {
+      "source": "file:api/download.php",
+      "target": "function:app/photos.php:photos_list",
+      "type": "calls"
+    },
+    {
+      "source": "config:app/.htaccess",
+      "target": "file:app/bootstrap.php",
+      "type": "configures"
+    },
+    {
+      "source": "config:.htaccess",
+      "target": "file:app/bootstrap.php",
+      "type": "configures"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:pb_setting_defaults",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:setting_get",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:setting_set",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:settings_all",
+      "type": "contains"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:pb_setting_defaults",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:setting_get",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:setting_set",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "function:app/settings.php:settings_all",
+      "type": "exports"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "config:config/event.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "function:assets/js/booth.js:renderStatus",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "function:assets/js/booth.js:zetPreviewFx",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "function:assets/js/booth.js:renderFilters",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "function:assets/js/booth.js:bewerkVolgende",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "file:assets/js/filters.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "file:assets/js/queue.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:assets/js/booth.js",
+      "target": "file:assets/js/camera.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:assets/js/camera.js",
+      "target": "function:assets/js/camera.js:openCamera",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/camera.js",
+      "target": "function:assets/js/camera.js:aftellen",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/camera.js",
+      "target": "function:assets/js/camera.js:initCamera",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/camera.js",
+      "target": "function:assets/js/camera.js:initCamera",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:compose",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:cssFilter",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:applyOpsToCanvas",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:loadOriented",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:applyFxToCanvas",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:processPhoto",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:cssFilter",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:applyOpsToCanvas",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:loadOriented",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:applyFxToCanvas",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "function:assets/js/filters.js:processPhoto",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "function:assets/js/gallery.js:toggleLike",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "function:assets/js/gallery.js:verversLikes",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "function:assets/js/gallery.js:kaart",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "function:assets/js/gallery.js:verversSlider",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "function:assets/js/gallery.js:haalOp",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "file:api/like.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "file:api/likes.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/js/gallery.js",
+      "target": "file:api/photos.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:openDb",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:uploadOne",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:processLoop",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:initQueue",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:enqueue",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:retryFailed",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:initQueue",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:enqueue",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "function:assets/js/queue.js:retryFailed",
+      "type": "exports"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "file:api/upload.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/js/slideshow.js",
+      "target": "function:assets/js/slideshow.js:poll",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/slideshow.js",
+      "target": "function:assets/js/slideshow.js:toon",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/slideshow.js",
+      "target": "function:assets/js/slideshow.js:wakeLock",
+      "type": "contains"
+    },
+    {
+      "source": "file:assets/js/slideshow.js",
+      "target": "file:api/photos.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/js/admin.js",
+      "target": "file:api/moderate.php",
+      "type": "related"
+    },
+    {
+      "source": "file:assets/css/app.css",
+      "target": "file:assets/css/theme.css",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:index.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:index.php",
+      "target": "file:app/settings.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:index.php",
+      "target": "config:config/filters.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:index.php",
+      "target": "file:assets/js/booth.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:galerij.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:galerij.php",
+      "target": "file:app/settings.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:galerij.php",
+      "target": "file:assets/js/gallery.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:slideshow.php",
+      "target": "file:app/bootstrap.php",
+      "type": "imports"
+    },
+    {
+      "source": "file:slideshow.php",
+      "target": "file:app/settings.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:slideshow.php",
+      "target": "file:assets/js/slideshow.js",
+      "type": "depends_on"
+    },
+    {
+      "source": "config:config/event.php",
+      "target": "file:app/settings.php",
+      "type": "configures"
+    },
+    {
+      "source": "config:config/event.php",
+      "target": "file:index.php",
+      "type": "configures"
+    },
+    {
+      "source": "config:config/filters.php",
+      "target": "file:assets/js/filters.js",
+      "type": "configures"
+    },
+    {
+      "source": "config:config/filters.php",
+      "target": "file:index.php",
+      "type": "configures"
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "file:app/settings.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "file:assets/js/filters.js",
+      "type": "documents"
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "file:assets/js/queue.js",
+      "type": "documents"
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "config:config/event.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "config:config/filters.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:index.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:galerij.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:slideshow.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "target": "file:index.php",
+      "type": "documents"
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "target": "file:assets/js/filters.js",
+      "type": "documents"
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "target": "file:assets/js/queue.js",
+      "type": "documents"
+    },
+    {
+      "source": "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "target": "file:index.php",
+      "type": "documents"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-api.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-auth.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-db.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-download.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-moderate.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-photos.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:tests/run-all.php",
+      "target": "file:tests/test-settings.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:api/ping.php",
+      "target": "file:tests/test-api.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:api/upload.php",
+      "target": "file:tests/test-api.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:api/photos.php",
+      "target": "file:tests/test-api.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/auth.php",
+      "target": "file:tests/test-auth.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/db.php",
+      "target": "file:tests/test-db.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:api/download.php",
+      "target": "file:tests/test-download.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "file:tests/test-download.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:api/moderate.php",
+      "target": "file:tests/test-moderate.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "file:tests/test-moderate.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/photos.php",
+      "target": "file:tests/test-photos.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/settings.php",
+      "target": "file:tests/test-settings.php",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:assets/js/queue.js",
+      "target": "file:tests/queue.test.html",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:assets/js/filters.js",
+      "target": "file:tests/filters.test.html",
+      "type": "tested_by"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "config:config/event.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "config:config/filters.php",
+      "type": "depends_on"
+    },
+    {
+      "source": "file:app/bootstrap.php",
+      "target": "config:config/secrets.php.example",
+      "type": "depends_on"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:presentation",
+      "name": "Presentatie & pagina's",
+      "description": "Server-gerenderde PHP-pagina's voor gasten (index, galerij, slideshow) en het admin-dashboard, samen met de stylesheets die de bruiloftshuisstijl vormgeven."
+    },
+    {
+      "id": "layer:client",
+      "name": "Client-side browserlaag",
+      "description": "Vanilla-JS modules die in de browser draaien: camera, client-side filterengine, offline upload-wachtrij, galerij-polling, slideshow en admin-moderatie."
+    },
+    {
+      "id": "layer:api",
+      "name": "HTTP API-laag",
+      "description": "JSON-endpoints voor upload, foto's ophalen, likes, moderatie, instellingen, health-check en ZIP-download; admin-mutaties zijn afgeschermd met auth en CSRF."
+    },
+    {
+      "id": "layer:core",
+      "name": "Core-applicatielaag",
+      "description": "De require-backbone die elke pagina en endpoint via bootstrap.php laadt: database (SQLite), auth, foto-domein, settings, rate limiting, HTTP-helpers en layout-rendering."
+    },
+    {
+      "id": "layer:config",
+      "name": "Configuratie & toegangsbeveiliging",
+      "description": "Event-, filter- en secrets-configuratie plus alle .htaccess-regels die mappen afschermen en security-headers zetten, zodat de photobooth herbruikbaar en afgeschermd blijft."
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentatie",
+      "description": "Projectoverzicht, AI-instructies, design-spec en implementatieplan die deploy, hergebruik per event en de architectuur van de photobooth beschrijven."
+    },
+    {
+      "id": "layer:test",
+      "name": "Testlaag",
+      "description": "PHP-unittests en integratietests (via de run-all-runner) plus browsergebaseerde tests die de filterengine en offline upload-wachtrij in een echte browser verifiëren."
+    }
+  ]
+}

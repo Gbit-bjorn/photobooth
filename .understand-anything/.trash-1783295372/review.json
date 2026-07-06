@@ -1,0 +1,35 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'config:.understand-anything/config.json' has no edges (orphan)",
+    "Node 'config:.understand-anything/.understandignore' has no edges (orphan)",
+    "Node 'config:config/.htaccess' has no edges (orphan)",
+    "Node 'config:data/.htaccess' has no edges (orphan)",
+    "Node 'config:docs/.htaccess' has no edges (orphan)",
+    "Node 'config:tests/.htaccess' has no edges (orphan)",
+    "Node 'config:uploads/.htaccess' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 109,
+    "totalEdges": 185,
+    "totalLayers": 7,
+    "tourSteps": 14,
+    "nodeTypes": {
+      "config": 12,
+      "file": 44,
+      "function": 49,
+      "document": 4
+    },
+    "edgeTypes": {
+      "imports": 24,
+      "contains": 49,
+      "exports": 30,
+      "calls": 23,
+      "configures": 6,
+      "depends_on": 22,
+      "related": 6,
+      "documents": 12,
+      "tested_by": 13
+    }
+  }
+}

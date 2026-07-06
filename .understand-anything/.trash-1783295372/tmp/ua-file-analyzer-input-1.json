@@ -1,0 +1,31 @@
+{
+  "projectRoot": "C:/fotobooth/photobooth",
+  "batchFiles": [
+    {"path": ".htaccess", "language": "unknown", "sizeLines": 9, "fileCategory": "code"},
+    {"path": ".understand-anything/config.json", "language": "json", "sizeLines": 1, "fileCategory": "config"},
+    {"path": "admin/diagnose.php", "language": "php", "sizeLines": 40, "fileCategory": "code"},
+    {"path": "admin/index.php", "language": "php", "sizeLines": 64, "fileCategory": "code"},
+    {"path": "admin/instellingen.php", "language": "php", "sizeLines": 59, "fileCategory": "code"},
+    {"path": "admin/login.php", "language": "php", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "admin/logout.php", "language": "php", "sizeLines": 4, "fileCategory": "code"},
+    {"path": "admin/qr.php", "language": "php", "sizeLines": 38, "fileCategory": "code"},
+    {"path": "api/download.php", "language": "php", "sizeLines": 89, "fileCategory": "code"},
+    {"path": "api/like.php", "language": "php", "sizeLines": 17, "fileCategory": "code"},
+    {"path": "api/likes.php", "language": "php", "sizeLines": 9, "fileCategory": "code"},
+    {"path": "api/moderate.php", "language": "php", "sizeLines": 23, "fileCategory": "code"},
+    {"path": "api/photos.php", "language": "php", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "api/ping.php", "language": "php", "sizeLines": 3, "fileCategory": "code"},
+    {"path": "api/settings.php", "language": "php", "sizeLines": 18, "fileCategory": "code"},
+    {"path": "api/upload.php", "language": "php", "sizeLines": 36, "fileCategory": "code"},
+    {"path": "app/.htaccess", "language": "unknown", "sizeLines": 1, "fileCategory": "code"},
+    {"path": "app/auth.php", "language": "php", "sizeLines": 80, "fileCategory": "code"},
+    {"path": "app/bootstrap.php", "language": "php", "sizeLines": 34, "fileCategory": "code"},
+    {"path": "app/db.php", "language": "php", "sizeLines": 47, "fileCategory": "code"},
+    {"path": "app/http.php", "language": "php", "sizeLines": 15, "fileCategory": "code"},
+    {"path": "app/layout.php", "language": "php", "sizeLines": 101, "fileCategory": "code"},
+    {"path": "app/photos.php", "language": "php", "sizeLines": 151, "fileCategory": "code"},
+    {"path": "app/rate.php", "language": "php", "sizeLines": 17, "fileCategory": "code"},
+    {"path": ".understand-anything/.understandignore", "language": "unknown", "sizeLines": 25, "fileCategory": "code"}
+  ],
+  "batchImportData": {}
+}

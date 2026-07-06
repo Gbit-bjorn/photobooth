@@ -1,0 +1,305 @@
+{
+  "projectRoot": "C:/fotobooth/photobooth",
+  "files": [
+    {
+      "path": ".htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "admin/diagnose.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/index.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/instellingen.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/login.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/logout.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/qr.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/download.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/like.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/likes.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/moderate.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/photos.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/ping.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/settings.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/upload.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/auth.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/bootstrap.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/db.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/http.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/layout.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/photos.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/rate.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/settings.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/css/app.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "assets/css/theme.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "assets/js/admin.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/booth.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/camera.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/filters.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/gallery.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/queue.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/slideshow.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "config/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/event.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/filters.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/secrets.php.example",
+      "language": "example",
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-07-05-photobooth.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "galerij.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "index.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "slideshow.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/filters.test.html",
+      "language": "html",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/queue.test.html",
+      "language": "html",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/run-all.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-api.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-auth.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-db.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-download.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-moderate.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-photos.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-settings.php",
+      "language": "php",
+      "fileCategory": "code"
+    },
+    {
+      "path": "uploads/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code"
+    }
+  ]
+}

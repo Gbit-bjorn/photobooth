@@ -1,0 +1,499 @@
+{
+  "scriptCompleted": true,
+  "commonPrefix": "",
+  "directoryGroups": {
+    "root": [
+      "config:.htaccess",
+      "document:CLAUDE.md",
+      "file:galerij.php",
+      "file:index.php",
+      "document:README.md",
+      "file:slideshow.php"
+    ],
+    "app": [
+      "config:app/.htaccess",
+      "file:app/auth.php",
+      "file:app/bootstrap.php",
+      "file:app/db.php",
+      "file:app/http.php",
+      "file:app/layout.php",
+      "file:app/photos.php",
+      "file:app/rate.php",
+      "file:app/settings.php"
+    ],
+    ".understand-anything": [
+      "config:.understand-anything/config.json",
+      "config:.understand-anything/.understandignore"
+    ],
+    "admin": [
+      "file:admin/diagnose.php",
+      "file:admin/index.php",
+      "file:admin/instellingen.php",
+      "file:admin/login.php",
+      "file:admin/logout.php",
+      "file:admin/qr.php"
+    ],
+    "api": [
+      "file:api/download.php",
+      "file:api/like.php",
+      "file:api/likes.php",
+      "file:api/moderate.php",
+      "file:api/photos.php",
+      "file:api/ping.php",
+      "file:api/settings.php",
+      "file:api/upload.php"
+    ],
+    "assets": [
+      "file:assets/css/app.css",
+      "file:assets/css/theme.css",
+      "file:assets/js/admin.js",
+      "file:assets/js/booth.js",
+      "file:assets/js/camera.js",
+      "file:assets/js/filters.js",
+      "file:assets/js/gallery.js",
+      "file:assets/js/queue.js",
+      "file:assets/js/slideshow.js"
+    ],
+    "config": [
+      "config:config/.htaccess",
+      "config:config/event.php",
+      "config:config/filters.php",
+      "config:config/secrets.php.example"
+    ],
+    "data": [
+      "config:data/.htaccess"
+    ],
+    "docs": [
+      "config:docs/.htaccess",
+      "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "document:docs/superpowers/specs/2026-07-05-photobooth-design.md"
+    ],
+    "tests": [
+      "config:tests/.htaccess",
+      "file:tests/filters.test.html",
+      "file:tests/queue.test.html",
+      "file:tests/run-all.php",
+      "file:tests/test-api.php",
+      "file:tests/test-auth.php",
+      "file:tests/test-db.php",
+      "file:tests/test-download.php",
+      "file:tests/test-moderate.php",
+      "file:tests/test-photos.php",
+      "file:tests/test-settings.php"
+    ],
+    "uploads": [
+      "config:uploads/.htaccess"
+    ]
+  },
+  "nodeTypeGroups": {
+    "config": [
+      "config:.htaccess",
+      "config:app/.htaccess",
+      "config:.understand-anything/config.json",
+      "config:.understand-anything/.understandignore",
+      "config:config/.htaccess",
+      "config:config/event.php",
+      "config:config/filters.php",
+      "config:config/secrets.php.example",
+      "config:data/.htaccess",
+      "config:docs/.htaccess",
+      "config:tests/.htaccess",
+      "config:uploads/.htaccess"
+    ],
+    "file": [
+      "file:admin/diagnose.php",
+      "file:admin/index.php",
+      "file:admin/instellingen.php",
+      "file:admin/login.php",
+      "file:admin/logout.php",
+      "file:admin/qr.php",
+      "file:api/download.php",
+      "file:api/like.php",
+      "file:api/likes.php",
+      "file:api/moderate.php",
+      "file:api/photos.php",
+      "file:api/ping.php",
+      "file:api/settings.php",
+      "file:api/upload.php",
+      "file:app/auth.php",
+      "file:app/bootstrap.php",
+      "file:app/db.php",
+      "file:app/http.php",
+      "file:app/layout.php",
+      "file:app/photos.php",
+      "file:app/rate.php",
+      "file:app/settings.php",
+      "file:assets/css/app.css",
+      "file:assets/css/theme.css",
+      "file:assets/js/admin.js",
+      "file:assets/js/booth.js",
+      "file:assets/js/camera.js",
+      "file:assets/js/filters.js",
+      "file:assets/js/gallery.js",
+      "file:assets/js/queue.js",
+      "file:assets/js/slideshow.js",
+      "file:galerij.php",
+      "file:index.php",
+      "file:slideshow.php",
+      "file:tests/filters.test.html",
+      "file:tests/queue.test.html",
+      "file:tests/run-all.php",
+      "file:tests/test-api.php",
+      "file:tests/test-auth.php",
+      "file:tests/test-db.php",
+      "file:tests/test-download.php",
+      "file:tests/test-moderate.php",
+      "file:tests/test-photos.php",
+      "file:tests/test-settings.php"
+    ],
+    "document": [
+      "document:CLAUDE.md",
+      "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "document:README.md"
+    ]
+  },
+  "crossCategoryEdges": [
+    {
+      "fromType": "document",
+      "toType": "file",
+      "edgeType": "documents",
+      "count": 10
+    },
+    {
+      "fromType": "config",
+      "toType": "file",
+      "edgeType": "configures",
+      "count": 6
+    },
+    {
+      "fromType": "file",
+      "toType": "config",
+      "edgeType": "depends_on",
+      "count": 5
+    },
+    {
+      "fromType": "document",
+      "toType": "config",
+      "edgeType": "documents",
+      "count": 2
+    }
+  ],
+  "interGroupImports": [
+    {
+      "from": "api",
+      "to": "app",
+      "count": 8
+    },
+    {
+      "from": "admin",
+      "to": "app",
+      "count": 6
+    },
+    {
+      "from": "root",
+      "to": "app",
+      "count": 6
+    },
+    {
+      "from": "app",
+      "to": "config",
+      "count": 4
+    },
+    {
+      "from": "root",
+      "to": "assets",
+      "count": 3
+    },
+    {
+      "from": "root",
+      "to": "config",
+      "count": 1
+    }
+  ],
+  "intraGroupDensity": {
+    "root": {
+      "internalEdges": 0,
+      "totalEdges": 10,
+      "density": 0
+    },
+    "app": {
+      "internalEdges": 7,
+      "totalEdges": 31,
+      "density": 0.226
+    },
+    ".understand-anything": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "admin": {
+      "internalEdges": 0,
+      "totalEdges": 6,
+      "density": 0
+    },
+    "api": {
+      "internalEdges": 0,
+      "totalEdges": 8,
+      "density": 0
+    },
+    "assets": {
+      "internalEdges": 4,
+      "totalEdges": 7,
+      "density": 0.571
+    },
+    "config": {
+      "internalEdges": 0,
+      "totalEdges": 5,
+      "density": 0
+    },
+    "data": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "docs": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "tests": {
+      "internalEdges": 7,
+      "totalEdges": 7,
+      "density": 1
+    },
+    "uploads": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    }
+  },
+  "patternMatches": {
+    "root": null,
+    "app": null,
+    ".understand-anything": null,
+    "admin": null,
+    "api": "api",
+    "assets": "assets",
+    "config": "config",
+    "data": "data",
+    "docs": "documentation",
+    "tests": "test",
+    "uploads": null
+  },
+  "deploymentTopology": {
+    "hasDockerfile": false,
+    "hasCompose": false,
+    "hasK8s": false,
+    "hasTerraform": false,
+    "hasCI": false,
+    "infraFiles": []
+  },
+  "dataPipeline": {
+    "schemaFiles": [],
+    "migrationFiles": [],
+    "dataModelFiles": [
+      "app/photos.php",
+      "app/settings.php",
+      "tests/test-photos.php"
+    ],
+    "apiHandlerFiles": [
+      "api/download.php",
+      "api/like.php",
+      "api/likes.php",
+      "api/moderate.php",
+      "api/photos.php",
+      "api/ping.php",
+      "api/settings.php",
+      "api/upload.php",
+      "tests/test-api.php"
+    ]
+  },
+  "docCoverage": {
+    "groupsWithDocs": 2,
+    "totalGroups": 11,
+    "coverageRatio": 0.18,
+    "undocumentedGroups": [
+      "app",
+      ".understand-anything",
+      "admin",
+      "api",
+      "assets",
+      "config",
+      "data",
+      "tests",
+      "uploads"
+    ]
+  },
+  "dependencyDirection": [
+    {
+      "dependent": "api",
+      "dependsOn": "app"
+    },
+    {
+      "dependent": "admin",
+      "dependsOn": "app"
+    },
+    {
+      "dependent": "root",
+      "dependsOn": "app"
+    },
+    {
+      "dependent": "app",
+      "dependsOn": "config"
+    },
+    {
+      "dependent": "root",
+      "dependsOn": "assets"
+    },
+    {
+      "dependent": "root",
+      "dependsOn": "config"
+    }
+  ],
+  "fileStats": {
+    "totalFileNodes": 60,
+    "filesPerGroup": {
+      "root": 6,
+      "app": 9,
+      ".understand-anything": 2,
+      "admin": 6,
+      "api": 8,
+      "assets": 9,
+      "config": 4,
+      "data": 1,
+      "docs": 3,
+      "tests": 11,
+      "uploads": 1
+    },
+    "nodeTypeCounts": {
+      "config": 12,
+      "file": 44,
+      "document": 4
+    }
+  },
+  "fileFanIn": {
+    "config:.htaccess": 0,
+    "config:app/.htaccess": 0,
+    "config:.understand-anything/config.json": 0,
+    "config:.understand-anything/.understandignore": 0,
+    "file:admin/diagnose.php": 0,
+    "file:admin/index.php": 0,
+    "file:admin/instellingen.php": 0,
+    "file:admin/login.php": 0,
+    "file:admin/logout.php": 0,
+    "file:admin/qr.php": 0,
+    "file:api/download.php": 0,
+    "file:api/like.php": 0,
+    "file:api/likes.php": 0,
+    "file:api/moderate.php": 0,
+    "file:api/photos.php": 0,
+    "file:api/ping.php": 0,
+    "file:api/settings.php": 0,
+    "file:api/upload.php": 0,
+    "file:app/auth.php": 1,
+    "file:app/bootstrap.php": 17,
+    "file:app/db.php": 1,
+    "file:app/http.php": 1,
+    "file:app/layout.php": 1,
+    "file:app/photos.php": 1,
+    "file:app/rate.php": 1,
+    "file:app/settings.php": 1,
+    "file:assets/css/app.css": 0,
+    "file:assets/css/theme.css": 0,
+    "file:assets/js/admin.js": 0,
+    "file:assets/js/booth.js": 0,
+    "file:assets/js/camera.js": 0,
+    "file:assets/js/filters.js": 0,
+    "file:assets/js/gallery.js": 0,
+    "file:assets/js/queue.js": 0,
+    "file:assets/js/slideshow.js": 0,
+    "document:CLAUDE.md": 0,
+    "config:config/.htaccess": 0,
+    "config:config/event.php": 0,
+    "config:config/filters.php": 0,
+    "config:config/secrets.php.example": 0,
+    "config:data/.htaccess": 0,
+    "config:docs/.htaccess": 0,
+    "document:docs/superpowers/plans/2026-07-05-photobooth.md": 0,
+    "document:docs/superpowers/specs/2026-07-05-photobooth-design.md": 0,
+    "file:galerij.php": 0,
+    "file:index.php": 0,
+    "document:README.md": 0,
+    "file:slideshow.php": 0,
+    "config:tests/.htaccess": 0,
+    "file:tests/filters.test.html": 0,
+    "file:tests/queue.test.html": 0,
+    "file:tests/run-all.php": 0,
+    "file:tests/test-api.php": 0,
+    "file:tests/test-auth.php": 0,
+    "file:tests/test-db.php": 0,
+    "file:tests/test-download.php": 0,
+    "file:tests/test-moderate.php": 0,
+    "file:tests/test-photos.php": 0,
+    "file:tests/test-settings.php": 0,
+    "config:uploads/.htaccess": 0
+  },
+  "fileFanOut": {
+    "config:.htaccess": 0,
+    "config:app/.htaccess": 0,
+    "config:.understand-anything/config.json": 0,
+    "config:.understand-anything/.understandignore": 0,
+    "file:admin/diagnose.php": 1,
+    "file:admin/index.php": 1,
+    "file:admin/instellingen.php": 1,
+    "file:admin/login.php": 1,
+    "file:admin/logout.php": 1,
+    "file:admin/qr.php": 1,
+    "file:api/download.php": 1,
+    "file:api/like.php": 1,
+    "file:api/likes.php": 1,
+    "file:api/moderate.php": 1,
+    "file:api/photos.php": 1,
+    "file:api/ping.php": 1,
+    "file:api/settings.php": 1,
+    "file:api/upload.php": 1,
+    "file:app/auth.php": 0,
+    "file:app/bootstrap.php": 7,
+    "file:app/db.php": 0,
+    "file:app/http.php": 0,
+    "file:app/layout.php": 0,
+    "file:app/photos.php": 0,
+    "file:app/rate.php": 0,
+    "file:app/settings.php": 0,
+    "file:assets/css/app.css": 0,
+    "file:assets/css/theme.css": 0,
+    "file:assets/js/admin.js": 0,
+    "file:assets/js/booth.js": 0,
+    "file:assets/js/camera.js": 0,
+    "file:assets/js/filters.js": 0,
+    "file:assets/js/gallery.js": 0,
+    "file:assets/js/queue.js": 0,
+    "file:assets/js/slideshow.js": 0,
+    "document:CLAUDE.md": 0,
+    "config:config/.htaccess": 0,
+    "config:config/event.php": 0,
+    "config:config/filters.php": 0,
+    "config:config/secrets.php.example": 0,
+    "config:data/.htaccess": 0,
+    "config:docs/.htaccess": 0,
+    "document:docs/superpowers/plans/2026-07-05-photobooth.md": 0,
+    "document:docs/superpowers/specs/2026-07-05-photobooth-design.md": 0,
+    "file:galerij.php": 1,
+    "file:index.php": 1,
+    "document:README.md": 0,
+    "file:slideshow.php": 1,
+    "config:tests/.htaccess": 0,
+    "file:tests/filters.test.html": 0,
+    "file:tests/queue.test.html": 0,
+    "file:tests/run-all.php": 0,
+    "file:tests/test-api.php": 0,
+    "file:tests/test-auth.php": 0,
+    "file:tests/test-db.php": 0,
+    "file:tests/test-download.php": 0,
+    "file:tests/test-moderate.php": 0,
+    "file:tests/test-photos.php": 0,
+    "file:tests/test-settings.php": 0,
+    "config:uploads/.htaccess": 0
+  }
+}

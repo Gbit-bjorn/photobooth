@@ -1,0 +1,387 @@
+{
+  "scriptCompleted": true,
+  "files": [
+    {
+      "path": ".htaccess",
+      "language": "unknown",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "sizeLines": 1,
+      "fileCategory": "config"
+    },
+    {
+      "path": "admin/diagnose.php",
+      "language": "php",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/index.php",
+      "language": "php",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/instellingen.php",
+      "language": "php",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/login.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/logout.php",
+      "language": "php",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admin/qr.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/download.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/like.php",
+      "language": "php",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/likes.php",
+      "language": "php",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/moderate.php",
+      "language": "php",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/photos.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/ping.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/settings.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "api/upload.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/.htaccess",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/auth.php",
+      "language": "php",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/bootstrap.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/db.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/http.php",
+      "language": "php",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/layout.php",
+      "language": "php",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/photos.php",
+      "language": "php",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/rate.php",
+      "language": "php",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/settings.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/css/app.css",
+      "language": "css",
+      "sizeLines": 622,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "assets/css/theme.css",
+      "language": "css",
+      "sizeLines": 75,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "assets/js/admin.js",
+      "language": "javascript",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/booth.js",
+      "language": "javascript",
+      "sizeLines": 160,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/camera.js",
+      "language": "javascript",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/filters.js",
+      "language": "javascript",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/gallery.js",
+      "language": "javascript",
+      "sizeLines": 166,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/queue.js",
+      "language": "javascript",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/js/slideshow.js",
+      "language": "javascript",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "sizeLines": 64,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "config/.htaccess",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/event.php",
+      "language": "php",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/filters.php",
+      "language": "php",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/secrets.php.example",
+      "language": "example",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/.htaccess",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/.htaccess",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-07-05-photobooth.md",
+      "language": "markdown",
+      "sizeLines": 3291,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "language": "markdown",
+      "sizeLines": 137,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "galerij.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "index.php",
+      "language": "php",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 43,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "slideshow.php",
+      "language": "php",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/.htaccess",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/filters.test.html",
+      "language": "html",
+      "sizeLines": 92,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/queue.test.html",
+      "language": "html",
+      "sizeLines": 42,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/run-all.php",
+      "language": "php",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-api.php",
+      "language": "php",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-auth.php",
+      "language": "php",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-db.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-download.php",
+      "language": "php",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-moderate.php",
+      "language": "php",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-photos.php",
+      "language": "php",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test-settings.php",
+      "language": "php",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "uploads/.htaccess",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 60,
+  "filteredByIgnore": 1,
+  "estimatedComplexity": "moderate",
+  "stats": {
+    "filesScanned": 60,
+    "byCategory": {
+      "code": 51,
+      "config": 1,
+      "markup": 4,
+      "docs": 4
+    },
+    "byLanguage": {
+      "unknown": 8,
+      "json": 1,
+      "php": 35,
+      "css": 2,
+      "javascript": 7,
+      "markdown": 4,
+      "example": 1,
+      "html": 2
+    }
+  }
+}

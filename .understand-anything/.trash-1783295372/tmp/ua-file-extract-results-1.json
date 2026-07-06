@@ -1,0 +1,1528 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".htaccess",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "admin/diagnose.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 38,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "admin/index.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 62,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "admin/instellingen.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 50,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "admin/login.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 29,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "admin/logout.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "admin/qr.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/download.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 84,
+      "functions": [
+        {
+          "name": "pb_wensen_html",
+          "startLine": 30,
+          "endLine": 82,
+          "params": [
+            "$rows"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pb_wensen_html",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pb_wensen_html",
+          "callee": "pb_event",
+          "lineNumber": 32
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 33
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 34
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "array_reverse",
+          "lineNumber": 36
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 37
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 38
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 39
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "htmlspecialchars",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "substr",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pb_wensen_html",
+          "callee": "count",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/like.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/likes.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/moderate.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/photos.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/ping.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/settings.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "api/upload.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 35,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "app/auth.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "auth_init",
+          "startLine": 4,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "auth_login",
+          "startLine": 24,
+          "endLine": 37,
+          "params": [
+            "$password"
+          ]
+        },
+        {
+          "name": "auth_check",
+          "startLine": 39,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "auth_logout",
+          "startLine": 45,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "auth_require_page",
+          "startLine": 54,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "auth_require_api",
+          "startLine": 62,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "csrf_token",
+          "startLine": 73,
+          "endLine": 80,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "auth_init",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "auth_login",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "auth_check",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "auth_logout",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "auth_require_page",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "auth_require_api",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "csrf_token",
+          "line": 73,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "auth_init",
+          "callee": "session_status",
+          "lineNumber": 6
+        },
+        {
+          "caller": "auth_init",
+          "callee": "session_set_cookie_params",
+          "lineNumber": 8
+        },
+        {
+          "caller": "auth_init",
+          "callee": "session_start",
+          "lineNumber": 14
+        },
+        {
+          "caller": "auth_init",
+          "callee": "setting_get",
+          "lineNumber": 16
+        },
+        {
+          "caller": "auth_init",
+          "callee": "pb_secrets",
+          "lineNumber": 17
+        },
+        {
+          "caller": "auth_init",
+          "callee": "setting_set",
+          "lineNumber": 19
+        },
+        {
+          "caller": "auth_init",
+          "callee": "password_hash",
+          "lineNumber": 19
+        },
+        {
+          "caller": "auth_login",
+          "callee": "auth_init",
+          "lineNumber": 26
+        },
+        {
+          "caller": "auth_login",
+          "callee": "setting_get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "auth_login",
+          "callee": "password_verify",
+          "lineNumber": 28
+        },
+        {
+          "caller": "auth_login",
+          "callee": "sleep",
+          "lineNumber": 29
+        },
+        {
+          "caller": "auth_login",
+          "callee": "session_regenerate_id",
+          "lineNumber": 33
+        },
+        {
+          "caller": "auth_check",
+          "callee": "auth_init",
+          "lineNumber": 41
+        },
+        {
+          "caller": "auth_logout",
+          "callee": "auth_init",
+          "lineNumber": 47
+        },
+        {
+          "caller": "auth_logout",
+          "callee": "session_status",
+          "lineNumber": 49
+        },
+        {
+          "caller": "auth_logout",
+          "callee": "session_destroy",
+          "lineNumber": 50
+        },
+        {
+          "caller": "auth_require_page",
+          "callee": "auth_check",
+          "lineNumber": 56
+        },
+        {
+          "caller": "auth_require_page",
+          "callee": "header",
+          "lineNumber": 57
+        },
+        {
+          "caller": "auth_require_api",
+          "callee": "auth_check",
+          "lineNumber": 64
+        },
+        {
+          "caller": "auth_require_api",
+          "callee": "json_out",
+          "lineNumber": 65
+        },
+        {
+          "caller": "auth_require_api",
+          "callee": "hash_equals",
+          "lineNumber": 68
+        },
+        {
+          "caller": "auth_require_api",
+          "callee": "csrf_token",
+          "lineNumber": 68
+        },
+        {
+          "caller": "auth_require_api",
+          "callee": "json_out",
+          "lineNumber": 69
+        },
+        {
+          "caller": "csrf_token",
+          "callee": "auth_init",
+          "lineNumber": 75
+        },
+        {
+          "caller": "csrf_token",
+          "callee": "empty",
+          "lineNumber": 76
+        },
+        {
+          "caller": "csrf_token",
+          "callee": "bin2hex",
+          "lineNumber": 77
+        },
+        {
+          "caller": "csrf_token",
+          "callee": "random_bytes",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/bootstrap.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "pb_event",
+          "startLine": 14,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "pb_filters",
+          "startLine": 20,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "pb_secrets",
+          "startLine": 26,
+          "endLine": 34,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "pb_event",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "pb_filters",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "pb_secrets",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pb_secrets",
+          "callee": "is_file",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/db.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "db",
+          "startLine": 4,
+          "endLine": 47,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "db",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "db",
+          "callee": "getenv",
+          "lineNumber": 10
+        },
+        {
+          "caller": "db",
+          "callee": "is_dir",
+          "lineNumber": 11
+        },
+        {
+          "caller": "db",
+          "callee": "mkdir",
+          "lineNumber": 12
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->exec",
+          "lineNumber": 18
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->exec",
+          "lineNumber": 19
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->exec",
+          "lineNumber": 20
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->query('PRAGMA table_info(photos)')->fetchAll",
+          "lineNumber": 42
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->query",
+          "lineNumber": 42
+        },
+        {
+          "caller": "db",
+          "callee": "in_array",
+          "lineNumber": 43
+        },
+        {
+          "caller": "db",
+          "callee": "$pdo->exec",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/http.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "json_out",
+          "startLine": 4,
+          "endLine": 10,
+          "params": [
+            "$data",
+            "$status"
+          ]
+        },
+        {
+          "name": "client_ip",
+          "startLine": 12,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "json_out",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "client_ip",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "json_out",
+          "callee": "http_response_code",
+          "lineNumber": 6
+        },
+        {
+          "caller": "json_out",
+          "callee": "header",
+          "lineNumber": 7
+        },
+        {
+          "caller": "json_out",
+          "callee": "json_encode",
+          "lineNumber": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/layout.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "page_header",
+          "startLine": 4,
+          "endLine": 23,
+          "params": [
+            "$title",
+            "$bodyClass"
+          ]
+        },
+        {
+          "name": "page_footer",
+          "startLine": 25,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "leaf_corner",
+          "startLine": 35,
+          "endLine": 42,
+          "params": [
+            "$side"
+          ]
+        },
+        {
+          "name": "leaf_sprig",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "leaf_divider",
+          "startLine": 51,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "ls_monogram",
+          "startLine": 77,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "names_lockup",
+          "startLine": 88,
+          "endLine": 101,
+          "params": [
+            "$extraClass"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "page_header",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "page_footer",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "leaf_corner",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "leaf_sprig",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "leaf_divider",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "ls_monogram",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "names_lockup",
+          "line": 88,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "page_header",
+          "callee": "pb_event",
+          "lineNumber": 6
+        },
+        {
+          "caller": "page_header",
+          "callee": "htmlspecialchars",
+          "lineNumber": 7
+        },
+        {
+          "caller": "page_header",
+          "callee": "htmlspecialchars",
+          "lineNumber": 8
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "pb_event",
+          "lineNumber": 79
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "array_map",
+          "lineNumber": 80
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "explode",
+          "lineNumber": 80
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "mb_substr",
+          "lineNumber": 81
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "mb_substr",
+          "lineNumber": 82
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "htmlspecialchars",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ls_monogram",
+          "callee": "htmlspecialchars",
+          "lineNumber": 84
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "pb_event",
+          "lineNumber": 90
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "array_map",
+          "lineNumber": 91
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "explode",
+          "lineNumber": 91
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "count",
+          "lineNumber": 92
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "htmlspecialchars",
+          "lineNumber": 93
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "htmlspecialchars",
+          "lineNumber": 94
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "htmlspecialchars",
+          "lineNumber": 96
+        },
+        {
+          "caller": "names_lockup",
+          "callee": "htmlspecialchars",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/photos.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 138,
+      "functions": [
+        {
+          "name": "pb_uploads_dir",
+          "startLine": 9,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "pb_originals_dir",
+          "startLine": 15,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "photo_save",
+          "startLine": 28,
+          "endLine": 78,
+          "params": [
+            "$tmpPath",
+            "$guestName",
+            "$message",
+            "$originalTmp",
+            "$originalName"
+          ]
+        },
+        {
+          "name": "pb_write_scaled",
+          "startLine": 81,
+          "endLine": 94,
+          "params": [
+            "$src",
+            "$dest",
+            "$maxDim"
+          ]
+        },
+        {
+          "name": "photos_list",
+          "startLine": 96,
+          "endLine": 107,
+          "params": [
+            "$status",
+            "$sinceId",
+            "$limit"
+          ]
+        },
+        {
+          "name": "photo_like",
+          "startLine": 110,
+          "endLine": 123,
+          "params": [
+            "$id",
+            "$unlike"
+          ]
+        },
+        {
+          "name": "photo_set_status",
+          "startLine": 125,
+          "endLine": 133,
+          "params": [
+            "$id",
+            "$status"
+          ]
+        },
+        {
+          "name": "photo_delete",
+          "startLine": 135,
+          "endLine": 151,
+          "params": [
+            "$id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pb_uploads_dir",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "pb_originals_dir",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "photo_save",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "pb_write_scaled",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "photos_list",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "photo_like",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "photo_set_status",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "photo_delete",
+          "line": 135,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pb_uploads_dir",
+          "callee": "getenv",
+          "lineNumber": 11
+        },
+        {
+          "caller": "pb_originals_dir",
+          "callee": "getenv",
+          "lineNumber": 17
+        },
+        {
+          "caller": "pb_originals_dir",
+          "callee": "is_dir",
+          "lineNumber": 18
+        },
+        {
+          "caller": "pb_originals_dir",
+          "callee": "mkdir",
+          "lineNumber": 19
+        },
+        {
+          "caller": "photo_save",
+          "callee": "getimagesize",
+          "lineNumber": 35
+        },
+        {
+          "caller": "photo_save",
+          "callee": "in_array",
+          "lineNumber": 36
+        },
+        {
+          "caller": "photo_save",
+          "callee": "imagecreatefromstring",
+          "lineNumber": 39
+        },
+        {
+          "caller": "photo_save",
+          "callee": "file_get_contents",
+          "lineNumber": 39
+        },
+        {
+          "caller": "photo_save",
+          "callee": "bin2hex",
+          "lineNumber": 44
+        },
+        {
+          "caller": "photo_save",
+          "callee": "random_bytes",
+          "lineNumber": 44
+        },
+        {
+          "caller": "photo_save",
+          "callee": "pb_uploads_dir",
+          "lineNumber": 47
+        },
+        {
+          "caller": "photo_save",
+          "callee": "pb_write_scaled",
+          "lineNumber": 49
+        },
+        {
+          "caller": "photo_save",
+          "callee": "pb_write_scaled",
+          "lineNumber": 50
+        },
+        {
+          "caller": "photo_save",
+          "callee": "imagedestroy",
+          "lineNumber": 51
+        },
+        {
+          "caller": "photo_save",
+          "callee": "is_file",
+          "lineNumber": 54
+        },
+        {
+          "caller": "photo_save",
+          "callee": "(new finfo(FILEINFO_MIME_TYPE))->file",
+          "lineNumber": 55
+        },
+        {
+          "caller": "photo_save",
+          "callee": "str_starts_with",
+          "lineNumber": 56
+        },
+        {
+          "caller": "photo_save",
+          "callee": "strtolower",
+          "lineNumber": 57
+        },
+        {
+          "caller": "photo_save",
+          "callee": "pathinfo",
+          "lineNumber": 57
+        },
+        {
+          "caller": "photo_save",
+          "callee": "in_array",
+          "lineNumber": 58
+        },
+        {
+          "caller": "photo_save",
+          "callee": "pb_originals_dir",
+          "lineNumber": 61
+        },
+        {
+          "caller": "photo_save",
+          "callee": "rename",
+          "lineNumber": 62
+        },
+        {
+          "caller": "photo_save",
+          "callee": "copy",
+          "lineNumber": 63
+        },
+        {
+          "caller": "photo_save",
+          "callee": "db()->prepare",
+          "lineNumber": 68
+        },
+        {
+          "caller": "photo_save",
+          "callee": "db",
+          "lineNumber": 68
+        },
+        {
+          "caller": "photo_save",
+          "callee": "$stmt->execute",
+          "lineNumber": 71
+        },
+        {
+          "caller": "photo_save",
+          "callee": "mb_substr",
+          "lineNumber": 74
+        },
+        {
+          "caller": "photo_save",
+          "callee": "trim",
+          "lineNumber": 74
+        },
+        {
+          "caller": "photo_save",
+          "callee": "mb_substr",
+          "lineNumber": 75
+        },
+        {
+          "caller": "photo_save",
+          "callee": "trim",
+          "lineNumber": 75
+        },
+        {
+          "caller": "photo_save",
+          "callee": "db()->lastInsertId",
+          "lineNumber": 77
+        },
+        {
+          "caller": "photo_save",
+          "callee": "db",
+          "lineNumber": 77
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagesx",
+          "lineNumber": 83
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagesy",
+          "lineNumber": 84
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "min",
+          "lineNumber": 85
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "max",
+          "lineNumber": 85
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "max",
+          "lineNumber": 86
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "round",
+          "lineNumber": 86
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "max",
+          "lineNumber": 87
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "round",
+          "lineNumber": 87
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagecreatetruecolor",
+          "lineNumber": 88
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagefilledrectangle",
+          "lineNumber": 90
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagecolorallocate",
+          "lineNumber": 90
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagecopyresampled",
+          "lineNumber": 91
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagejpeg",
+          "lineNumber": 92
+        },
+        {
+          "caller": "pb_write_scaled",
+          "callee": "imagedestroy",
+          "lineNumber": 93
+        },
+        {
+          "caller": "photos_list",
+          "callee": "in_array",
+          "lineNumber": 98
+        },
+        {
+          "caller": "photos_list",
+          "callee": "db()->prepare",
+          "lineNumber": 101
+        },
+        {
+          "caller": "photos_list",
+          "callee": "db",
+          "lineNumber": 101
+        },
+        {
+          "caller": "photos_list",
+          "callee": "$stmt->execute",
+          "lineNumber": 105
+        },
+        {
+          "caller": "photos_list",
+          "callee": "$stmt->fetchAll",
+          "lineNumber": 106
+        },
+        {
+          "caller": "photo_like",
+          "callee": "db()->prepare",
+          "lineNumber": 113
+        },
+        {
+          "caller": "photo_like",
+          "callee": "db",
+          "lineNumber": 113
+        },
+        {
+          "caller": "photo_like",
+          "callee": "$stmt->execute",
+          "lineNumber": 116
+        },
+        {
+          "caller": "photo_like",
+          "callee": "$stmt->rowCount",
+          "lineNumber": 117
+        },
+        {
+          "caller": "photo_like",
+          "callee": "db()->prepare",
+          "lineNumber": 120
+        },
+        {
+          "caller": "photo_like",
+          "callee": "db",
+          "lineNumber": 120
+        },
+        {
+          "caller": "photo_like",
+          "callee": "$q->execute",
+          "lineNumber": 121
+        },
+        {
+          "caller": "photo_like",
+          "callee": "$q->fetchColumn",
+          "lineNumber": 122
+        },
+        {
+          "caller": "photo_set_status",
+          "callee": "in_array",
+          "lineNumber": 127
+        },
+        {
+          "caller": "photo_set_status",
+          "callee": "db()->prepare",
+          "lineNumber": 130
+        },
+        {
+          "caller": "photo_set_status",
+          "callee": "db",
+          "lineNumber": 130
+        },
+        {
+          "caller": "photo_set_status",
+          "callee": "$stmt->execute",
+          "lineNumber": 131
+        },
+        {
+          "caller": "photo_set_status",
+          "callee": "$stmt->rowCount",
+          "lineNumber": 132
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "db()->prepare",
+          "lineNumber": 137
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "db",
+          "lineNumber": 137
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "$stmt->execute",
+          "lineNumber": 138
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "$stmt->fetch",
+          "lineNumber": 139
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "unlink",
+          "lineNumber": 143
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "pb_uploads_dir",
+          "lineNumber": 143
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "unlink",
+          "lineNumber": 144
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "pb_uploads_dir",
+          "lineNumber": 144
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "glob",
+          "lineNumber": 145
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "pb_originals_dir",
+          "lineNumber": 145
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "substr",
+          "lineNumber": 145
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "unlink",
+          "lineNumber": 146
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "db()->prepare",
+          "lineNumber": 148
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "db",
+          "lineNumber": 148
+        },
+        {
+          "caller": "photo_delete",
+          "callee": "$del->execute",
+          "lineNumber": 149
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/rate.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "rate_ok",
+          "startLine": 5,
+          "endLine": 17,
+          "params": [
+            "$ip",
+            "$max",
+            "$windowSec"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "rate_ok",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "rate_ok",
+          "callee": "time",
+          "lineNumber": 7
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "db",
+          "lineNumber": 8
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$pdo->prepare('DELETE FROM rate_log WHERE ts < ?')->execute",
+          "lineNumber": 9
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$pdo->prepare",
+          "lineNumber": 9
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$pdo->prepare",
+          "lineNumber": 10
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$stmt->execute",
+          "lineNumber": 11
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$stmt->fetchColumn",
+          "lineNumber": 12
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$pdo->prepare('INSERT INTO rate_log (ip, ts) VALUES (?, ?)')->execute",
+          "lineNumber": 15
+        },
+        {
+          "caller": "rate_ok",
+          "callee": "$pdo->prepare",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    }
+  ]
+}

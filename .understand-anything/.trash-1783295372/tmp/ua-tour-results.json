@@ -1,0 +1,739 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "file:admin/index.php",
+      "score": 5,
+      "name": "index.php",
+      "summary": "Admin-dashboard dat foto's per status (actief/verborgen/archief) toont met moderatieknoppen; achterliggende mutaties lopen via de admin.js-client en de moderate-endpoint."
+    },
+    {
+      "id": "file:index.php",
+      "score": 5,
+      "name": "index.php",
+      "summary": "Gastenpagina met de deel-een-foto-flow: bouwt de PB_CONFIG uit instellingen en filters, rendert de foto-, bewerk- en klaar-stappen en laadt booth.js."
+    },
+    {
+      "id": "document:README.md",
+      "score": 5,
+      "name": "README.md",
+      "summary": "Projectoverzicht met deploy-instructies (Plesk), stappen om de photobooth voor een nieuw feest te hergebruiken, lokale ontwikkelinstructies en de repo-structuur."
+    },
+    {
+      "id": "file:tests/run-all.php",
+      "score": 3,
+      "name": "run-all.php",
+      "summary": "Testrunner die alle test-*.php-bestanden in de map via een subproces (passthru) uitvoert en exit 1 teruggeeft zodra één test faalt."
+    },
+    {
+      "id": "file:admin/diagnose.php",
+      "score": 2,
+      "name": "diagnose.php",
+      "summary": "Admin-diagnosepagina die serververeisten controleert (PHP-versie, pdo_sqlite, gd, zip, fileinfo, mbstring, schrijfrechten, secrets, admin-wachtwoord, HTTPS) en de PHP-uploadlimieten toont."
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "file:app/bootstrap.php",
+      "fanIn": 19,
+      "name": "bootstrap.php"
+    },
+    {
+      "id": "file:app/settings.php",
+      "fanIn": 6,
+      "name": "settings.php"
+    },
+    {
+      "id": "file:index.php",
+      "fanIn": 5,
+      "name": "index.php"
+    },
+    {
+      "id": "file:assets/js/filters.js",
+      "fanIn": 4,
+      "name": "filters.js"
+    },
+    {
+      "id": "file:tests/test-api.php",
+      "fanIn": 4,
+      "name": "test-api.php"
+    },
+    {
+      "id": "file:assets/js/queue.js",
+      "fanIn": 3,
+      "name": "queue.js"
+    },
+    {
+      "id": "config:config/event.php",
+      "fanIn": 3,
+      "name": "event.php"
+    },
+    {
+      "id": "config:config/filters.php",
+      "fanIn": 3,
+      "name": "filters.php"
+    },
+    {
+      "id": "file:tests/test-download.php",
+      "fanIn": 3,
+      "name": "test-download.php"
+    },
+    {
+      "id": "file:tests/test-moderate.php",
+      "fanIn": 3,
+      "name": "test-moderate.php"
+    },
+    {
+      "id": "file:api/photos.php",
+      "fanIn": 2,
+      "name": "photos.php"
+    },
+    {
+      "id": "file:tests/test-auth.php",
+      "fanIn": 2,
+      "name": "test-auth.php"
+    },
+    {
+      "id": "file:tests/test-db.php",
+      "fanIn": 2,
+      "name": "test-db.php"
+    },
+    {
+      "id": "file:tests/test-photos.php",
+      "fanIn": 2,
+      "name": "test-photos.php"
+    },
+    {
+      "id": "file:tests/test-settings.php",
+      "fanIn": 2,
+      "name": "test-settings.php"
+    },
+    {
+      "id": "file:api/like.php",
+      "fanIn": 1,
+      "name": "like.php"
+    },
+    {
+      "id": "file:api/likes.php",
+      "fanIn": 1,
+      "name": "likes.php"
+    },
+    {
+      "id": "file:api/moderate.php",
+      "fanIn": 1,
+      "name": "moderate.php"
+    },
+    {
+      "id": "file:api/upload.php",
+      "fanIn": 1,
+      "name": "upload.php"
+    },
+    {
+      "id": "file:app/auth.php",
+      "fanIn": 1,
+      "name": "auth.php"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "file:app/bootstrap.php",
+      "fanOut": 10,
+      "name": "bootstrap.php"
+    },
+    {
+      "id": "file:tests/run-all.php",
+      "fanOut": 7,
+      "name": "run-all.php"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "fanOut": 5,
+      "name": "CLAUDE.md"
+    },
+    {
+      "id": "file:index.php",
+      "fanOut": 4,
+      "name": "index.php"
+    },
+    {
+      "id": "file:app/photos.php",
+      "fanOut": 3,
+      "name": "photos.php"
+    },
+    {
+      "id": "file:assets/js/booth.js",
+      "fanOut": 3,
+      "name": "booth.js"
+    },
+    {
+      "id": "file:assets/js/gallery.js",
+      "fanOut": 3,
+      "name": "gallery.js"
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+      "fanOut": 3,
+      "name": "2026-07-05-photobooth.md"
+    },
+    {
+      "id": "file:galerij.php",
+      "fanOut": 3,
+      "name": "galerij.php"
+    },
+    {
+      "id": "document:README.md",
+      "fanOut": 3,
+      "name": "README.md"
+    },
+    {
+      "id": "file:slideshow.php",
+      "fanOut": 3,
+      "name": "slideshow.php"
+    },
+    {
+      "id": "file:api/download.php",
+      "fanOut": 2,
+      "name": "download.php"
+    },
+    {
+      "id": "file:api/moderate.php",
+      "fanOut": 2,
+      "name": "moderate.php"
+    },
+    {
+      "id": "file:api/photos.php",
+      "fanOut": 2,
+      "name": "photos.php"
+    },
+    {
+      "id": "file:api/ping.php",
+      "fanOut": 2,
+      "name": "ping.php"
+    },
+    {
+      "id": "file:api/upload.php",
+      "fanOut": 2,
+      "name": "upload.php"
+    },
+    {
+      "id": "file:app/settings.php",
+      "fanOut": 2,
+      "name": "settings.php"
+    },
+    {
+      "id": "file:assets/js/queue.js",
+      "fanOut": 2,
+      "name": "queue.js"
+    },
+    {
+      "id": "config:config/event.php",
+      "fanOut": 2,
+      "name": "event.php"
+    },
+    {
+      "id": "config:config/filters.php",
+      "fanOut": 2,
+      "name": "filters.php"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:admin/index.php",
+    "order": [
+      "file:admin/index.php",
+      "file:app/bootstrap.php",
+      "file:app/auth.php",
+      "file:app/photos.php",
+      "file:app/db.php",
+      "file:app/settings.php",
+      "file:app/rate.php",
+      "file:app/http.php",
+      "file:app/layout.php",
+      "config:config/event.php",
+      "config:config/filters.php",
+      "config:config/secrets.php.example"
+    ],
+    "depthMap": {
+      "file:admin/index.php": 0,
+      "file:app/bootstrap.php": 1,
+      "file:app/auth.php": 1,
+      "file:app/photos.php": 1,
+      "file:app/db.php": 2,
+      "file:app/settings.php": 2,
+      "file:app/rate.php": 2,
+      "file:app/http.php": 2,
+      "file:app/layout.php": 2,
+      "config:config/event.php": 2,
+      "config:config/filters.php": 2,
+      "config:config/secrets.php.example": 2
+    },
+    "byDepth": {
+      "0": [
+        "file:admin/index.php"
+      ],
+      "1": [
+        "file:app/bootstrap.php",
+        "file:app/auth.php",
+        "file:app/photos.php"
+      ],
+      "2": [
+        "file:app/db.php",
+        "file:app/settings.php",
+        "file:app/rate.php",
+        "file:app/http.php",
+        "file:app/layout.php",
+        "config:config/event.php",
+        "config:config/filters.php",
+        "config:config/secrets.php.example"
+      ]
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:CLAUDE.md",
+        "name": "CLAUDE.md",
+        "type": "document",
+        "summary": "Projectinstructies voor AI-assistenten met deploy-waarschuwing (push = live), Windows-commando's, architectuur in één minuut en conventies/valkuilen van de photobooth."
+      },
+      {
+        "id": "document:docs/superpowers/plans/2026-07-05-photobooth.md",
+        "name": "2026-07-05-photobooth.md",
+        "type": "document",
+        "summary": "Uitgebreid implementatieplan (17 taken) dat de volledige photobooth stap voor stap opbouwt: van dev-omgeving en database-laag over foto-domein, API's, filterengine en offline wachtrij tot galerij, slideshow, admin en diagnose."
+      },
+      {
+        "id": "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+        "name": "2026-07-05-photobooth-design.md",
+        "type": "document",
+        "summary": "Design- en specificatiedocument met doel, tech stack, repo-structuur, gastenflow, galerij/slideshow, admin, datamodel (SQLite), stijl, beveiliging en risico's van de photobooth."
+      },
+      {
+        "id": "document:README.md",
+        "name": "README.md",
+        "type": "document",
+        "summary": "Projectoverzicht met deploy-instructies (Plesk), stappen om de photobooth voor een nieuw feest te hergebruiken, lokale ontwikkelinstructies en de repo-structuur."
+      }
+    ],
+    "infrastructure": [],
+    "data": [],
+    "config": [
+      {
+        "id": "config:.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-configuratie voor de webroot: schakelt directory-listing uit, blokkeert toegang tot dotfiles en zet security-headers (nosniff, SAMEORIGIN, Referrer-Policy)."
+      },
+      {
+        "id": "config:app/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregel die de volledige app/-map afschermt van directe HTTP-toegang ('Require all denied'), zodat interne PHP-modules niet los aanroepbaar zijn."
+      },
+      {
+        "id": "config:.understand-anything/config.json",
+        "name": "config.json",
+        "type": "config",
+        "summary": "Configuratie voor de Understand-Anything-tooling; stelt de uitvoertaal in op Nederlands (outputLanguage: nl)."
+      },
+      {
+        "id": "config:.understand-anything/.understandignore",
+        "name": ".understandignore",
+        "type": "config",
+        "summary": "Ignore-lijst voor de Understand-Anything-analyse; sluit bestanden en mappen uit van de knowledge-graph-scan."
+      },
+      {
+        "id": "config:config/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregel die de config-map afschermt (Require all denied) zodat configuratie- en geheimenbestanden niet via het web bereikbaar zijn."
+      },
+      {
+        "id": "config:config/event.php",
+        "name": "event.php",
+        "type": "config",
+        "summary": "Event-specifieke configuratie (koppelnamen, datum, tagline, welkomst- en bedankteksten, korte URL) die de photobooth herbruikbaar maakt per trouw."
+      },
+      {
+        "id": "config:config/filters.php",
+        "name": "filters.php",
+        "type": "config",
+        "summary": "Definieert de beschikbare fotofilters met hun kleur-ops (grayscale, sepia, saturate, ...) en optionele fx (vignette, korrel) die door de JS-filterengine worden toegepast."
+      },
+      {
+        "id": "config:config/secrets.php.example",
+        "name": "secrets.php.example",
+        "type": "config",
+        "summary": "Voorbeeldsjabloon voor config/secrets.php met het admin-wachtwoord dat eenmalig naar de settings-tabel gehasht wordt; niet in versiebeheer als echte geheimen."
+      },
+      {
+        "id": "config:data/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregel die de data-map (SQLite-database en originele foto's) volledig afschermt van het web."
+      },
+      {
+        "id": "config:docs/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregel die de docs-map afschermt zodat interne specs en plannen niet publiek toegankelijk zijn."
+      },
+      {
+        "id": "config:tests/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregel die de tests-map afschermt zodat testbestanden niet in productie via het web bereikbaar zijn."
+      },
+      {
+        "id": "config:uploads/.htaccess",
+        "name": ".htaccess",
+        "type": "config",
+        "summary": "Apache-toegangsregels voor de uploads-map: weigert directe uitvoering van PHP-achtige bestanden (php/phtml/phar) en schakelt directory-indexen uit, zodat geüploade afbeeldingen niet als script kunnen draaien."
+      }
+    ]
+  },
+  "clusters": [],
+  "layers": {
+    "count": 7,
+    "list": [
+      {
+        "id": "layer:presentation",
+        "name": "Presentatie & pagina's",
+        "description": "Server-gerenderde PHP-pagina's voor gasten (index, galerij, slideshow) en het admin-dashboard, samen met de stylesheets die de bruiloftshuisstijl vormgeven."
+      },
+      {
+        "id": "layer:client",
+        "name": "Client-side browserlaag",
+        "description": "Vanilla-JS modules die in de browser draaien: camera, client-side filterengine, offline upload-wachtrij, galerij-polling, slideshow en admin-moderatie."
+      },
+      {
+        "id": "layer:api",
+        "name": "HTTP API-laag",
+        "description": "JSON-endpoints voor upload, foto's ophalen, likes, moderatie, instellingen, health-check en ZIP-download; admin-mutaties zijn afgeschermd met auth en CSRF."
+      },
+      {
+        "id": "layer:core",
+        "name": "Core-applicatielaag",
+        "description": "De require-backbone die elke pagina en endpoint via bootstrap.php laadt: database (SQLite), auth, foto-domein, settings, rate limiting, HTTP-helpers en layout-rendering."
+      },
+      {
+        "id": "layer:config",
+        "name": "Configuratie & toegangsbeveiliging",
+        "description": "Event-, filter- en secrets-configuratie plus alle .htaccess-regels die mappen afschermen en security-headers zetten, zodat de photobooth herbruikbaar en afgeschermd blijft."
+      },
+      {
+        "id": "layer:documentation",
+        "name": "Documentatie",
+        "description": "Projectoverzicht, AI-instructies, design-spec en implementatieplan die deploy, hergebruik per event en de architectuur van de photobooth beschrijven."
+      },
+      {
+        "id": "layer:test",
+        "name": "Testlaag",
+        "description": "PHP-unittests en integratietests (via de run-all-runner) plus browsergebaseerde tests die de filterengine en offline upload-wachtrij in een echte browser verifiëren."
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "config:.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-configuratie voor de webroot: schakelt directory-listing uit, blokkeert toegang tot dotfiles en zet security-headers (nosniff, SAMEORIGIN, Referrer-Policy)."
+    },
+    "config:app/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregel die de volledige app/-map afschermt van directe HTTP-toegang ('Require all denied'), zodat interne PHP-modules niet los aanroepbaar zijn."
+    },
+    "config:.understand-anything/config.json": {
+      "name": "config.json",
+      "type": "config",
+      "summary": "Configuratie voor de Understand-Anything-tooling; stelt de uitvoertaal in op Nederlands (outputLanguage: nl)."
+    },
+    "config:.understand-anything/.understandignore": {
+      "name": ".understandignore",
+      "type": "config",
+      "summary": "Ignore-lijst voor de Understand-Anything-analyse; sluit bestanden en mappen uit van de knowledge-graph-scan."
+    },
+    "file:admin/diagnose.php": {
+      "name": "diagnose.php",
+      "type": "file",
+      "summary": "Admin-diagnosepagina die serververeisten controleert (PHP-versie, pdo_sqlite, gd, zip, fileinfo, mbstring, schrijfrechten, secrets, admin-wachtwoord, HTTPS) en de PHP-uploadlimieten toont."
+    },
+    "file:admin/index.php": {
+      "name": "index.php",
+      "type": "file",
+      "summary": "Admin-dashboard dat foto's per status (actief/verborgen/archief) toont met moderatieknoppen; achterliggende mutaties lopen via de admin.js-client en de moderate-endpoint."
+    },
+    "file:admin/instellingen.php": {
+      "name": "instellingen.php",
+      "type": "file",
+      "summary": "Admin-instellingenformulier voor event-teksten, upload/filter/galerij-toggles en slideshow-opties; postnaar de settings-endpoint met CSRF-token."
+    },
+    "file:admin/login.php": {
+      "name": "login.php",
+      "type": "file",
+      "summary": "Admin-loginpagina die het wachtwoord via auth_login() verifieert en na succes doorverwijst naar het dashboard."
+    },
+    "file:admin/logout.php": {
+      "name": "logout.php",
+      "type": "file",
+      "summary": "Admin-uitlogscript dat de sessie beëindigt via auth_logout() en terug naar de loginpagina redirect."
+    },
+    "file:admin/qr.php": {
+      "name": "qr.php",
+      "type": "file",
+      "summary": "Admin-pagina die een afdrukbaar tafelkaartje met QR-code naar de short-URL van het event genereert (client-side via gevendorde qrcode-library)."
+    },
+    "file:api/download.php": {
+      "name": "download.php",
+      "type": "file",
+      "summary": "Beveiligde admin-endpoint die alle actieve en gearchiveerde foto's plus een offline mini-album (wensen.html) en de originele bestanden in een ZIP verpakt en downloadt."
+    },
+    "file:api/like.php": {
+      "name": "like.php",
+      "type": "file",
+      "summary": "Publieke JSON-endpoint om een foto te liken/unliken; rate-limited per IP en retourneert het bijgewerkte aantal likes."
+    },
+    "file:api/likes.php": {
+      "name": "likes.php",
+      "type": "file",
+      "summary": "Lichtgewicht JSON-endpoint die een map van foto-id naar likes voor alle actieve foto's teruggeeft, gebruikt voor live-tellers in de galerij."
+    },
+    "file:api/moderate.php": {
+      "name": "moderate.php",
+      "type": "file",
+      "summary": "Beveiligde admin-endpoint (auth + CSRF) die moderatie-acties uitvoert: verbergen, herstellen, archiveren of definitief verwijderen van een foto."
+    },
+    "file:api/photos.php": {
+      "name": "photos.php",
+      "type": "file",
+      "summary": "Publieke JSON-endpoint die actieve foto's ophaalt (incrementeel via een 'since'-id) voor de galerij en live-slideshow, met genormaliseerde metadata."
+    },
+    "file:api/ping.php": {
+      "name": "ping.php",
+      "type": "file",
+      "summary": "Minimale health-check-endpoint die {ok:true} teruggeeft; gebruikt door de offline upload-wachtrij om connectiviteit te testen."
+    },
+    "file:api/settings.php": {
+      "name": "settings.php",
+      "type": "file",
+      "summary": "Beveiligde admin-endpoint (auth + CSRF) die event-teksten, feature-toggles en slideshow-instellingen valideert en in de settings-tabel opslaat."
+    },
+    "file:api/upload.php": {
+      "name": "upload.php",
+      "type": "file",
+      "summary": "Publieke JSON-endpoint voor foto-upload: rate-limited, valideert bestandsgrootte en delegeert opslaan/herencoderen aan photo_save(), met apart optioneel origineel bestand."
+    },
+    "file:app/auth.php": {
+      "name": "auth.php",
+      "type": "file",
+      "summary": "Authenticatiemodule: sessiebeheer, admin-login/logout, wachtwoord-hashing (uit secrets), page/API-toegangsbewaking en CSRF-tokengeneratie."
+    },
+    "file:app/bootstrap.php": {
+      "name": "bootstrap.php",
+      "type": "file",
+      "summary": "Centraal bootstrap-bestand dat elke pagina/endpoint als enige require't; laadt alle app-modules en biedt gecachte accessors voor event-, filter- en secrets-config."
+    },
+    "file:app/db.php": {
+      "name": "db.php",
+      "type": "file",
+      "summary": "Databaselaag die een gecachte SQLite-PDO-verbinding levert, de schema's (photos, settings, rate_log) via CREATE TABLE IF NOT EXISTS aanmaakt en een likes-kolommigratie uitvoert."
+    },
+    "file:app/http.php": {
+      "name": "http.php",
+      "type": "file",
+      "summary": "HTTP-hulpmodule met json_out() voor JSON-responses met statuscode (en exit) en client_ip() voor het bepalen van het IP-adres bij rate-limiting."
+    },
+    "file:app/layout.php": {
+      "name": "layout.php",
+      "type": "file",
+      "summary": "Layout- en presentatiemodule die de HTML-paginakop/-voet rendert plus decoratieve SVG-elementen (bladhoeken, divider, monogram, namen-lockup) voor de bruiloftsstijl."
+    },
+    "file:app/photos.php": {
+      "name": "photos.php",
+      "type": "file",
+      "summary": "Kernmodule voor foto's: opslaan met GD-herencodering (max 2400px, q90), bewaren van originelen, lijsten, liken, statuswijziging en definitief verwijderen inclusief bestanden."
+    },
+    "file:app/rate.php": {
+      "name": "rate.php",
+      "type": "file",
+      "summary": "Rate-limiting-module die per key (bv. 'up:'/'like:' + IP) telt binnen een tijdvenster via de gedeelde rate_log-tabel en oude records opruimt."
+    },
+    "file:app/settings.php": {
+      "name": "settings.php",
+      "type": "file",
+      "summary": "Runtime-instellingenlaag: leest en schrijft key/value-instellingen in de SQLite settings-tabel met defaults uit config/event.php, zodat toggles en teksten per event aanpasbaar zijn zonder code te wijzigen."
+    },
+    "file:assets/css/app.css": {
+      "name": "app.css",
+      "type": "file",
+      "summary": "Hoofdstylesheet voor de hele photobooth: layout, kaarten, knoppen, filter-rij, galerij, slideshow en aquarel-decoratie, gebouwd op de CSS-variabelen uit theme.css."
+    },
+    "file:assets/css/theme.css": {
+      "name": "theme.css",
+      "type": "file",
+      "summary": "Themalaag met CSS-variabelen (kleuren, fonts, spacing) die per event aangepast worden zodat de huisstijl los staat van de layout in app.css."
+    },
+    "file:assets/js/admin.js": {
+      "name": "admin.js",
+      "type": "file",
+      "summary": "Clientscript voor het admin-dashboard: schakelt tussen normale en rasterweergave en voert moderatie-acties (verwijderen/verbergen) uit via de moderate-endpoint met CSRF-token."
+    },
+    "file:assets/js/booth.js": {
+      "name": "booth.js",
+      "type": "file",
+      "summary": "Orkestreert de gastenflow op index.php: neemt foto's aan, toont filterkeuzes met live preview en zet ze via de upload-wachtrij klaar voor verzending."
+    },
+    "file:assets/js/camera.js": {
+      "name": "camera.js",
+      "type": "file",
+      "summary": "In-browser camera-module: opent de mediastream, laat wisselen tussen front/back, telt af en legt een foto vast als blob via canvas."
+    },
+    "file:assets/js/filters.js": {
+      "name": "filters.js",
+      "type": "file",
+      "summary": "Filterengine: bouwt CSS-filterstrings voor de preview en bakt kleurmatrix plus fx (vignette/korrel) client-side in de foto via canvas-pixelbewerking."
+    },
+    "file:assets/js/gallery.js": {
+      "name": "gallery.js",
+      "type": "file",
+      "summary": "Clientlogica voor de publieke galerij: haalt foto's op, pollt op nieuwe items, wisselt tussen feed- en rasterweergave, verwerkt likes en opent de GLightbox-slider."
+    },
+    "file:assets/js/queue.js": {
+      "name": "queue.js",
+      "type": "file",
+      "summary": "Offline upload-wachtrij op basis van IndexedDB met een verwerkingslus die uploads met retry en exponentiële backoff naar de upload-endpoint stuurt."
+    },
+    "file:assets/js/slideshow.js": {
+      "name": "slideshow.js",
+      "type": "file",
+      "summary": "Slideshow voor groot scherm: pollt nieuwe foto's, roteert door de reeks met crossfade-overgangen en houdt het scherm wakker via de Wake Lock API."
+    },
+    "document:CLAUDE.md": {
+      "name": "CLAUDE.md",
+      "type": "document",
+      "summary": "Projectinstructies voor AI-assistenten met deploy-waarschuwing (push = live), Windows-commando's, architectuur in één minuut en conventies/valkuilen van de photobooth."
+    },
+    "config:config/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregel die de config-map afschermt (Require all denied) zodat configuratie- en geheimenbestanden niet via het web bereikbaar zijn."
+    },
+    "config:config/event.php": {
+      "name": "event.php",
+      "type": "config",
+      "summary": "Event-specifieke configuratie (koppelnamen, datum, tagline, welkomst- en bedankteksten, korte URL) die de photobooth herbruikbaar maakt per trouw."
+    },
+    "config:config/filters.php": {
+      "name": "filters.php",
+      "type": "config",
+      "summary": "Definieert de beschikbare fotofilters met hun kleur-ops (grayscale, sepia, saturate, ...) en optionele fx (vignette, korrel) die door de JS-filterengine worden toegepast."
+    },
+    "config:config/secrets.php.example": {
+      "name": "secrets.php.example",
+      "type": "config",
+      "summary": "Voorbeeldsjabloon voor config/secrets.php met het admin-wachtwoord dat eenmalig naar de settings-tabel gehasht wordt; niet in versiebeheer als echte geheimen."
+    },
+    "config:data/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregel die de data-map (SQLite-database en originele foto's) volledig afschermt van het web."
+    },
+    "config:docs/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregel die de docs-map afschermt zodat interne specs en plannen niet publiek toegankelijk zijn."
+    },
+    "document:docs/superpowers/plans/2026-07-05-photobooth.md": {
+      "name": "2026-07-05-photobooth.md",
+      "type": "document",
+      "summary": "Uitgebreid implementatieplan (17 taken) dat de volledige photobooth stap voor stap opbouwt: van dev-omgeving en database-laag over foto-domein, API's, filterengine en offline wachtrij tot galerij, slideshow, admin en diagnose."
+    },
+    "document:docs/superpowers/specs/2026-07-05-photobooth-design.md": {
+      "name": "2026-07-05-photobooth-design.md",
+      "type": "document",
+      "summary": "Design- en specificatiedocument met doel, tech stack, repo-structuur, gastenflow, galerij/slideshow, admin, datamodel (SQLite), stijl, beveiliging en risico's van de photobooth."
+    },
+    "file:galerij.php": {
+      "name": "galerij.php",
+      "type": "file",
+      "summary": "Publieke galerijpagina die de layout rendert wanneer de galerij zichtbaar is en gallery.js plus de GLightbox-slider inlaadt; toont anders een onbeschikbaar-bericht."
+    },
+    "file:index.php": {
+      "name": "index.php",
+      "type": "file",
+      "summary": "Gastenpagina met de deel-een-foto-flow: bouwt de PB_CONFIG uit instellingen en filters, rendert de foto-, bewerk- en klaar-stappen en laadt booth.js."
+    },
+    "document:README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "Projectoverzicht met deploy-instructies (Plesk), stappen om de photobooth voor een nieuw feest te hergebruiken, lokale ontwikkelinstructies en de repo-structuur."
+    },
+    "file:slideshow.php": {
+      "name": "slideshow.php",
+      "type": "file",
+      "summary": "Slideshowpagina voor groot scherm die de duur en overgang uit de instellingen leest, de twee crossfade-lagen rendert en slideshow.js inlaadt."
+    },
+    "config:tests/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregel die de tests-map afschermt zodat testbestanden niet in productie via het web bereikbaar zijn."
+    },
+    "file:tests/filters.test.html": {
+      "name": "filters.test.html",
+      "type": "file",
+      "summary": "Browsergebaseerde testpagina die filters.js in de echte browser uitvoert en cssFilter, applyOpsToCanvas, applyFxToCanvas en processPhoto tegen verwachte canvas-uitkomsten controleert."
+    },
+    "file:tests/queue.test.html": {
+      "name": "queue.test.html",
+      "type": "file",
+      "summary": "Browsertest die de offline upload-wachtrij queue.js aandrijft: leegt IndexedDB, plaatst een geldige en een ongeldige upload in de queue en controleert de statusovergangen (queued/uploading/done/failed)."
+    },
+    "file:tests/run-all.php": {
+      "name": "run-all.php",
+      "type": "file",
+      "summary": "Testrunner die alle test-*.php-bestanden in de map via een subproces (passthru) uitvoert en exit 1 teruggeeft zodra één test faalt."
+    },
+    "file:tests/test-api.php": {
+      "name": "test-api.php",
+      "type": "file",
+      "summary": "End-to-end test die een PHP-devserver opstart en de publieke JSON-endpoints ping, upload en photos aanroept: verifieert multipart-upload, afwijzing zonder bestand en de fotolijst met since-filter."
+    },
+    "file:tests/test-auth.php": {
+      "name": "test-auth.php",
+      "type": "file",
+      "summary": "Unittest voor de authenticatielaag: controleert hash-initialisatie uit secrets, wachtwoordverificatie, vertraging bij mislukte login, sessiestatus en stabiliteit van het CSRF-token."
+    },
+    "file:tests/test-db.php": {
+      "name": "test-db.php",
+      "type": "file",
+      "summary": "Unittest voor de databankcontext: verifieert de PDO-singleton, het bestaan van de tabellen photos/settings/rate_log, de WAL journal-mode en de default-waarden bij insert."
+    },
+    "file:tests/test-download.php": {
+      "name": "test-download.php",
+      "type": "file",
+      "summary": "Integratietest voor de ZIP-download: seedt actieve/gearchiveerde/verborgen foto's, controleert dat anonieme gebruikers geen ZIP krijgen en dat de admin-ZIP de juiste bestanden plus wensen.html met namen en wensen bevat."
+    },
+    "file:tests/test-moderate.php": {
+      "name": "test-moderate.php",
+      "type": "file",
+      "summary": "Integratietest voor het moderatie-endpoint: verifieert afwijzing van anonieme requests, login met CSRF-token uit het dashboard, en de acties hide/restore/delete plus afwijzing van een onbekende actie."
+    },
+    "file:tests/test-photos.php": {
+      "name": "test-photos.php",
+      "type": "file",
+      "summary": "Unittest voor het foto-domein (app/photos.php): dekt herencoderen/resizen, thumbnailgrootte, filenameconventie, statusbeheer, since-filter, likes-grenzen en het bewaren en opruimen van originelen."
+    },
+    "file:tests/test-settings.php": {
+      "name": "test-settings.php",
+      "type": "file",
+      "summary": "Unittest voor de settings-laag: verifieert defaults (afgeleid uit event-config), persistentie via setting_set, de samengevoegde settings_all en de rate-limiting binnen een tijdvenster per key."
+    },
+    "config:uploads/.htaccess": {
+      "name": ".htaccess",
+      "type": "config",
+      "summary": "Apache-toegangsregels voor de uploads-map: weigert directe uitvoering van PHP-achtige bestanden (php/phtml/phar) en schakelt directory-indexen uit, zodat geüploade afbeeldingen niet als script kunnen draaien."
+    }
+  },
+  "totalNodes": 60,
+  "totalEdges": 185
+}

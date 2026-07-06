@@ -1,0 +1,18 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 16,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "All 13 tested_by edges restored. The merge script's test-file heuristic did not recognize the hyphenated tests/test-*.php convention (nor the .test.html browser tests), so it misclassified prod->test pairs as prod<->prod and dropped them. All source/target nodes already existed.",
+    "The priority list named only 12 tested_by edges; the 13th (file:assets/js/filters.js -> file:tests/filters.test.html) was emitted by batch-2 and also dropped. Verified both endpoints exist and restored it, matching the report's count of 13 dropped.",
+    "Added 'tested' tag to all 11 production source nodes that now source a tested_by edge (ping, upload, photos api, auth, db, download, app/photos, moderate, settings, queue.js, filters.js).",
+    "Restored 3 bootstrap depends_on edges. Verified against app/bootstrap.php source: pb_event() requires config/event.php and pb_filters() requires config/filters.php (both point to existing config: nodes, not file: nodes as the LLM emitted).",
+    "config/secrets.php is gitignored (.understandignore) so it has no node; per instructions the dependency was redirected to the committed template config:config/secrets.php.example, which exists. No fictional node was invented.",
+    "No unknown node types, unknown complexity values, or nodes missing an id were present. No $IMPORT_MAP was available (PHP require/include + classic script tags), so no cross-batch import edges were synthesized.",
+    "Fixed section sanity check passed: the merge script's only reported action was dropping the 13 tested_by edges (all false positives, now reversed). No >30% node-ID correction and no complexity skew were reported.",
+    "Final graph: 109 nodes, 185 edges, 0 dangling edges, 0 duplicate (source,target,type) triples."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/queue.test.html",
+      "type": "file",
+      "name": "queue.test.html",
+      "filePath": "tests/queue.test.html",
+      "summary": "Browsertest die de offline upload-wachtrij queue.js aandrijft: leegt IndexedDB, plaatst een geldige en een ongeldige upload in de queue en controleert de statusovergangen (queued/uploading/done/failed).",
+      "tags": ["test", "browser-test", "indexeddb", "queue", "javascript"],
+      "complexity": "simple",
+      "languageNotes": "ES-module met top-level await; async statusassertions vereisen echte wachttijd (setTimeout) omdat IndexedDB en netwerk niet synchroon zijn."
+    },
+    {
+      "id": "file:tests/run-all.php",
+      "type": "file",
+      "name": "run-all.php",
+      "filePath": "tests/run-all.php",
+      "summary": "Testrunner die alle test-*.php-bestanden in de map via een subproces (passthru) uitvoert en exit 1 teruggeeft zodra één test faalt.",
+      "tags": ["test", "test-runner", "entry-point", "php"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test-api.php",
+      "type": "file",
+      "name": "test-api.php",
+      "filePath": "tests/test-api.php",
+      "summary": "End-to-end test die een PHP-devserver opstart en de publieke JSON-endpoints ping, upload en photos aanroept: verifieert multipart-upload, afwijzing zonder bestand en de fotolijst met since-filter.",
+      "tags": ["test", "integration-test", "api-handler", "endpoint", "php"],
+      "complexity": "moderate",
+      "languageNotes": "Gebruikt proc_open met een geïsoleerde temp-datadir via env-vars; bouwt handmatig een multipart/form-data-body op."
+    },
+    {
+      "id": "file:tests/test-auth.php",
+      "type": "file",
+      "name": "test-auth.php",
+      "filePath": "tests/test-auth.php",
+      "summary": "Unittest voor de authenticatielaag: controleert hash-initialisatie uit secrets, wachtwoordverificatie, vertraging bij mislukte login, sessiestatus en stabiliteit van het CSRF-token.",
+      "tags": ["test", "unit-test", "authentication", "csrf", "php"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test-db.php",
+      "type": "file",
+      "name": "test-db.php",
+      "filePath": "tests/test-db.php",
+      "summary": "Unittest voor de databankcontext: verifieert de PDO-singleton, het bestaan van de tabellen photos/settings/rate_log, de WAL journal-mode en de default-waarden bij insert.",
+      "tags": ["test", "unit-test", "database", "sqlite", "php"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test-download.php",
+      "type": "file",
+      "name": "test-download.php",
+      "filePath": "tests/test-download.php",
+      "summary": "Integratietest voor de ZIP-download: seedt actieve/gearchiveerde/verborgen foto's, controleert dat anonieme gebruikers geen ZIP krijgen en dat de admin-ZIP de juiste bestanden plus wensen.html met namen en wensen bevat.",
+      "tags": ["test", "integration-test", "download", "zip", "php"],
+      "complexity": "moderate",
+      "languageNotes": "Combineert domeinseeding via bootstrap met een live devserver; haalt de sessiecookie uit de Set-Cookie-header van admin/login.php."
+    },
+    {
+      "id": "file:tests/test-moderate.php",
+      "type": "file",
+      "name": "test-moderate.php",
+      "filePath": "tests/test-moderate.php",
+      "summary": "Integratietest voor het moderatie-endpoint: verifieert afwijzing van anonieme requests, login met CSRF-token uit het dashboard, en de acties hide/restore/delete plus afwijzing van een onbekende actie.",
+      "tags": ["test", "integration-test", "moderation", "csrf", "php"],
+      "complexity": "moderate",
+      "languageNotes": "Leest het CSRF-token uit het data-csrf-attribuut van de dashboard-HTML; gedeelde req()-helper voor de HTTP-calls."
+    },
+    {
+      "id": "file:tests/test-photos.php",
+      "type": "file",
+      "name": "test-photos.php",
+      "filePath": "tests/test-photos.php",
+      "summary": "Unittest voor het foto-domein (app/photos.php): dekt herencoderen/resizen, thumbnailgrootte, filenameconventie, statusbeheer, since-filter, likes-grenzen en het bewaren en opruimen van originelen.",
+      "tags": ["test", "unit-test", "data-model", "image-processing", "php"],
+      "complexity": "moderate",
+      "languageNotes": "Rechtstreekse domeinaanroepen via bootstrap zonder HTTP-laag; gebruikt GD om testafbeeldingen te genereren."
+    },
+    {
+      "id": "file:tests/test-settings.php",
+      "type": "file",
+      "name": "test-settings.php",
+      "filePath": "tests/test-settings.php",
+      "summary": "Unittest voor de settings-laag: verifieert defaults (afgeleid uit event-config), persistentie via setting_set, de samengevoegde settings_all en de rate-limiting binnen een tijdvenster per key.",
+      "tags": ["test", "unit-test", "configuration", "rate-limiting", "php"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:uploads/.htaccess",
+      "type": "config",
+      "name": ".htaccess",
+      "filePath": "uploads/.htaccess",
+      "summary": "Apache-toegangsregels voor de uploads-map: weigert directe uitvoering van PHP-achtige bestanden (php/phtml/phar) en schakelt directory-indexen uit, zodat geüploade afbeeldingen niet als script kunnen draaien.",
+      "tags": ["configuration", "security", "apache", "infrastructure"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:api/ping.php", "target": "file:tests/test-api.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:api/upload.php", "target": "file:tests/test-api.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:api/photos.php", "target": "file:tests/test-api.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/auth.php", "target": "file:tests/test-auth.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/db.php", "target": "file:tests/test-db.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:api/download.php", "target": "file:tests/test-download.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/photos.php", "target": "file:tests/test-download.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:api/moderate.php", "target": "file:tests/test-moderate.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/photos.php", "target": "file:tests/test-moderate.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/photos.php", "target": "file:tests/test-photos.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:app/settings.php", "target": "file:tests/test-settings.php", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:assets/js/queue.js", "target": "file:tests/queue.test.html", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-api.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-auth.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-db.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-download.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-moderate.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-photos.php", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:tests/run-all.php", "target": "file:tests/test-settings.php", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

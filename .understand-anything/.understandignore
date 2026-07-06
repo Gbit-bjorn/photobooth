@@ -1,0 +1,25 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+
+# --- Referentiemateriaal (lokaal, gitignored, geen code) ---
+styling research/
+
+# --- Gevendorde third-party libs (geen projectcode) ---
+assets/js/vendor/
+assets/css/glightbox.min.css
+
+# --- Binaire assets (fonts, afbeeldingen — niet analyseerbaar) ---
+assets/fonts/
+assets/img/
+
+# --- Runtime data (gitignored, leeg op analysemoment) ---
+data/*
+!data/.htaccess
+uploads/*
+!uploads/.htaccess
+
+# --- Secrets ---
+config/secrets.php

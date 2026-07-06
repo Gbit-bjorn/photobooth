@@ -1,0 +1,111 @@
+[
+  {
+    "id": "layer:presentation",
+    "name": "Presentatie & pagina's",
+    "description": "Server-gerenderde PHP-pagina's voor gasten (index, galerij, slideshow) en het admin-dashboard, samen met de stylesheets die de bruiloftshuisstijl vormgeven.",
+    "nodeIds": [
+      "file:index.php",
+      "file:galerij.php",
+      "file:slideshow.php",
+      "file:admin/index.php",
+      "file:admin/diagnose.php",
+      "file:admin/instellingen.php",
+      "file:admin/login.php",
+      "file:admin/logout.php",
+      "file:admin/qr.php",
+      "file:assets/css/app.css",
+      "file:assets/css/theme.css"
+    ]
+  },
+  {
+    "id": "layer:client",
+    "name": "Client-side browserlaag",
+    "description": "Vanilla-JS modules die in de browser draaien: camera, client-side filterengine, offline upload-wachtrij, galerij-polling, slideshow en admin-moderatie.",
+    "nodeIds": [
+      "file:assets/js/booth.js",
+      "file:assets/js/camera.js",
+      "file:assets/js/filters.js",
+      "file:assets/js/queue.js",
+      "file:assets/js/gallery.js",
+      "file:assets/js/slideshow.js",
+      "file:assets/js/admin.js"
+    ]
+  },
+  {
+    "id": "layer:api",
+    "name": "HTTP API-laag",
+    "description": "JSON-endpoints voor upload, foto's ophalen, likes, moderatie, instellingen, health-check en ZIP-download; admin-mutaties zijn afgeschermd met auth en CSRF.",
+    "nodeIds": [
+      "file:api/upload.php",
+      "file:api/photos.php",
+      "file:api/like.php",
+      "file:api/likes.php",
+      "file:api/moderate.php",
+      "file:api/settings.php",
+      "file:api/download.php",
+      "file:api/ping.php"
+    ]
+  },
+  {
+    "id": "layer:core",
+    "name": "Core-applicatielaag",
+    "description": "De require-backbone die elke pagina en endpoint via bootstrap.php laadt: database (SQLite), auth, foto-domein, settings, rate limiting, HTTP-helpers en layout-rendering.",
+    "nodeIds": [
+      "file:app/bootstrap.php",
+      "file:app/db.php",
+      "file:app/auth.php",
+      "file:app/photos.php",
+      "file:app/settings.php",
+      "file:app/rate.php",
+      "file:app/http.php",
+      "file:app/layout.php"
+    ]
+  },
+  {
+    "id": "layer:config",
+    "name": "Configuratie & toegangsbeveiliging",
+    "description": "Event-, filter- en secrets-configuratie plus alle .htaccess-regels die mappen afschermen en security-headers zetten, zodat de photobooth herbruikbaar en afgeschermd blijft.",
+    "nodeIds": [
+      "config:config/event.php",
+      "config:config/filters.php",
+      "config:config/secrets.php.example",
+      "config:.htaccess",
+      "config:app/.htaccess",
+      "config:config/.htaccess",
+      "config:data/.htaccess",
+      "config:uploads/.htaccess",
+      "config:docs/.htaccess",
+      "config:tests/.htaccess",
+      "config:.understand-anything/config.json",
+      "config:.understand-anything/.understandignore"
+    ]
+  },
+  {
+    "id": "layer:documentation",
+    "name": "Documentatie",
+    "description": "Projectoverzicht, AI-instructies, design-spec en implementatieplan die deploy, hergebruik per event en de architectuur van de photobooth beschrijven.",
+    "nodeIds": [
+      "document:README.md",
+      "document:CLAUDE.md",
+      "document:docs/superpowers/specs/2026-07-05-photobooth-design.md",
+      "document:docs/superpowers/plans/2026-07-05-photobooth.md"
+    ]
+  },
+  {
+    "id": "layer:test",
+    "name": "Testlaag",
+    "description": "PHP-unittests en integratietests (via de run-all-runner) plus browsergebaseerde tests die de filterengine en offline upload-wachtrij in een echte browser verifiëren.",
+    "nodeIds": [
+      "file:tests/run-all.php",
+      "file:tests/test-api.php",
+      "file:tests/test-auth.php",
+      "file:tests/test-db.php",
+      "file:tests/test-download.php",
+      "file:tests/test-moderate.php",
+      "file:tests/test-photos.php",
+      "file:tests/test-settings.php",
+      "file:tests/filters.test.html",
+      "file:tests/queue.test.html"
+    ]
+  }
+]

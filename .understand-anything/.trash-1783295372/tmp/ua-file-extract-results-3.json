@@ -1,0 +1,284 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "tests/queue.test.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 42,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": "tests/run-all.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-api.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-auth.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-db.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-download.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-moderate.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        },
+        {
+          "name": "req",
+          "startLine": 30,
+          "endLine": 37,
+          "params": [
+            "$url",
+            "$opts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "req",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "req",
+          "callee": "stream_context_create",
+          "lineNumber": 31
+        },
+        {
+          "caller": "req",
+          "callee": "array_merge",
+          "lineNumber": 31
+        },
+        {
+          "caller": "req",
+          "callee": "file_get_contents",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-photos.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 9,
+          "endLine": 12,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test-settings.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "ok",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "$cond",
+            "$name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ok",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "uploads/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    }
+  ]
+}
