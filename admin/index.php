@@ -12,15 +12,7 @@ $tabs = ['active' => 'Actief', 'hidden' => 'Verborgen', 'archived' => 'Archief']
 
 page_header('Beheer', 'page-admin');
 ?>
-<nav class="topnav">
-  <a href="/admin/" class="active">Foto's</a>
-  <a href="/admin/instellingen.php">Instellingen</a>
-  <a href="/admin/qr.php">QR &amp; kaartje</a>
-  <a href="/slideshow.php" target="_blank">Slideshow ↗</a>
-  <a href="/admin/diagnose.php">Diagnose</a>
-  <a href="/api/download.php">Download alles (ZIP)</a>
-  <a href="/admin/logout.php">Uitloggen</a>
-</nav>
+
 <main class="wrap wrap-breed" data-csrf="<?= htmlspecialchars(csrf_token()) ?>">
   <h1 class="display">Beheer</h1>
   <?php leaf_divider(); ?>

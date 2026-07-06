@@ -1,11 +1,25 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Web-pad naar een asset met cache-buster: hangt de filemtime als ?v= erachter.
+ * Zo krijgt een gewijzigd bestand automatisch een nieuwe URL en negeert de
+ * browser (en Plesk) de oude gecachete versie — geen handmatig versienummer.
+ */
+function asset(string $path): string
+{
+    $file = PB_ROOT . $path;
+    $ver = is_file($file) ? filemtime($file) : null;
+    return $ver === false || $ver === null ? $path : $path . '?v=' . $ver;
+}
+
 function page_header(string $title, string $bodyClass = ''): void
 {
     $ev = pb_event();
     $couple = htmlspecialchars($ev['couple']);
     $titleEsc = htmlspecialchars($title);
+    $themeCss = asset('/assets/css/theme.css');
+    $appCss = asset('/assets/css/app.css');
     echo <<<HTML
 <!DOCTYPE html>
 <html lang="nl">
@@ -15,8 +29,8 @@ function page_header(string $title, string $bodyClass = ''): void
 <meta name="robots" content="noindex">
 <title>{$titleEsc} — {$couple}</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cellipse cx='8' cy='8' rx='6' ry='3.2' transform='rotate(-30 8 8)' fill='%235f6d55'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="/assets/css/theme.css">
-<link rel="stylesheet" href="/assets/css/app.css">
+<link rel="stylesheet" href="{$themeCss}">
+<link rel="stylesheet" href="{$appCss}">
 </head>
 <body class="{$bodyClass}">
 HTML;
