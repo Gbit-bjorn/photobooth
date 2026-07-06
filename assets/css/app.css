@@ -183,6 +183,39 @@ body {
 .btn:hover { opacity: 0.92; }
 .btn:disabled { opacity: 0.5; cursor: default; }
 
+/* Keuzeknoppen op de index: een gradient-veeg die links->rechts over elke
+   optie trekt en om de beurt verspringt (1 -> 2 -> 3). Verdeelt de aandacht
+   zodat de primaire knop niet domineert en de andere opties meespelen. */
+#stap-kies .btn { position: relative; overflow: hidden; }
+#stap-kies .btn.secondary { background: rgba(170, 181, 160, 0.16); }
+#stap-kies .btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  transform: translateX(-130%);
+  opacity: 0;
+  pointer-events: none;
+  animation: kies-sheen 5.4s ease-in-out infinite;
+}
+/* Op de lichte secundaire knoppen leest een witte veeg niet -> sage-tint */
+#stap-kies .btn.secondary::after {
+  background: linear-gradient(105deg,
+    transparent 38%, rgba(95, 109, 85, 0.32) 50%, transparent 62%);
+}
+#stap-kies #camera-knop::after            { animation-delay: 0s; }
+#stap-kies label.btn:nth-of-type(1)::after { animation-delay: 1.8s; }
+#stap-kies label.btn:nth-of-type(2)::after { animation-delay: 3.6s; }
+
+@keyframes kies-sheen {
+  0%   { transform: translateX(-130%); opacity: 0; }
+  3%   { opacity: 1; }
+  27%  { opacity: 1; }
+  30%  { transform: translateX(130%); opacity: 0; }
+  100% { transform: translateX(130%); opacity: 0; }
+}
+
 :focus-visible {
   outline: 2px solid var(--c-sage-deep);
   outline-offset: 2px;
