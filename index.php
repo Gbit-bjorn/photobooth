@@ -22,6 +22,7 @@ leaf_corner('right');
     <?php names_lockup(); ?>
     <p class="tagline"><?= htmlspecialchars($settings['tagline']) ?></p>
     <p class="date-line"><?= htmlspecialchars($ev['date_display']) ?></p>
+    <br>
   </header>
 
   <section class="card" id="stap-kies">
