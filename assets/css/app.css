@@ -113,6 +113,11 @@ h1.display { font-size: clamp(1.7rem, 6vw, 2.4rem); }
 .leaf-divider .blad-midden, .leaf-corner .blad-midden { fill: var(--c-sage); opacity: 0.75; }
 .leaf-divider .blad-licht, .leaf-corner .blad-licht { fill: var(--c-sage-soft); opacity: 0.8; }
 
+.index-header{
+  /* header dat witruimte onderaan laat zodat de datum niet tegen een kader plakt */
+  margin-bottom: var(--space-3);
+}
+
 /* aquarel-eucalyptus in de bovenhoeken (uitnodigingsstijl)
    multiply laat de witte achtergrond wegvallen tegen het papier */
 body {
